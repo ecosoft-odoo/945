@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>945 APIs &mdash; 945 Manuals 2020.10.21 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Odoo Developer Training" href="technical.html" />
+    <link rel="prev" title="Welcome to 945 Documentations" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> 945 Manuals
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2020.10.21
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">945 APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ecommerce">eCommerce</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ecommerce-standard">eCommerce - Standard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ecommerce-consignment-fix-gp">eCommerce - Consignment Fix GP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ecommerce-consignment-var-gp">eCommerce - Consignment Var GP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#express">Express</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#express-standard">Express - Standard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Odoo Developer Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html#intro-odoo-odoo-community">Intro: Odoo + Odoo Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html#docker-environment">Docker environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html#coding-our-first-module">Coding our first module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html#questions-and-answers">Questions and answers</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">945 Manuals</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>945 APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apis">
+<h1>945 APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h1>
+<p>ตัวอย่างการใช้งาน APIs ระบบ 945</p>
+</div>
+<div class="section" id="ecommerce">
+<h1>eCommerce<a class="headerlink" href="#ecommerce" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ecommerce-standard">
+<h2>eCommerce - Standard<a class="headerlink" href="#ecommerce-standard" title="Permalink to this headline">¶</a></h2>
+<p>API 1 (sale.order)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>    <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>API2 (ecommerce.delivery.complete):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status : completed/return</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ecommerce-consignment-fix-gp">
+<h2>eCommerce - Consignment Fix GP<a class="headerlink" href="#ecommerce-consignment-fix-gp" title="Permalink to this headline">¶</a></h2>
+<p>API1 (ecommerce.record.transportation.cost):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer=Consignor (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Consignment Fix GP&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>API2 (sale.order):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status: completed/return</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer=Consignor (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Consignment Fix GP&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ecommerce-consignment-var-gp">
+<h2>eCommerce - Consignment Var GP<a class="headerlink" href="#ecommerce-consignment-var-gp" title="Permalink to this headline">¶</a></h2>
+<p>API1 (ecommerce.record.transportation.cost):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer=Consignor (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Consignment Var GP&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>API2 (sale.order):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status: completed/return</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer=Consignor (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Consignment Var GP&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="express">
+<h1>Express<a class="headerlink" href="#express" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="express-standard">
+<h2>Express - Standard<a class="headerlink" href="#express-standard" title="Permalink to this headline">¶</a></h2>
+<p>API1 (sale.order):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>API2 (ecommerce.delivery.complete):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status : completed/return</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="technical.html" class="btn btn-neutral float-right" title="Odoo Developer Training" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to 945 Documentations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, 945 Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

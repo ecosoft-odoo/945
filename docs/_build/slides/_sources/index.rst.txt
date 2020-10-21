@@ -10,6 +10,7 @@ Welcome to 945 Documentations
    :maxdepth: 2
    :caption: Contents:
 
+   api
    technical
 
 Indices and tables

@@ -1,16 +1,10 @@
 # 945 Documentation
 
-### Web
+### Web -- https://ecosoft-odoo.github.io/945/_build/html
 
-* https://ecosoft-odoo.github.io/945/_build/html
+### PDF -- https://ecosoft-odoo.github.io/945/_build/latex/945manuals.pdf
 
-### PDF
-
-* https://ecosoft-odoo.github.io/945/_build/latex/945manuals.pdf
-
-### Presentation
-
-* https://ecosoft-odoo.github.io/945/_build/slides/technical.html#1
+### Presentation -- https://ecosoft-odoo.github.io/945/_build/slides/technical.html#1
 
 ---
 
