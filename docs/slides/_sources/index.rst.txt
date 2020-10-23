@@ -7,10 +7,9 @@ Welcome to 945 Documentations
 =============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
-   api
    technical
 
 Indices and tables
