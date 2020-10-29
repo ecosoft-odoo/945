@@ -2,9 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-# dotfiles
-.*
-!.nojekyll
 # C extensions
 *.so
 

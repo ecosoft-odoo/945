@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>945 Technical Manual &mdash; 945 Manuals 2020.10.21 documentation</title>
+  <title>945 Technical Manual &mdash; 945 Manuals  documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to 945 Documentations" href="index.html" /> 
+    <link rel="prev" title="945 Functional Manual" href="functional.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                2020.10.21
+                13.0.1.0.0
               </div>
             
           
@@ -87,14 +87,17 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="functional.html">945 Functional Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html#automatic-workflow">Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html#manual-operations">Manual Operations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">945 Technical Manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#development-concept">945 Development Concept</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#odoo-oca-custom">Odoo + OCA + Custom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odoo-oca-945">Odoo + OCA + 945</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#modules">945 Modules</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#modules">Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#oca-modules">OCA Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">945 Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">945 Modules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#apis">945 APIs</a><ul>
@@ -111,15 +114,25 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#job-queue">Job Queue</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Job Queue คืออะไร</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">ข้อดีของ Job Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Job Queue คืออะไร</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">ข้อดีของ Job Queue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configurations">Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#sale-automatic-workflow">Sale Automatic Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#account-move-template">Account Move Template</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#compute-helper">Compute helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#sale-automatic-workflow">Sale Automatic Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Sale Automatic Workflow คืออะไร</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#s-configs">945’s Configs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#account-move-template">Account Move Template</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compute-helper">Account Move Template คืออะไร</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#s-templates">945’s Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id13">Compute helper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#unit-test">Unit Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-unit-test">What is unit test?</a></li>
 </ul>
@@ -195,8 +208,8 @@
 <h2>945 Development Concept<a class="headerlink" href="#development-concept" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>ออกแบบระบบโดยเน้นการคงการทำงานด้านบัญชีตามมาตรฐาน Odoo ให้มากที่สุดโดยอิงหลักการ <a class="reference internal" href="#odoo-oca-custom"><span class="std std-ref">Odoo + OCA + Custom</span></a></p></li>
-<li><p>ส่วนโมดูลเพิ่มเติม เน้นการใช้งาน OCA modules ก่อนหลังจากนั้นจึงใช้ Customer Codes ดูคำบรรยายของแต่ละโมดูลเสริมได้จาก <a class="reference internal" href="#modules"><span class="std std-ref">945 Modules</span></a></p></li>
-<li><p>การยิง API มีการยิงเข้า 2 จุดหลัก คือเข้าที่หน้าต่าง Sales Order และเข้าที่หน้าต่าง 945 Operations โดยการยิง Reference API สามารถดูได้ที่ <a class="reference internal" href="#apis"><span class="std std-ref">945 Modules</span></a></p></li>
+<li><p>ส่วนโมดูลเพิ่มเติม เน้นการใช้งาน OCA modules ก่อนหลังจากนั้นจึงใช้ Customer Codes ดูคำบรรยายของแต่ละโมดูลเสริมได้จาก <a class="reference internal" href="#modules"><span class="std std-ref">Modulesx</span></a></p></li>
+<li><p>การยิง API มีการยิงเข้า 2 จุดหลัก คือเข้าที่หน้าต่าง Sales Order และเข้าที่หน้าต่าง 945 Operations โดยการยิง Reference API สามารถดูได้ที่ <a class="reference internal" href="#apis"><span class="std std-ref">APIs</span></a></p></li>
 <li><p>การยิง API เข้ามาในระบบจะเป็นการยิงเข้า <a class="reference internal" href="#job-queue"><span class="std std-ref">Job Queue</span></a> เสมอเพื่อให้ระบบมีความเร็วและรับโหลดได้มาก</p></li>
 </ul>
 <ul class="simple">
@@ -207,8 +220,8 @@
 <li><p>มี <a class="reference internal" href="#unit-test"><span class="std std-ref">Unit Test</span></a> สำหรับ process ที่สำคัญ</p></li>
 </ul>
 </div>
-<div class="section" id="odoo-oca-custom">
-<span id="id1"></span><h2>Odoo + OCA + Custom<a class="headerlink" href="#odoo-oca-custom" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="odoo-oca-945">
+<span id="odoo-oca-custom"></span><h2>Odoo + OCA + 945<a class="headerlink" href="#odoo-oca-945" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Odoo Core</p></li>
 <li><p>Odoo Enterprise version 13</p></li>
@@ -219,7 +232,7 @@
 </div>
 </div>
 <div class="section" id="modules">
-<span id="id2"></span><h1>945 Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="oca-modules">
 <h2>OCA Modules<a class="headerlink" href="#oca-modules" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -257,8 +270,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>945 Modules<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>945 Modules<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>sunteen</dt><dd><p>โมดูลหลักสำหรับ Business Process ของ 945 ทั้งหมด เช่น eCommerce, Express.</p>
@@ -291,7 +304,7 @@
 </div>
 </div>
 <div class="section" id="apis">
-<span id="id4"></span><h1>945 APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h1>
+<span id="id3"></span><h1>945 APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h1>
 <p>ตัวอย่างการใช้งาน APIs ระบบ 945</p>
 <div class="section" id="ecommerce">
 <h2>eCommerce<a class="headerlink" href="#ecommerce" title="Permalink to this headline">¶</a></h2>
@@ -722,9 +735,9 @@
 </div>
 </div>
 <div class="section" id="job-queue">
-<span id="id5"></span><h1>Job Queue<a class="headerlink" href="#job-queue" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id6">
-<h2>Job Queue คืออะไร<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h1>Job Queue<a class="headerlink" href="#job-queue" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h2>Job Queue คืออะไร<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Job Queue คือการหน่วงการทำงานของ process โดยแทนที่จะทำทันที ก็จะหน่วงและทำในภายหลัง</p>
 <p>เช่น หากระบบต้นทางต้องการยิง API เข้ามา 1,000 รายการ ถ้าไม่มี Job Queue ระบบต้นทางจะต้องรอจนกว่ารายการก่อนหน้าจะทำงานเสร็จ
 จึงจะยิงรายการถัดมาได้ ถ้า server ไม่สามารถทำงานได้เร็วพอก็จะเกิดปัญหาได้ ถ้าใช้ Job Queue ระบบต้นทางสามารถยิงข้อมูลเข้ามาได้ทั้งหมดอย่างรวดเร็วโดยไม่โหลด server
@@ -732,8 +745,8 @@
 <p>ข้อมูลการทำงานทั้งหมดจะเข้ามาพักที่ table <code class="code docutils literal notranslate"><span class="pre">queue.job</span></code> ของ Odoo ก่อน แล้วจึงทยอยทำงานพร้อมกันตามจำนวน <strong>workers</strong></p>
 <p>ข้อดีอีกประการหนึ่ง จากการที่ข้อมูลการทำงานได้เข้ามาพักไว้ก่อน ไม่ว่าการทำงานจะสำเร็จหรือไม่ ก็จะสามารถตรวจเช็คได้ในภายหลังที่ Odoo</p>
 </div>
-<div class="section" id="id7">
-<h2>ข้อดีของ Job Queue<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>ข้อดีของ Job Queue<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>เก็บรายการที่ยิงเข้ามาใน database table queue.job (ตั้งเวลาลบทิ้งได้หลังจากทำงานเสร็จและเวลาผ่านไปนาน)</p></li>
 <li><p>Jobrunner: ทำงานกับ queue ที่เข้ามาได้อย่างทันที</p></li>
@@ -779,16 +792,42 @@
 </div>
 </div>
 <div class="section" id="sale-automatic-workflow">
-<span id="id8"></span><h1>Sale Automatic Workflow<a class="headerlink" href="#sale-automatic-workflow" title="Permalink to this headline">¶</a></h1>
+<span id="id7"></span><h1>Sale Automatic Workflow<a class="headerlink" href="#sale-automatic-workflow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id8">
+<h2>Sale Automatic Workflow คืออะไร<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id9">
+<h2>Configurations<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="s-configs">
+<h2>945’s Configs<a class="headerlink" href="#s-configs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Standard</p></li>
+<li><p>???</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="account-move-template">
-<span id="id9"></span><h1>Account Move Template<a class="headerlink" href="#account-move-template" title="Permalink to this headline">¶</a></h1>
-</div>
+<span id="id10"></span><h1>Account Move Template<a class="headerlink" href="#account-move-template" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="compute-helper">
-<span id="id10"></span><h1>Compute helper<a class="headerlink" href="#compute-helper" title="Permalink to this headline">¶</a></h1>
+<span id="id11"></span><h2>Account Move Template คืออะไร<a class="headerlink" href="#compute-helper" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id12">
+<h2>Configurations<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="s-templates">
+<h2>945’s Templates<a class="headerlink" href="#s-templates" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Standard</p></li>
+<li><p>???</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h1>Compute helper<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="unit-test">
-<span id="id11"></span><h1>Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h1>
+<span id="id14"></span><h1>Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-unit-test">
 <h2>What is unit test?<a class="headerlink" href="#what-is-unit-test" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -803,7 +842,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to 945 Documentations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="functional.html" class="btn btn-neutral float-left" title="945 Functional Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

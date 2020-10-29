@@ -10,6 +10,7 @@ Welcome to 945 Documentations
    :maxdepth: 3
    :caption: Contents:
 
+   functional
    technical
 
 Indices and tables

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>945 Functional Manual &mdash; 945 Manuals  documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="_static/single.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="_static/odoo.css" type="text/css" />
+    
+    
+    
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/common.js"></script>
+    
+    <script type="text/javascript" src="_static/slides.js"></script>
+    <script type="text/javascript" src="_static/sync.js"></script>
+    <script type="text/javascript" src="_static/controller.js"></script>
+    <script type="text/javascript" src="_static/init.js"></script>
+    
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="945 Manuals  documentation" href="index.html" />
+    <link rel="next" title="945 Technical Manual" href="technical.html" />
+    <link rel="prev" title="Welcome to 945 Documentations" href="index.html" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="functional-manual">
+
+<h1>945 Functional Manual</h1>
+
+
+
+
+
+</article>
+<article class="slide level-2" id="overview">
+
+<h2>Overview</h2>
+
+<p>เอกสารชุดนี้จะกล่าวถึงส่วนต่างๆ 3 ส่วนที่ประกอบกันขึ้นมาเป็นระบบของ 945</p>
+<ol class="arabic simple">
+<li>ส่วน Automatic Workflow :: ส่วนนี้เป็นการบันทึก Operations ต่างๆที่เกิดขึ้นจากระบบหน้าบ้านทั้งหมด เช่นการขาย ค่าขนส่ง การส่งของ โดยทั้งหมดจะยิงผ่าน API
+เข้ามาทาง หน้าต่างของ Odoo ที่เกี่ยวข้องกับแต่ละ operation สุดท้ายแล้วทั้งหมดจะทำให้เกิดการบันทึกบัญชีต่างๆก่อนจะไปขบที่การตั้งหนี้เพื่อรอการ Manual เคลียร์โดยนักบัญชี
+ในส่วนแรกจะเกิดขึ้นโดยอัตโนมัติทั้งหมดโดยที่ผู้ใช้งานอาจไม่ได้ต้องทำอะไร แต่เอกสารชุดนี้จะแนะนำเป็นสังเขป ให้เห็นว่าเบื้องหลังเกิดขึ้นที่จุดใดในระบบ</li>
+<li>ส่วน Manual Operations :: เป็นการทำงานโดยนักบัญชีผ่านหน้าจอเพื่อทำงานต่างๆของ Odoo เช่น การจ่ายหนี้ การจ่าย Commission การรับเงินเข้าธนาคาร</li>
+<li>ส่วน Reporting :: ข้อมูลด้านบัญชีทั้งหมดที่เกิดขั้นในข้องี่ 1 และ 2 จะถูกนำมาวิเคราะห์ผ่านระบบรายงานของ Odoo หรือผ่านระบบ BI หลังบ้านอื่นๆ</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-1" id="automatic-workflow">
+
+<h1>Automatic Workflow</h1>
+
+
+
+
+
+</article>
+<article class="slide level-1" id="manual-operations">
+
+<h1>Manual Operations</h1>
+
+
+
+
+
+</article>
+<article class="slide level-2" id="clear-account-receivable">
+
+<h2>Clear Account Receivable</h2>
+
+<p>เมื่อได้รับ Statement จากธนาคารว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้าง</p>
+<ol class="arabic simple">
+<li>ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์ลูกหนี้</li>
+<li>นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</li>
+<li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="mass-automatic-reconcile">
+
+<h3>1. การตั้งค่า Mass Automatic Reconcile</h3>
+
+<p>Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
+<img alt="_images/mass_reconcile_ar.png" class="align-center" src="_images/mass_reconcile_ar.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="statement">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<ol class="arabic simple">
+<li>เตรียม Excel โดยใช้ข้อมูลจาก statement ที่ได้รับมา</li>
+<li>ที่เมนู Journal Entries สร้างรายการใหม่ ซึ่งจะทำหน้าที่เป็น Payment Entry</li>
+<li>คลิกเมนู Action / Import Excel</li>
+<li>ตรวจทานให้เรียบร้อยจึงก่อน Post</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id1">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ขั้นตอนนี้เป็นทางเลือกโดยจะเป็นการ Export รายการลูกหนี้ มากลับ Dr/Cr เพื่อตั้งต้น</p>
+</div>
+<img alt="_images/1_goto_journal_items.png" class="align-center" src="_images/1_goto_journal_items.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id2">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>ค้นหารายการที่ยังไม่ได้ล้าง โดยการใช้ Advance Search ตามการทำงานปกติ</p>
+<img alt="_images/2_search_unreconciled_ar.png" class="align-center" src="_images/2_search_unreconciled_ar.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id3">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>เลือกรายการที่สนใจ เพื่อนำข้อมูลออกมาที่ Excel</p>
+<img alt="_images/3_export_excel.png" class="align-center" src="_images/3_export_excel.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id4">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<img alt="_images/4_export_excel_switch_drcr.png" class="align-center" src="_images/4_export_excel_switch_drcr.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id5">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<img alt="_images/5_export_excel.png" class="align-center" src="_images/5_export_excel.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id6">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>เพิ่มรายการในขา Bank เพื่อให้ Journal Entry นี้ดุล</p>
+<img alt="_images/6_excel_add_bank_amount.png" class="align-center" src="_images/6_excel_add_bank_amount.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ระบบจะใช้ sheet = Journal Items ในการอัพเดทข้อมูล</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-3" id="id7">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry</p>
+<img alt="_images/7_create_payment_entry.png" class="align-center" src="_images/7_create_payment_entry.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id8">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้</p>
+<img alt="_images/8_import_excel.png" class="align-center" src="_images/8_import_excel.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id9">
+
+<h3>2. นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p><strong>ตรวจสอบให้แน่ใจ แล้วจึงค่อย Post</strong></p>
+<img alt="_images/9_post_payment_entry.png" class="align-center" src="_images/9_post_payment_entry.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="reconcile">
+
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<ol class="arabic simple">
+<li>ที่เมนู Mass Automatic Reconcile เลือก Profile = Customer Payment</li>
+<li>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</li>
+<li>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</li>
+<li>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id10">
+
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<p>ไปที่เมนู Mass Automatic Reconcile แล้วเลือก/สร้าง Profile = Customer Payment
+แล้วจีง Start Reconcile</p>
+<img alt="_images/10_click_cust_payment_mass_reconcile.png" class="align-center" src="_images/10_click_cust_payment_mass_reconcile.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id11">
+
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<p>ระบบจะมีการเก็บประวัติของการ Reconcile เอาไว้ สามารถคลิกเพื่อตรวจสอบได้</p>
+<img alt="_images/11_review_cust_payment_reconcile_history.png" class="align-center" src="_images/11_review_cust_payment_reconcile_history.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id12">
+
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<p>รีวิวรายการที่เกิดขึ้น ให้สังเกตุที่ Reconcile ID ที่ระบบได้สร้างขึ้นเพื่อ Match Dr/Cr ล้างกัน</p>
+<img alt="_images/12_review_cust_payment_reconciled_items.png" class="align-center" src="_images/12_review_cust_payment_reconciled_items.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id13">
+
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<p>หากต้องการยกเลิกสิ่งที่ได้ทำไป ให้ทำการ Reverse Entry ระบบจะสร้างอีก Journal Entry เพื่อล้างตัวเอง</p>
+<img alt="_images/13_reverse_entry.png" class="align-center" src="_images/13_reverse_entry.png" />
+
+
+
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>
