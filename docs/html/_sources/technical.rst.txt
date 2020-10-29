@@ -4,8 +4,8 @@
 945 Development Concept
 -----------------------
 * ออกแบบระบบโดยเน้นการคงการทำงานด้านบัญชีตามมาตรฐาน Odoo ให้มากที่สุดโดยอิงหลักการ :ref:`Odoo + OCA + Custom<odoo_oca_custom>`
-* ส่วนโมดูลเพิ่มเติม เน้นการใช้งาน OCA modules ก่อนหลังจากนั้นจึงใช้ Customer Codes ดูคำบรรยายของแต่ละโมดูลเสริมได้จาก :ref:`945 Modules<945_modules>`
-* การยิง API มีการยิงเข้า 2 จุดหลัก คือเข้าที่หน้าต่าง Sales Order และเข้าที่หน้าต่าง 945 Operations โดยการยิง Reference API สามารถดูได้ที่ :ref:`945 Modules<945_apis>`
+* ส่วนโมดูลเพิ่มเติม เน้นการใช้งาน OCA modules ก่อนหลังจากนั้นจึงใช้ Customer Codes ดูคำบรรยายของแต่ละโมดูลเสริมได้จาก :ref:`Modulesx<modules>`
+* การยิง API มีการยิงเข้า 2 จุดหลัก คือเข้าที่หน้าต่าง Sales Order และเข้าที่หน้าต่าง 945 Operations โดยการยิง Reference API สามารถดูได้ที่ :ref:`APIs<apis>`
 * การยิง API เข้ามาในระบบจะเป็นการยิงเข้า :ref:`Job Queue<job_queue>` เสมอเพื่อให้ระบบมีความเร็วและรับโหลดได้มาก
 
 .. nextslide::
@@ -18,8 +18,8 @@
 
 .. _odoo_oca_custom:
 
-Odoo + OCA + Custom
--------------------
+Odoo + OCA + 945
+----------------
 1. Odoo Core
 2. Odoo Enterprise version 13
 3. **Odoo Community Association (OCA)**
@@ -28,10 +28,10 @@ Odoo + OCA + Custom
 .. image:: images/eco.png
     :align: center
 
-.. _945_modules:
+.. _modules:
 
-945 Modules
-===========
+Modules
+=======
 
 OCA Modules
 -----------
@@ -71,7 +71,7 @@ OCA Modules
 * sunteen_test
     โมดูลเสริมสำหรับการทำ Unit Test
 
-.. _945_apis:
+.. _apis:
 
 945 APIs
 ========
@@ -590,11 +590,23 @@ Usage
 5. Retry: จำนวนครั้งที่ retry
 6. Result: ผลลัพธ์ที่ได้ หากเกิด Error จะแสดงเป็นข้อความ exception และเปลี่ยนสถานะเป็น status = Failed (และ retry)
 
-
 .. _sale_automatic_workflow:
 
 Sale Automatic Workflow
 =======================
+
+Sale Automatic Workflow คืออะไร
+---------------------------------
+
+
+Configurations
+--------------
+
+945's Configs
+-------------
+
+* Standard
+* ???
 
 .. _account_move_template:
 
@@ -602,6 +614,18 @@ Account Move Template
 =====================
 
 .. _compute_helper:
+
+Account Move Template คืออะไร
+---------------------------------
+
+Configurations
+--------------
+
+945's Templates
+---------------
+
+* Standard
+* ???
 
 Compute helper
 ==============
