@@ -35,7 +35,7 @@ Clear Account Receivable
 
 Accounting > Accounting > Actions > Mass Automatic Reconcile
 
-.. image:: images/mass_reconcile_ar.png
+.. image:: images/reconcile_ar/mass_reconcile_ar.png
     :align: center
 
 
@@ -54,38 +54,38 @@ Accounting > Accounting > Actions > Mass Automatic Reconcile
 .. note::
     ขั้นตอนนี้เป็นขั้นตอนพิเศษ ชีวิตจริงอาจใช้ข้อมูลจาก statement ตรงๆก็ได้
 
-.. image:: images/1_goto_journal_items.png
+.. image:: images/reconcile_ar/1_goto_journal_items.png
     :align: center
 
 .. nextslide::
 
 ค้นหารายการที่ยังไม่ได้ล้าง โดยการใช้ Advance Search ตามการทำงานปกติ
 
-.. image:: images/2_search_unreconciled_ar.png
+.. image:: images/reconcile_ar/2_search_unreconciled_ar.png
     :align: center
 
 .. nextslide::
 
 เลือกรายการที่สนใจ เพื่อนำข้อมูลออกมาที่ Excel
 
-.. image:: images/3_export_excel.png
+.. image:: images/reconcile_ar/3_export_excel.png
     :align: center
 
 .. nextslide::
 
-.. image:: images/4_export_excel_switch_drcr.png
+.. image:: images/reconcile_ar/4_export_excel_switch_drcr.png
     :align: center
 
 .. nextslide::
 
-.. image:: images/5_export_excel.png
+.. image:: images/reconcile_ar/5_export_excel.png
     :align: center
 
 .. nextslide::
 
 เพิ่มรายการในขา Bank เพื่อให้ Journal Entry นี้ดุล
 
-.. image:: images/6_excel_add_bank_amount.png
+.. image:: images/reconcile_ar/6_excel_add_bank_amount.png
     :align: center
 
 .. note::
@@ -95,22 +95,24 @@ Accounting > Accounting > Actions > Mass Automatic Reconcile
 
 สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry
 
-.. image:: images/7_create_payment_entry.png
+.. image:: images/reconcile_ar/7_create_payment_entry.png
     :align: center
 
 .. nextslide::
 
 เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้
 
-.. image:: images/8_import_excel.png
+.. image:: images/reconcile_ar/8_import_excel.png
     :align: center
 
 .. nextslide::
 
-**ตรวจสอบให้แน่ใจ แล้วจึงค่อย Post**
-
-.. image:: images/9_post_payment_entry.png
+.. image:: images/reconcile_ar/9_post_payment_entry.png
     :align: center
+
+.. note::
+    ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post
+
 
 3. ทำการ Reconcile และตรวจสอบผลลัพธ์
 ############################################
@@ -125,27 +127,144 @@ Accounting > Accounting > Actions > Mass Automatic Reconcile
 ไปที่เมนู Mass Automatic Reconcile แล้วเลือก/สร้าง Profile = Customer Payment
 แล้วจีง Start Reconcile
 
-.. image:: images/10_click_cust_payment_mass_reconcile.png
+.. image:: images/reconcile_ar/10_click_cust_payment_mass_reconcile.png
     :align: center
 
 .. nextslide::
 
 ระบบจะมีการเก็บประวัติของการ Reconcile เอาไว้ สามารถคลิกเพื่อตรวจสอบได้
 
-.. image:: images/11_review_cust_payment_reconcile_history.png
+.. image:: images/reconcile_ar/11_review_cust_payment_reconcile_history.png
     :align: center
+
+.. note::
+    เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ
 
 .. nextslide::
 
 รีวิวรายการที่เกิดขึ้น ให้สังเกตุที่ Reconcile ID ที่ระบบได้สร้างขึ้นเพื่อ Match Dr/Cr ล้างกัน
 
-.. image:: images/12_review_cust_payment_reconciled_items.png
+.. image:: images/reconcile_ar/12_review_cust_payment_reconciled_items.png
     :align: center
 
 .. nextslide::
 
 หากต้องการยกเลิกสิ่งที่ได้ทำไป ให้ทำการ Reverse Entry ระบบจะสร้างอีก Journal Entry เพื่อล้างตัวเอง
 
-.. image:: images/13_reverse_entry.png
+.. image:: images/reconcile_ar/13_reverse_entry.png
     :align: center
 
+
+Clear AP Commission
+-------------------
+
+การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าคอมมิชชั่น ซึ่งทาง 945 ต้องทำจ่ายให้กันผู้ได้รับส่วนแบ่ง
+
+1. ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้
+2. เลือกรายการที่ต้องทำจ่าย โดยดูตามวันที่ (ศุกร์ถัดไป) และนำไปสร้าง Journal Entry สำหรับการจ่ายเงิน
+3. ออก Withholding Tax Cert ให้กับผู้รับเงิน
+4. ทำการ Reconcile และตรวจสอบผลลัพธ์
+
+
+1. การตั้งค่า Mass Automatic Reconcile
+#############################################
+
+Accounting > Actions > Mass Automatic Reconcile
+
+สร้าง Profile สำหรับ Supplier Payment
+
+.. image:: images/reconcile_ap_commission/mass_reconcile_ap.png
+    :align: center
+
+.. note::
+    เนื่องจากเราไม่ได้แบ่ง Account Code เป็็นเรื่องย่อยๆ
+    Mass Reconcile นี้จะใช้่ร่วมกับการจ่ายเงินด้านอื่นๆที่ใช้ AP Account เดียวกันด้วย
+
+2. เลือกรายการที่ต้องทำจ่าย
+############################################
+
+สำหรับ Commission จะดูตามวันที่ (เช่น ศุกร์ถัดไป) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้
+
+1. Filtered / Group By
+    * Posted
+    * Unreconciled
+    * Account = เจ้าหนี้การค้า
+    * Journal Item's Label = Account Payable (Commission)
+    * Group by
+        * Due Date
+        * Partner
+2. เลือกรายการที่ต้องการจ่ายค่า Commission ให้และทำการ Export Excel (ระบบจะสลับ Dr/Cr ตั้งให้)
+
+.. nextslide::
+
+จากรายการที่เลือก ให้เลือก Action > Export Excel
+
+.. image:: images/reconcile_ap_commission/1_find_commission_items.png
+    :align: center
+
+.. nextslide::
+
+จากค่าเริ่มต้นที่ได้ ให้เพิ่มบรรทัด Bank และ WHT (คำนวนเอง) ให้ดุลกัน
+
+.. image:: images/reconcile_ap_commission/2_prepare_excel.png
+    :align: center
+
+.. nextslide::
+
+สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry แล้วจึงสร้างรายการด้วยการ Import Excel
+
+.. image:: images/reconcile_ap_commission/3_review_and_post.png
+    :align: center
+
+.. note::
+    ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post
+
+.. nextslide::
+
+3. ออก Withholding Tax Cert ให้กับผู้รับเงิน
+################################################
+
+จาก Journal Entry ในขั้นตอนก่อน เลือก Action > Create Withholding Cert
+
+.. image:: images/reconcile_ap_commission/4_create_wht_cert.png
+    :align: center
+
+.. nextslide::
+
+ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT
+
+.. image:: images/reconcile_ap_commission/5_create_wht_cert.png
+    :align: center
+
+.. nextslide::
+
+ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done
+
+.. image:: images/reconcile_ap_commission/6_create_wht_cert.png
+    :align: center
+
+.. nextslide::
+
+เลือก Print > Withholding Tax Cert เป็น PDF
+
+.. image:: images/reconcile_ap_commission/7_print_wht_cert.png
+    :align: center
+
+.. note::
+    ผู้ใช้งานสามารถดู Certificate. ทั้งหมดในภายหลังได้ที่เมนู Accounting > Vendors > WT Certificates
+
+4. ทำการ Reconcile และตรวจสอบผลลัพธ์
+############################################
+
+1. ที่เมนู Mass Automatic Reconcile เลือก Profile = Supplier Payment
+2. กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน
+3. กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป
+4. หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry
+
+.. nextslide::
+
+.. image:: images/reconcile_ap_commission/8_reconcile_ap_commission.png
+    :align: center
+
+.. note::
+    เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ
