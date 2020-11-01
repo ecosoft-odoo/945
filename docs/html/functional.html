@@ -107,6 +107,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">4. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#clear-ap">Clear AP ประมาณการค่าขนส่ง</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1. การตั้งค่า Mass Automatic Reconcile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2. เลือกรายการที่ต้องทำจ่าย</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3. ออก Withholding Tax Cert ให้กับผู้รับเงิน</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="technical.html">945 Technical Manual</a></li>
@@ -228,10 +235,23 @@
 <p>ค้นหา journal items ที่สนใจเพื่อ export มาเป็นค่าเริ่มต้น</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>ขั้นตอนนี้เป็นขั้นตอนพิเศษ ชีวิตจริงอาจใช้ข้อมูลจาก statement ตรงๆก็ได้</p>
+<p>ขั้นตอนนี้เป็นขั้นตอนพิเศษเพื่อได้ข้อมูลทดสอบ การทำงานจริงข้อมูลจะมาจาก statement ตรงๆ</p>
 </div>
 <img alt="_images/1_goto_journal_items.png" class="align-center" src="_images/1_goto_journal_items.png" />
-<p>ค้นหารายการที่ยังไม่ได้ล้าง โดยการใช้ Advance Search ตามการทำงานปกติ</p>
+<p>โดยสามารถค้นหารายการที่ยังไม่ได้รับการเคลียร์ ด้วยด้วย Filter ดังต่อไปนี้</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Filtered / Group By</dt><dd><ul class="simple">
+<li><p>Posted</p></li>
+<li><p>Unreconciled</p></li>
+<li><p>Account = ลูกหนี้การค้า</p></li>
+<li><p>Partner = Transporter (เช่น DHL, SCB, etc.)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>ถ้าต้องการเราสามารถสร้าง Save Filter เอาไว้ใช้งานได้</p></li>
+</ol>
 <img alt="_images/2_search_unreconciled_ar.png" class="align-center" src="_images/2_search_unreconciled_ar.png" />
 <p>เลือกรายการที่สนใจ เพื่อนำข้อมูลออกมาที่ Excel</p>
 <img alt="_images/3_export_excel.png" class="align-center" src="_images/3_export_excel.png" />
@@ -276,6 +296,7 @@
 <img alt="_images/13_reverse_entry.png" class="align-center" src="_images/13_reverse_entry.png" />
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="clear-ap-commission">
 <h2>Clear AP Commission<a class="headerlink" href="#clear-ap-commission" title="Permalink to this headline">¶</a></h2>
 <p>การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าคอมมิชชั่น ซึ่งทาง 945 ต้องทำจ่ายให้กันผู้ได้รับส่วนแบ่ง</p>
@@ -293,7 +314,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>เนื่องจากเราไม่ได้แบ่ง Account Code เป็็นเรื่องย่อยๆ
-Mass Reconcile นี้จะใช้่ร่วมกับการจ่ายเงินด้านอื่นๆที่ใช้ AP Account เดียวกันด้วย</p>
+Mass Reconcile นี้อาจถูกใช้่ร่วมกับการจ่ายเงินด้านอื่นๆที่ใช้ AP Account เดียวกันด้วย</p>
 </div>
 </div>
 <div class="section" id="id2">
@@ -352,9 +373,94 @@ Mass Reconcile นี้จะใช้่ร่วมกับการจ่�
 <li><p>ที่เมนู Mass Automatic Reconcile เลือก Profile = Supplier Payment</p></li>
 <li><p>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</p></li>
 <li><p>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</p></li>
-<li><p>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</p></li>
+<li><p>หากต้องการยกเลิกสิ่งที่ทำไปที่ Journal Entry ให้ทำการ Reverse Entry</p></li>
 </ol>
 <img alt="_images/8_reconcile_ap_commission.png" class="align-center" src="_images/8_reconcile_ap_commission.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="clear-ap">
+<h2>Clear AP ประมาณการค่าขนส่ง<a class="headerlink" href="#clear-ap" title="Permalink to this headline">¶</a></h2>
+<p>ขั้นตอนนี้จะเป็นการบันทึกการเคลียร์ค่าขนส่งตามที่ประมาณการไว้ จากการได้ Invoice ค่าขนส่งจริงที่ส่งเข้ามาจากผู้ให้บริการ
+โดยจะมีการหักภาษี ณ ที่จ่าย ภงด 53 ไว้ 1% พร้อมกับส่วนต่างประมาณการกับค่าขนส่งจริง</p>
+<ol class="arabic simple">
+<li><p>ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้</p></li>
+<li><p>เลือกรายการที่ต้องทำจ่าย (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และนำไปสร้าง Journal Entry สำหรับการจ่าย (เทียบกับค่าขนส่งจริง)</p></li>
+<li><p>ออก Withholding Tax Cert</p></li>
+<li><p>ทำการ Reconcile และตรวจสอบผลลัพธ์</p></li>
+</ol>
+<div class="section" id="id4">
+<h3>1. การตั้งค่า Mass Automatic Reconcile<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
+<p>สร้าง Profile สำหรับ Supplier Payment (ประมาณการค่าขนส่ง)</p>
+<img alt="_images/mass_reconcile_ap1.png" class="align-center" src="_images/mass_reconcile_ap1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เนื่องจากเราไม่ได้แบ่ง Account Code เป็็นเรื่องย่อยๆ
+Mass Reconcile นี้อาจถูกใช้่ร่วมกับการจ่ายเงินด้านอื่นๆที่ใช้ AP Account เดียวกันด้วย</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>2. เลือกรายการที่ต้องทำจ่าย<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>สำหรับ Commission จะดูตามวันที่ (เช่น ศุกร์ถัดไป) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Filtered / Group By</dt><dd><ul class="simple">
+<li><p>Posted</p></li>
+<li><p>Unreconciled</p></li>
+<li><p>Account = ประมาณการ - เจ้าหนี้การค้า</p></li>
+<li><p>Journal Item’s Label = Transportation Cost Estimated</p></li>
+<li><dl class="simple">
+<dt>Group by</dt><dd><ul>
+<li><p>Due Date</p></li>
+<li><p>Partner</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>เลือกรายการที่ต้องการจ่ายค่า Transportation และทำการ Export Excel (ระบบจะสลับ Dr/Cr ตั้งให้)</p></li>
+</ol>
+<p>จากรายการที่เลือก ให้เลือก Action &gt; Export Excel (เลือก Template ???)</p>
+<img alt="_images/1_find_transport_items.png" class="align-center" src="_images/1_find_transport_items.png" />
+<p>จากค่าเริ่มต้นที่ได้ ให้เพิ่มบรรทัดส่วนต่างค่าขนส่ง และ WHT (คำนวนเอง) ให้ดุลกัน</p>
+<img alt="_images/2_prepare_excel1.png" class="align-center" src="_images/2_prepare_excel1.png" />
+<p>สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry แล้วจึงสร้างรายการด้วยการ Import Excel</p>
+<img alt="_images/3_review_and_post1.png" class="align-center" src="_images/3_review_and_post1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงิน<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>จาก Journal Entry ในขั้นตอนก่อน เลือก Action &gt; Create Withholding Cert</p></li>
+<li><p>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</p></li>
+<li><p>ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p></li>
+<li><p>เลือก Print &gt; Withholding Tax Cert เป็น PDF</p></li>
+</ol>
+<img alt="_images/4_create_wht_cert1.png" class="align-center" src="_images/4_create_wht_cert1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ผู้ใช้งานสามารถดู Certificate. ทั้งหมดในภายหลังได้ที่เมนู Accounting &gt; Vendors &gt; WT Certificates</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>4. ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>ที่เมนู Mass Automatic Reconcile เลือก Profile = Supplier Payment (ประมาณการค่าขนส่ง)</p></li>
+<li><p>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</p></li>
+<li><p>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</p></li>
+<li><p>หากต้องการยกเลิกสิ่งที่ทำไปที่ Journal Entry ให้ทำการ Reverse Entry</p></li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ</p>
