@@ -107,11 +107,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">4. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#clear-ap">Clear AP ประมาณการค่าขนส่ง</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">1. การตั้งค่า Mass Automatic Reconcile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2. เลือกรายการที่ต้องทำจ่าย</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">3. ออก Withholding Tax Cert ให้กับผู้รับเงิน</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">4. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clear-ap-transporter">Clear AP Transporter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.1 การตั้งค่า Mass Automatic Reconcile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.2 เลือกรายการที่ต้องทำจ่าย</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.3 เทียบกับค่าขนส่งจริงเพื่อย้ายค่าประมาณการเข้าเจ้าหนี้</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.4 ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#journal-entry-template-pay-for-ap-transporter">2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-reconcile">2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">2.3 ออก Withholding Tax Cert ให้กับผู้รับเงิน</a></li>
 </ul>
 </li>
 </ul>
@@ -221,7 +224,7 @@
 </ol>
 <div class="section" id="mass-automatic-reconcile">
 <h3>1. การตั้งค่า Mass Automatic Reconcile<a class="headerlink" href="#mass-automatic-reconcile" title="Permalink to this headline">¶</a></h3>
-<p>Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
+<p>Menu: Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
 <img alt="_images/mass_reconcile_ar.png" class="align-center" src="_images/mass_reconcile_ar.png" />
 </div>
 <div class="section" id="statement">
@@ -294,9 +297,9 @@
 <img alt="_images/12_review_cust_payment_reconciled_items.png" class="align-center" src="_images/12_review_cust_payment_reconciled_items.png" />
 <p>หากต้องการยกเลิกสิ่งที่ได้ทำไป ให้ทำการ Reverse Entry ระบบจะสร้างอีก Journal Entry เพื่อล้างตัวเอง</p>
 <img alt="_images/13_reverse_entry.png" class="align-center" src="_images/13_reverse_entry.png" />
+<p>End.</p>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="clear-ap-commission">
 <h2>Clear AP Commission<a class="headerlink" href="#clear-ap-commission" title="Permalink to this headline">¶</a></h2>
 <p>การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าคอมมิชชั่น ซึ่งทาง 945 ต้องทำจ่ายให้กันผู้ได้รับส่วนแบ่ง</p>
@@ -308,7 +311,7 @@
 </ol>
 <div class="section" id="id1">
 <h3>1. การตั้งค่า Mass Automatic Reconcile<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
+<p>Menu: Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
 <p>สร้าง Profile สำหรับ Supplier Payment</p>
 <img alt="_images/mass_reconcile_ap.png" class="align-center" src="_images/mass_reconcile_ap.png" />
 <div class="admonition note">
@@ -380,22 +383,35 @@ Mass Reconcile นี้อาจถูกใช้่ร่วมกับก�
 <p class="admonition-title">Note</p>
 <p>เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ</p>
 </div>
+<p>End.</p>
 </div>
 </div>
-<hr class="docutils" />
-<div class="section" id="clear-ap">
-<h2>Clear AP ประมาณการค่าขนส่ง<a class="headerlink" href="#clear-ap" title="Permalink to this headline">¶</a></h2>
-<p>ขั้นตอนนี้จะเป็นการบันทึกการเคลียร์ค่าขนส่งตามที่ประมาณการไว้ จากการได้ Invoice ค่าขนส่งจริงที่ส่งเข้ามาจากผู้ให้บริการ
-โดยจะมีการหักภาษี ณ ที่จ่าย ภงด 53 ไว้ 1% พร้อมกับส่วนต่างประมาณการกับค่าขนส่งจริง</p>
+<div class="section" id="clear-ap-transporter">
+<h2>Clear AP Transporter<a class="headerlink" href="#clear-ap-transporter" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้</p></li>
-<li><p>เลือกรายการที่ต้องทำจ่าย (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และนำไปสร้าง Journal Entry สำหรับการจ่าย (เทียบกับค่าขนส่งจริง)</p></li>
-<li><p>ออก Withholding Tax Cert</p></li>
+<li><dl class="simple">
+<dt>ย้ายเจ้าหนี้ประมาณการค่าขนส่งเป็นเจ้าหนี้ ด้วย Excel</dt><dd><ol class="arabic simple">
+<li><p>ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้ (ถ้ายังไม่มี)</p></li>
+<li><p>เลือกรายการที่ต้องทำจ่าย (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และ Export Excel ตั้งต้น</p></li>
+<li><p>เทียบกับค่าขนส่งจริงเพื่อย้ายค่าประมาณการเข้าเจ้าหนี้ โดยมีส่วนต่างค่าขนส่ง และ Import Excel เพื่อสร้าง JE</p></li>
 <li><p>ทำการ Reconcile และตรวจสอบผลลัพธ์</p></li>
 </ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>การเคลียร์เจ้าหนี้ โดยจะมีการหักภาษี ณ ที่จ่าย ภงด 53 ไว้ 1% ด้วย Journal Entry</dt><dd><ol class="arabic simple">
+<li><p>สร้าง Journal Entry ด้วย Template ที่เตรียมไว้ล่วงหน้า</p></li>
+<li><p>Manual Reconcile เพื่อเคลียร์เจ้าหนี้ขนส่ง</p></li>
+<li><p>ออกเอกสาร Withholding Tax Cert.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
 <div class="section" id="id4">
-<h3>1. การตั้งค่า Mass Automatic Reconcile<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
+<h3>1.1 การตั้งค่า Mass Automatic Reconcile<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Menu: Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
 <p>สร้าง Profile สำหรับ Supplier Payment (ประมาณการค่าขนส่ง)</p>
 <img alt="_images/mass_reconcile_ap1.png" class="align-center" src="_images/mass_reconcile_ap1.png" />
 <div class="admonition note">
@@ -405,58 +421,43 @@ Mass Reconcile นี้อาจถูกใช้่ร่วมกับก�
 </div>
 </div>
 <div class="section" id="id5">
-<h3>2. เลือกรายการที่ต้องทำจ่าย<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>สำหรับ Commission จะดูตามวันที่ (เช่น ศุกร์ถัดไป) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้</p>
+<h3>1.2 เลือกรายการที่ต้องทำจ่าย<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>รายการประมาณการค่าขนส่ง จะดูตามวันที่ 15 โดยสามารถค้นหาที่เมนู Journal Items</p>
 <ol class="arabic simple">
 <li><dl class="simple">
-<dt>Filtered / Group By</dt><dd><ul class="simple">
-<li><p>Posted</p></li>
-<li><p>Unreconciled</p></li>
-<li><p>Account = ประมาณการ - เจ้าหนี้การค้า</p></li>
-<li><p>Journal Item’s Label = Transportation Cost Estimated</p></li>
-<li><dl class="simple">
-<dt>Group by</dt><dd><ul>
-<li><p>Due Date</p></li>
-<li><p>Partner</p></li>
+<dt>Filtered / Group By (หรือด้วย Favorite Filter = ชำระค่าขนส่ง)</dt><dd><ul class="simple">
+<li><p>Filter: Posted, Unreconciled, Account = ประมาณการ - เจ้าหนี้การค้า</p></li>
+<li><p>Group by: Due Date, Partner</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>เลือกรายการที่ต้องการจ่ายค่า Transportation และทำการ Export Excel (ระบบจะสลับ Dr/Cr ตั้งให้)</p></li>
 </ol>
-<p>จากรายการที่เลือก ให้เลือก Action &gt; Export Excel (เลือก Template ???)</p>
 <img alt="_images/1_find_transport_items.png" class="align-center" src="_images/1_find_transport_items.png" />
-<p>จากค่าเริ่มต้นที่ได้ ให้เพิ่มบรรทัดส่วนต่างค่าขนส่ง และ WHT (คำนวนเอง) ให้ดุลกัน</p>
+<ol class="arabic simple" start="2">
+<li><p>เลือก Journal Items ทั้งหมดของ Transporter ที่ต้องการจ่ายทำรายการ</p></li>
+<li><p>Actions &gt; Export Excel (เลือก Template = JE for Clear Transport)</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>1.3 เทียบกับค่าขนส่งจริงเพื่อย้ายค่าประมาณการเข้าเจ้าหนี้<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>ใส่ข้อมูลจริงที่ Excel Sheet = External จะได้ข้อมูลเบื้องต้น ทำการปรับให้พร้อมสำหรับ Import ตามข้อ 1-3</p>
 <img alt="_images/2_prepare_excel1.png" class="align-center" src="_images/2_prepare_excel1.png" />
-<p>สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry แล้วจึงสร้างรายการด้วยการ Import Excel</p>
+<p>สร้าง Journal Entry ใหม่ ทำหน้าที่ตั้งเจ้าหนี้ Vendor Bill แล้วจึงสร้างรายการด้วยการ Import Excel</p>
 <img alt="_images/3_review_and_post1.png" class="align-center" src="_images/3_review_and_post1.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงิน<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>จาก Journal Entry ในขั้นตอนก่อน เลือก Action &gt; Create Withholding Cert</p></li>
-<li><p>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</p></li>
-<li><p>ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p></li>
-<li><p>เลือก Print &gt; Withholding Tax Cert เป็น PDF</p></li>
-</ol>
-<img alt="_images/4_create_wht_cert1.png" class="align-center" src="_images/4_create_wht_cert1.png" />
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>ผู้ใช้งานสามารถดู Certificate. ทั้งหมดในภายหลังได้ที่เมนู Accounting &gt; Vendors &gt; WT Certificates</p>
-</div>
-</div>
 <div class="section" id="id7">
-<h3>4. ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>1.4 ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>ที่เมนู Mass Automatic Reconcile เลือก Profile = Supplier Payment (ประมาณการค่าขนส่ง)</p></li>
+<li><dl class="simple">
+<dt>ที่เมนู Mass Automatic Reconcile</dt><dd><p>เลือก Profile = 212107 ประมาณการ - เจ้าหนี้การค้า</p>
+</dd>
+</dl>
+</li>
 <li><p>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</p></li>
 <li><p>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</p></li>
 <li><p>หากต้องการยกเลิกสิ่งที่ทำไปที่ Journal Entry ให้ทำการ Reverse Entry</p></li>
@@ -465,6 +466,31 @@ Mass Reconcile นี้อาจถูกใช้่ร่วมกับก�
 <p class="admonition-title">Note</p>
 <p>เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ</p>
 </div>
+</div>
+<div class="section" id="journal-entry-template-pay-for-ap-transporter">
+<h3>2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter<a class="headerlink" href="#journal-entry-template-pay-for-ap-transporter" title="Permalink to this headline">¶</a></h3>
+<p>Menu: Accounting &gt; Accounting &gt; Create Entry from Template</p>
+<p>ให้เลือก Template ให้ถูกต้องและกดปุ่ม Next</p>
+<img alt="_images/4_create_je_ap_transporter.png" class="align-center" src="_images/4_create_je_ap_transporter.png" />
+<p>ใส่ข้อมูลตามรูป แล้วกดปุ่ม Create Journal Entry</p>
+<img alt="_images/5_create_je_ap_transporter.png" class="align-center" src="_images/5_create_je_ap_transporter.png" />
+<p>ระบบจะช่วยสร้าง Journal Entry ให้ พร้อมๆกับช่วยคำนวน WHT 1% ด้วย</p>
+<img alt="_images/6_je_ap_transporter.png" class="align-center" src="_images/6_je_ap_transporter.png" />
+</div>
+<div class="section" id="manual-reconcile">
+<h3>2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง<a class="headerlink" href="#manual-reconcile" title="Permalink to this headline">¶</a></h3>
+<p>Menu: Accounting &gt; Accounting &gt; Actions &gt; Reconciliation</p>
+<p>เราสามารถใช้หน้าต่างนี้ทำการ Reconcile รายการทั่วๆไป ในกรณีนี้เราต้องการเคลียร์เจ้าหนี้ของ Transporter</p>
+<img alt="_images/7_manual_reconcile.png" class="align-center" src="_images/7_manual_reconcile.png" />
+</div>
+<div class="section" id="id8">
+<h3>2.3 ออก Withholding Tax Cert ให้กับผู้รับเงิน<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>จาก Journal Entry ในขั้นตอนก่อน เลือก Action &gt; Create Withholding Cert</p></li>
+<li><p>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</p></li>
+<li><p>ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p></li>
+<li><p>เลือก Print &gt; Withholding Tax Cert เป็น PDF</p></li>
+</ol>
 </div>
 </div>
 </div>

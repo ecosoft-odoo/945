@@ -33,7 +33,7 @@ Clear Account Receivable
 1. การตั้งค่า Mass Automatic Reconcile
 #############################################
 
-Accounting > Accounting > Actions > Mass Automatic Reconcile
+Menu: Accounting > Accounting > Actions > Mass Automatic Reconcile
 
 .. image:: images/reconcile_ar/mass_reconcile_ar.png
     :align: center
@@ -161,7 +161,7 @@ Accounting > Accounting > Actions > Mass Automatic Reconcile
 .. image:: images/reconcile_ar/13_reverse_entry.png
     :align: center
 
-----
+End.
 
 Clear AP Commission
 -------------------
@@ -177,7 +177,7 @@ Clear AP Commission
 1. การตั้งค่า Mass Automatic Reconcile
 #############################################
 
-Accounting > Actions > Mass Automatic Reconcile
+Menu: Accounting > Accounting > Actions > Mass Automatic Reconcile
 
 สร้าง Profile สำหรับ Supplier Payment
 
@@ -277,40 +277,25 @@ Accounting > Actions > Mass Automatic Reconcile
 .. note::
     เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ
 
+End.
 
+Clear AP Transporter
+--------------------
 
+#. ย้ายเจ้าหนี้ประมาณการค่าขนส่งเป็นเจ้าหนี้ ด้วย Excel
+    #. ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้ (ถ้ายังไม่มี)
+    #. เลือกรายการที่ต้องทำจ่าย (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และ Export Excel ตั้งต้น
+    #. เทียบกับค่าขนส่งจริงเพื่อย้ายค่าประมาณการเข้าเจ้าหนี้ โดยมีส่วนต่างค่าขนส่ง และ Import Excel เพื่อสร้าง JE
+    #. ทำการ Reconcile และตรวจสอบผลลัพธ์
+#. การเคลียร์เจ้าหนี้ โดยจะมีการหักภาษี ณ ที่จ่าย ภงด 53 ไว้ 1% ด้วย Journal Entry
+    #. สร้าง Journal Entry ด้วย Template ที่เตรียมไว้ล่วงหน้า
+    #. Manual Reconcile เพื่อเคลียร์เจ้าหนี้ขนส่ง
+    #. ออกเอกสาร Withholding Tax Cert.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-----
-
-Clear AP ประมาณการค่าขนส่ง
-------------------------------
-
-ขั้นตอนนี้จะเป็นการบันทึกการเคลียร์ค่าขนส่งตามที่ประมาณการไว้ จากการได้ Invoice ค่าขนส่งจริงที่ส่งเข้ามาจากผู้ให้บริการ
-โดยจะมีการหักภาษี ณ ที่จ่าย ภงด 53 ไว้ 1% พร้อมกับส่วนต่างประมาณการกับค่าขนส่งจริง
-
-1. ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้
-2. เลือกรายการที่ต้องทำจ่าย (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และนำไปสร้าง Journal Entry สำหรับการจ่าย (เทียบกับค่าขนส่งจริง)
-3. ออก Withholding Tax Cert
-4. ทำการ Reconcile และตรวจสอบผลลัพธ์
-
-1. การตั้งค่า Mass Automatic Reconcile
+1.1 การตั้งค่า Mass Automatic Reconcile
 #############################################
 
-Accounting > Actions > Mass Automatic Reconcile
+Menu: Accounting > Accounting > Actions > Mass Automatic Reconcile
 
 สร้าง Profile สำหรับ Supplier Payment (ประมาณการค่าขนส่ง)
 
@@ -321,38 +306,32 @@ Accounting > Actions > Mass Automatic Reconcile
     เนื่องจากเราไม่ได้แบ่ง Account Code เป็็นเรื่องย่อยๆ
     Mass Reconcile นี้อาจถูกใช้่ร่วมกับการจ่ายเงินด้านอื่นๆที่ใช้ AP Account เดียวกันด้วย
 
-2. เลือกรายการที่ต้องทำจ่าย
+1.2 เลือกรายการที่ต้องทำจ่าย
 ############################################
 
-สำหรับ Commission จะดูตามวันที่ (เช่น ศุกร์ถัดไป) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้
+รายการประมาณการค่าขนส่ง จะดูตามวันที่ 15 โดยสามารถค้นหาที่เมนู Journal Items
 
-1. Filtered / Group By
-    * Posted
-    * Unreconciled
-    * Account = ประมาณการ - เจ้าหนี้การค้า
-    * Journal Item's Label = Transportation Cost Estimated
-    * Group by
-        * Due Date
-        * Partner
-2. เลือกรายการที่ต้องการจ่ายค่า Transportation และทำการ Export Excel (ระบบจะสลับ Dr/Cr ตั้งให้)
-
-.. nextslide::
-
-จากรายการที่เลือก ให้เลือก Action > Export Excel (เลือก Template ???)
+1. Filtered / Group By (หรือด้วย Favorite Filter = ชำระค่าขนส่ง)
+    * Filter: Posted, Unreconciled, Account = ประมาณการ - เจ้าหนี้การค้า
+    * Group by: Due Date, Partner
 
 .. image:: images/reconcile_ap_transport/1_find_transport_items.png
     :align: center
 
-.. nextslide::
+2. เลือก Journal Items ทั้งหมดของ Transporter ที่ต้องการจ่ายทำรายการ
+3. Actions > Export Excel (เลือก Template = JE for Clear Transport)
 
-จากค่าเริ่มต้นที่ได้ ให้เพิ่มบรรทัดส่วนต่างค่าขนส่ง และ WHT (คำนวนเอง) ให้ดุลกัน
+1.3 เทียบกับค่าขนส่งจริงเพื่อย้ายค่าประมาณการเข้าเจ้าหนี้
+############################################################
+
+ใส่ข้อมูลจริงที่ Excel Sheet = External จะได้ข้อมูลเบื้องต้น ทำการปรับให้พร้อมสำหรับ Import ตามข้อ 1-3
 
 .. image:: images/reconcile_ap_transport/2_prepare_excel.png
     :align: center
 
 .. nextslide::
 
-สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry แล้วจึงสร้างรายการด้วยการ Import Excel
+สร้าง Journal Entry ใหม่ ทำหน้าที่ตั้งเจ้าหนี้ Vendor Bill แล้วจึงสร้างรายการด้วยการ Import Excel
 
 .. image:: images/reconcile_ap_transport/3_review_and_post.png
     :align: center
@@ -360,31 +339,56 @@ Accounting > Actions > Mass Automatic Reconcile
 .. note::
     ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post
 
-.. nextslide::
-
-3. ออก Withholding Tax Cert ให้กับผู้รับเงิน
-################################################
-
-1. จาก Journal Entry ในขั้นตอนก่อน เลือก Action > Create Withholding Cert
-2. ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT
-3. ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done
-4. เลือก Print > Withholding Tax Cert เป็น PDF
-
-.. nextslide::
-
-.. image:: images/reconcile_ap_transport/4_create_wht_cert.png
-    :align: center
-
-.. note::
-    ผู้ใช้งานสามารถดู Certificate. ทั้งหมดในภายหลังได้ที่เมนู Accounting > Vendors > WT Certificates
-
-4. ทำการ Reconcile และตรวจสอบผลลัพธ์
+1.4 ทำการ Reconcile และตรวจสอบผลลัพธ์
 ############################################
 
-1. ที่เมนู Mass Automatic Reconcile เลือก Profile = Supplier Payment (ประมาณการค่าขนส่ง)
+1. ที่เมนู Mass Automatic Reconcile
+    เลือก Profile = 212107 ประมาณการ - เจ้าหนี้การค้า
 2. กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน
 3. กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป
 4. หากต้องการยกเลิกสิ่งที่ทำไปที่ Journal Entry ให้ทำการ Reverse Entry
 
 .. note::
     เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ
+
+2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter
+##################################################################
+
+Menu: Accounting > Accounting > Create Entry from Template
+
+ให้เลือก Template ให้ถูกต้องและกดปุ่ม Next
+
+.. image:: images/reconcile_ap_transport/4_create_je_ap_transporter.png
+    :align: center
+
+.. nextslide::
+
+ใส่ข้อมูลตามรูป แล้วกดปุ่ม Create Journal Entry
+
+.. image:: images/reconcile_ap_transport/5_create_je_ap_transporter.png
+    :align: center
+
+.. nextslide::
+
+ระบบจะช่วยสร้าง Journal Entry ให้ พร้อมๆกับช่วยคำนวน WHT 1% ด้วย
+
+.. image:: images/reconcile_ap_transport/6_je_ap_transporter.png
+    :align: center
+
+2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง
+#########################################
+
+Menu: Accounting > Accounting > Actions > Reconciliation
+
+เราสามารถใช้หน้าต่างนี้ทำการ Reconcile รายการทั่วๆไป ในกรณีนี้เราต้องการเคลียร์เจ้าหนี้ของ Transporter
+
+.. image:: images/reconcile_ap_transport/7_manual_reconcile.png
+    :align: center
+
+2.3 ออก Withholding Tax Cert ให้กับผู้รับเงิน
+################################################
+
+1. จาก Journal Entry ในขั้นตอนก่อน เลือก Action > Create Withholding Cert
+2. ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT
+3. ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done
+4. เลือก Print > Withholding Tax Cert เป็น PDF
