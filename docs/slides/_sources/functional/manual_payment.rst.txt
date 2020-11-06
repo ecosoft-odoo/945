@@ -312,104 +312,71 @@ Clear AP Transport
 
 End.
 
-
 Clear AP Service
 --------------------
 
 การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าบริการ ซึ่งทาง 945 ต้องทำจ่ายให้กับผู้ให้บริการ
 
-1. ตั้งค่า Mass Automatic Reconcile สำหรับการเคลียร์เจ้าหนี้
-2. เลือกรายการที่ต้องทำจ่าย โดยดูตามวันที่ (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และนำไปสร้าง Journal Entry สำหรับการจ่ายเงิน
-3. ออก Withholding Tax Cert ให้กับผู้รับเงิน
-4. บันทึกเลขที่ Tax Invoice และทดสอบการออกรายงานภาษี
-5. ทำการ Reconcile และตรวจสอบผลลัพธ์
+1. เลือกรายการที่ต้องทำจ่าย โดยดูตามวันที่ (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และนำไปสร้าง Journal Entry สำหรับการจ่ายเงิน
+2. ออก Withholding Tax Cert ให้กับผู้รับเงิน
+3. บันทึกเลขที่ Tax Invoice และทดสอบการออกรายงานภาษี
+4. ทำการ Reconcile และตรวจสอบผลลัพธ์
 
-2. เลือกรายการที่ต้องทำจ่าย
-############################################
+1. เลือกรายการที่ต้องทำจ่าย
+################################
 
-สำหรับค่า Service จะดูตามวันที่ (เช่น วันที่ 15) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้
+รายการประมาณการค่าขนส่ง จะดูตามวันที่ 15 โดยสามารถค้นหาที่เมนู Journal Items
 
-1. Filtered / Group By (หรือเลือก Favorite Filter = AP Service)
-    * Posted, Unreconciled, Account = เจ้าหนี้การค้า, Label = Account Payable (Service Cost)
-    * Group by: Due Date, Partner
+1. กรองรายการด้วย Favorite = **AP Service**
+2. เลือกรายการที่ต้องการ Export
+3. คลิกเมนู Action > Export Excel โดยเลือก Template = **AP Service**
 
-.. image:: images/reconcile_ap_service/1_find_service_items.png
+.. image:: images/reconcile_ap_service/1_search_journal_items.png
     :align: center
 
-2. เลือกรายการที่ต้องการจ่ายค่า Service ให้และทำการ Export Excel (ระบบจะสลับ Dr/Cr ตั้งให้)
-
-.. nextslide::
-
-จากรายการที่เลือก ให้เลือก Action > Export Excel
-
-.. image:: images/reconcile_ap_service/1_find_commission_items.png
+.. image:: images/reconcile_ap_service/2_export_excel_wizard.png
     :align: center
 
 .. nextslide::
 
-จากค่าเริ่มต้นที่ได้ ให้เพิ่มบรรทัด Bank และ WHT (คำนวนเอง) ให้ดุลกัน
+ตัวอย่าง Excel ของการ Export Excel - AP Service โดยจะมีการ Switch Dr/Cr ไว้รอ
+**แต่ผู้ใช้งานต้องเพิ่มรายการปรับปรุงรายการเมื่อเทียบกับข้อมูล External เอง**
 
-.. image:: images/reconcile_ap_service/2_prepare_excel.png
+.. image:: images/reconcile_ap_transport/3_export_excel.png
     :align: center
 
-.. nextslide::
+1. ข้อมูลที่ Export ออกมาจาก Odoo
+2. ให้นำข้อมูลที่ได้จาก Transporter ใส่ที่ External
+3. ระบบจะเปรียบเทียบรายการที่ตรงกัน
+4. ให้ทำการลบรายการที่ไม่ตรงกัน
+5. ระบบได้ทำการคำนวนส่วนต่างค่าขนส่งให้เบื้องต้น แต่ผู้ใช้งานสามารถใส่ส่วนลดและอื่นๆได้เอง
 
-สร้าง Journal Entry ใหม่ ทำหน้าที่เป็นเสมือนกับ Payment Entry แล้วจึงสร้างรายการด้วยการ Import Excel
-
-.. image:: images/reconcile_ap_service/3_review_and_post.png
-    :align: center
-
-.. note::
-    ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post
-
-.. nextslide::
-
-3. ออก Withholding Tax Cert ให้กับผู้รับเงิน
+2. ออก Withholding Tax Cert ให้กับผู้รับเงิน
 ################################################
 
-จาก Journal Entry ในขั้นตอนก่อน เลือก Action > Create Withholding Cert
+1. จาก Journal Entry ในขั้นตอนก่อน เลือก Action > Create Withholding Cert
+2. ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT
+3. ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done
+4. เลือก Print > Withholding Tax Cert เป็น PDF
 
-.. image:: images/reconcile_ap_service/4_create_wht_cert.png
+3. Import Excel เพื่อสร้าง JE สำหรับการจ่าย
+################################################
+
+สร้าง Journal Entry **Bank** ใหม่ แล้วจึงสร้างรายการด้วยการ Import Excel
+
+1. เนื่องจากมีรายการ VAT ที่ต้องการ Tax Invoice ระบบจะยังไม่ให้ Post
+2. ใส่ข้อมูล Tax Invoice
+3. ทำการ Post
+
+.. image:: images/reconcile_ap_service/4_review_and_post.png
     :align: center
 
-.. nextslide::
-
-ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT
-
-.. image:: images/reconcile_ap_service/5_create_wht_cert.png
-    :align: center
-
-.. nextslide::
-
-ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done
-
-.. image:: images/reconcile_ap_service/6_create_wht_cert.png
-    :align: center
-
-.. nextslide::
-
-เลือก Print > Withholding Tax Cert เป็น PDF
-
-.. image:: images/reconcile_ap_service/7_print_wht_cert.png
-    :align: center
-
-.. note::
-    ผู้ใช้งานสามารถดู Certificate. ทั้งหมดในภายหลังได้ที่เมนู Accounting > Vendors > WT Certificates
-
-4. ทำการ Reconcile และตรวจสอบผลลัพธ์
+4 ทำการ Reconcile และตรวจสอบผลลัพธ์
 ############################################
 
-1. ที่เมนู Mass Automatic Reconcile เลือก Profile = Supplier Payment
+1. ที่เมนู Mass Automatic Reconcile เลือก Profile = **212101 เจ้าหนี้การค้า**
 2. กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน
 3. กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป
-4. หากต้องการยกเลิกสิ่งที่ทำไปที่ Journal Entry ให้ทำการ Reverse Entry
-
-.. nextslide::
-
-.. image:: images/reconcile_ap_service/8_reconcile_ap_commission.png
-    :align: center
-
-.. note::
-    เราสามารถตั้ง Schedule Job ให้ Start Auto Reconciliation ได้อย่างอัตโนมัติหากต้องการ
+4. หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry
 
 End.
