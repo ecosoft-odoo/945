@@ -577,7 +577,9 @@
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
         <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
-        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;sunteen_merchant_id&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>  <span class="c1"># Merchant (res.partner)</span>
+        <span class="s2">&quot;sunteen_merchant_level&quot;</span><span class="p">:</span> <span class="s2">&quot;ecom&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Level: ecom/agent/franchise</span>
+        <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945, others</span>
         <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
         <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
         <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
@@ -592,22 +594,19 @@
                 <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
                 <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
                 <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>  <span class="c1"># Type: normal, cod</span>
+                <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># COD Amount</span>
+
             <span class="p">},</span>
             <span class="p">{</span>
-                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ002&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
                 <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
                 <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
                 <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
-                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
-                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cod&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
             <span class="p">},</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -627,7 +626,9 @@
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status : completed/return</span>
         <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
-        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;sunteen_merchant_id&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>  <span class="c1"># Merchant (res.partner)</span>
+        <span class="s2">&quot;sunteen_merchant_level&quot;</span><span class="p">:</span> <span class="s2">&quot;ecom&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Level: ecom/agent/franchise</span>
+        <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945, others</span>
         <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
         <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
         <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
@@ -642,22 +643,21 @@
                 <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
                 <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
                 <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>  <span class="c1"># Type: normal, cod</span>
+                <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># COD Amount</span>
+                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status: completed/return</span>
+
             <span class="p">},</span>
             <span class="p">{</span>
-                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ002&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
                 <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
                 <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
                 <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
-                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
-                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cod&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>
             <span class="p">},</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -671,6 +671,10 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">สำหรับ eCommerce การส่งข้อมูลจะเป็น 1 API ต่อ 1 Parcel Number ส่วน Express จะเป็น 1 API ต่อ หลาย Parcel Number</p>
 </div>
 
 
