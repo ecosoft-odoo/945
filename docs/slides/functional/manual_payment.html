@@ -56,6 +56,16 @@
 
 <h1>&gt; Manual Payment</h1>
 
+<p>ระบบการเคลียร์หนี้ AR/AP</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="mass-reconciliation">
+
+<h2>Mass Reconciliation</h2>
+
 <p>ในระบบของ 945 เพื่อให้การเคลียร์หนี้ (reconcile AR/AP) ทำได้อย่างรวดเร็ว เราจะใช้ฟังก์ชั่น <strong>Mass Automatic Reconcile</strong></p>
 <p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
 <img alt="../_images/all_mass_reconcile.png" class="align-center" src="../_images/all_mass_reconcile.png" />
@@ -64,29 +74,32 @@
 
 
 </article>
-<article class="slide level-1" id="id9">
+<article class="slide level-2" id="id9">
 
-<h1>&gt; Manual Payment</h1>
+<h2>Mass Reconciliation</h2>
 
-<p>ในทุกๆ Profile เราจะมีการเซตค่าตามรูป</p>
+<p>ในทุกๆ Profile เราจะมีการเซตค่าตามรูป (ต่าง Account Code)</p>
 <img alt="../_images/sample_mass_reconcile.png" class="align-center" src="../_images/sample_mass_reconcile.png" />
 
 
 
 
 </article>
-<article class="slide level-1" id="id10">
+<article class="slide level-3" id="mass-automatic-reconcile">
 
-<h1>&gt; Manual Payment</h1>
+<h3>การทำงานของหน้าต่าง Mass Automatic Reconcile</h3>
 
-<p>การทำงานของหน้าต่าง Mass Automatic Reconcile</p>
 <ol class="arabic simple">
 <li>ตั้งชื่อ Profile และเลือก Account Code</li>
 <li>ตั้งกฏการ Reconcile ด้วย Partner และ Parcel ID</li>
 <li>แสดงรายการ journal items ที่ใช้ Account เดียวกันจะอาจถูก reconcile หากจับคู่ได้ตรงตามกฏ</li>
-<li>สั่งให้ระบบทำการ Reconcile (เราสามารถตั้งค่า Scheduled Job ให้ทำงานเป็นช่วงๆแบบอัตโนมัติได้ด้วย)</li>
+<li>ทำการ Reconcile</li>
 <li>ดูรายการ Reconcile ล่าสุดที่เกิดขึ้น (ดูย้อนหลังได้ที่ tab History)</li>
 </ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">เราสามารถตั้งค่า Scheduled Job ให้ทำงานเป็นช่วงๆแบบอัตโนมัติได้ด้วย</p>
+</div>
 
 
 
@@ -98,7 +111,7 @@
 
 <p>เมื่อได้รับ Statement จากธนาคารว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
 <ol class="arabic simple">
-<li>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (ขั้นตอนนี้ข้ามได้)</li>
+<li>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (optional)</li>
 <li>นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</li>
 <li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
 </ol>
@@ -118,6 +131,15 @@
 <li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AR Provider</strong></li>
 </ol>
 <img alt="../_images/1_search_journal_items.png" class="align-center" src="../_images/1_search_journal_items.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id10">
+
+<h3>1. เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ</h3>
+
 <img alt="../_images/2_export_excel_wizard.png" class="align-center" src="../_images/2_export_excel_wizard.png" />
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -133,7 +155,8 @@
 <h3>1. เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ</h3>
 
 <p>ตัวอย่าง Excel ของการ Export Excel - AR Provider โดยจะมีการ Switch Dr/Cr ไว้รอ
-และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้ โปรดตรวจสอบความถูกต้องก่อนทำการ Import เพื่อสร้าง Journal Entry</p>
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้</p>
+<p>โปรดตรวจสอบความถูกต้องก่อนทำการ Import เพื่อสร้าง Journal Entry</p>
 <img alt="../_images/3_export_excel.png" class="align-center" src="../_images/3_export_excel.png" />
 
 
@@ -231,13 +254,22 @@
 <li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Commission</strong></li>
 </ol>
 <img alt="../_images/1_search_journal_items1.png" class="align-center" src="../_images/1_search_journal_items1.png" />
-<img alt="../_images/2_export_excel_wizard1.png" class="align-center" src="../_images/2_export_excel_wizard1.png" />
 
 
 
 
 </article>
 <article class="slide level-3" id="id15">
+
+<h3>1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า Commission</h3>
+
+<img alt="../_images/2_export_excel_wizard1.png" class="align-center" src="../_images/2_export_excel_wizard1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id16">
 
 <h3>1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า Commission</h3>
 
@@ -258,19 +290,6 @@
 <li>ที่ JE, คลิกเมนู Action &gt; Import Excel โดยเลือก Template = <strong>AP Commission</strong></li>
 <li>ทำการ Split Journal Entry สำหรับแต่ละผู้รับส่วนแบ่ง</li>
 </ol>
-<p>สร้าง Journal Entry ใหม่เพื่อทำหน้าที่เป็น Payment Entry</p>
-<img alt="../_images/4_create_payment_entry1.png" class="align-center" src="../_images/4_create_payment_entry1.png" />
-
-
-
-
-</article>
-<article class="slide level-3" id="id16">
-
-<h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
-
-<p>เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้โดยเลือก Template = <strong>AP Commission</strong></p>
-<img alt="../_images/5_import_excel1.png" class="align-center" src="../_images/5_import_excel1.png" />
 
 
 
@@ -280,9 +299,31 @@
 
 <h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
 
+<p>สร้าง Journal Entry ใหม่เพื่อทำหน้าที่เป็น Payment Entry</p>
+<img alt="../_images/4_create_payment_entry1.png" class="align-center" src="../_images/4_create_payment_entry1.png" />
+<p>Import Excel ตามที่ได้เตรียมด้วย Template = <strong>AP Commission</strong></p>
+<img alt="../_images/5_import_excel1.png" class="align-center" src="../_images/5_import_excel1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id18">
+
+<h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
+
 <p>ในขณะที่ JE ยังมีสถานะ <strong>Draft</strong> ให้ทำการ Split Journal Entry by Partner, ระบบทำการ Split JE ตาม
-จำนวนผู้รับส่วนแบ่ง พร้อมๆกับทำการลบ Journal Entry ตั้งต้นนี้</p>
+จำนวนผู้รับส่วนแบ่ง (และลบ Journal Entry ตั้งต้นนี้)</p>
 <img alt="../_images/6_split_je.png" class="align-center" src="../_images/6_split_je.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id19">
+
+<h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
+
 <p>ในตอนนี้เราจะมี Journal Entries สำหรับผู้รับส่วนแบ่งทุกๆคน เพื่อเราจะได้สามารถออก WHT Cert. ได้พร้อมๆกัน</p>
 <img alt="../_images/7_new_split_je.png" class="align-center" src="../_images/7_new_split_je.png" />
 
@@ -301,7 +342,7 @@
 
 
 </article>
-<article class="slide level-3" id="id18">
+<article class="slide level-3" id="id20">
 
 <h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
 
@@ -312,19 +353,19 @@
 
 
 </article>
-<article class="slide level-3" id="id19">
+<article class="slide level-3" id="id21">
 
 <h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
 
-<p>ระบบจะสร้าง Withholding Tax Certs ให้ตามจำนวนของ Journal Entry
-ให้ผู้ใช้งานตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p>
+<p>ระบบจะสร้าง Withholding Tax Certs ให้ตามจำนวนของ Journal Entry</p>
 <img alt="../_images/10_wht_cert.png" class="align-center" src="../_images/10_wht_cert.png" />
+<p>ให้ผู้ใช้งานตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p>
 
 
 
 
 </article>
-<article class="slide level-3" id="id20">
+<article class="slide level-3" id="id22">
 
 <h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
 
@@ -395,19 +436,37 @@
 <li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Transport Estimated</strong></li>
 </ol>
 <img alt="../_images/1_search_journal_items2.png" class="align-center" src="../_images/1_search_journal_items2.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id23">
+
+<h3>1.1 เลือกรายการที่ต้องทำจ่าย</h3>
+
 <img alt="../_images/2_export_excel_wizard2.png" class="align-center" src="../_images/2_export_excel_wizard2.png" />
 
 
 
 
 </article>
-<article class="slide level-3" id="id21">
+<article class="slide level-3" id="id24">
 
 <h3>1.1 เลือกรายการที่ต้องทำจ่าย</h3>
 
 <p>ตัวอย่าง Excel ของการ Export Excel - AP Transport Estimated โดยจะมีการ Switch Dr/Cr ไว้รอ
 <strong>แต่ผู้ใช้งานต้องเพิ่มรายการปรับปรุงรายการเมื่อเทียบกับข้อมูล External เอง</strong></p>
 <img alt="../_images/3_export_excel2.png" class="align-center" src="../_images/3_export_excel2.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id25">
+
+<h3>1.1 เลือกรายการที่ต้องทำจ่าย</h3>
+
 <ol class="arabic simple">
 <li>ข้อมูลที่ Export ออกมาจาก Odoo</li>
 <li>ให้นำข้อมูลที่ได้จาก Transporter ใส่ที่ External</li>
@@ -463,7 +522,7 @@
 
 
 </article>
-<article class="slide level-3" id="id22">
+<article class="slide level-3" id="id26">
 
 <h3>2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter</h3>
 
@@ -474,7 +533,7 @@
 
 
 </article>
-<article class="slide level-3" id="id23">
+<article class="slide level-3" id="id27">
 
 <h3>2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter</h3>
 
@@ -540,19 +599,37 @@
 <li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Service</strong></li>
 </ol>
 <img alt="../_images/1_search_journal_items3.png" class="align-center" src="../_images/1_search_journal_items3.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id28">
+
+<h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
+
 <img alt="../_images/2_export_excel_wizard3.png" class="align-center" src="../_images/2_export_excel_wizard3.png" />
 
 
 
 
 </article>
-<article class="slide level-3" id="id24">
+<article class="slide level-3" id="id29">
 
 <h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
 
 <p>ตัวอย่าง Excel ของการ Export Excel - AP Service โดยจะมีการ Switch Dr/Cr ไว้รอ
 <strong>แต่ผู้ใช้งานต้องเพิ่มรายการปรับปรุงรายการเมื่อเทียบกับข้อมูล External เอง</strong></p>
 <img alt="../_images/3_export_excel2.png" class="align-center" src="../_images/3_export_excel2.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id30">
+
+<h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
+
 <ol class="arabic simple">
 <li>ข้อมูลที่ Export ออกมาจาก Odoo</li>
 <li>ให้นำข้อมูลที่ได้จาก Transporter ใส่ที่ External</li>
@@ -585,12 +662,21 @@
 <h3>3. Import Excel เพื่อสร้าง JE สำหรับการจ่าย</h3>
 
 <p>สร้าง Journal Entry <strong>Bank</strong> ใหม่ แล้วจึงสร้างรายการด้วยการ Import Excel</p>
+<img alt="../_images/4_review_and_post1.png" class="align-center" src="../_images/4_review_and_post1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id31">
+
+<h3>3. Import Excel เพื่อสร้าง JE สำหรับการจ่าย</h3>
+
 <ol class="arabic simple">
 <li>เนื่องจากมีรายการ VAT ที่ต้องการ Tax Invoice ระบบจะยังไม่ให้ Post</li>
 <li>ใส่ข้อมูล Tax Invoice</li>
 <li>ทำการ Post</li>
 </ol>
-<img alt="../_images/4_review_and_post1.png" class="align-center" src="../_images/4_review_and_post1.png" />
 
 
 
