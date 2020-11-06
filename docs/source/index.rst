@@ -10,8 +10,10 @@ Welcome to 945 Documentations
    :maxdepth: 3
    :caption: Contents:
 
-   functional
-   technical
+   functional/overview
+   functional/auto_workflow
+   functional/manual_payment
+   technical/technical
 
 Indices and tables
 ==================
