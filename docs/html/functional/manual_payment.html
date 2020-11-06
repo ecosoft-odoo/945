@@ -91,6 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">945 Functional Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_workflow.html">&gt; Automatic Workflow</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">&gt; Manual Payment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mass-reconciliation">Mass Reconciliation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mass-automatic-reconcile">การทำงานของหน้าต่าง Mass Automatic Reconcile</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#clear-ar-provider">Clear AR Provider</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#excel">1. เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#journal-entry-statement">2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</a></li>
@@ -197,24 +201,34 @@
             
   <div class="section" id="manual-payment">
 <h1>&gt; Manual Payment<a class="headerlink" href="#manual-payment" title="Permalink to this headline">¶</a></h1>
+<p>ระบบการเคลียร์หนี้ AR/AP</p>
+<div class="section" id="mass-reconciliation">
+<h2>Mass Reconciliation<a class="headerlink" href="#mass-reconciliation" title="Permalink to this headline">¶</a></h2>
 <p>ในระบบของ 945 เพื่อให้การเคลียร์หนี้ (reconcile AR/AP) ทำได้อย่างรวดเร็ว เราจะใช้ฟังก์ชั่น <strong>Mass Automatic Reconcile</strong></p>
 <p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
 <img alt="../_images/all_mass_reconcile.png" class="align-center" src="../_images/all_mass_reconcile.png" />
-<p>ในทุกๆ Profile เราจะมีการเซตค่าตามรูป</p>
+<p>ในทุกๆ Profile เราจะมีการเซตค่าตามรูป (ต่าง Account Code)</p>
 <img alt="../_images/sample_mass_reconcile.png" class="align-center" src="../_images/sample_mass_reconcile.png" />
-<p>การทำงานของหน้าต่าง Mass Automatic Reconcile</p>
+<div class="section" id="mass-automatic-reconcile">
+<h3>การทำงานของหน้าต่าง Mass Automatic Reconcile<a class="headerlink" href="#mass-automatic-reconcile" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>ตั้งชื่อ Profile และเลือก Account Code</p></li>
 <li><p>ตั้งกฏการ Reconcile ด้วย Partner และ Parcel ID</p></li>
 <li><p>แสดงรายการ journal items ที่ใช้ Account เดียวกันจะอาจถูก reconcile หากจับคู่ได้ตรงตามกฏ</p></li>
-<li><p>สั่งให้ระบบทำการ Reconcile (เราสามารถตั้งค่า Scheduled Job ให้ทำงานเป็นช่วงๆแบบอัตโนมัติได้ด้วย)</p></li>
+<li><p>ทำการ Reconcile</p></li>
 <li><p>ดูรายการ Reconcile ล่าสุดที่เกิดขึ้น (ดูย้อนหลังได้ที่ tab History)</p></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เราสามารถตั้งค่า Scheduled Job ให้ทำงานเป็นช่วงๆแบบอัตโนมัติได้ด้วย</p>
+</div>
+</div>
+</div>
 <div class="section" id="clear-ar-provider">
 <h2>Clear AR Provider<a class="headerlink" href="#clear-ar-provider" title="Permalink to this headline">¶</a></h2>
 <p>เมื่อได้รับ Statement จากธนาคารว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
 <ol class="arabic simple">
-<li><p>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (ขั้นตอนนี้ข้ามได้)</p></li>
+<li><p>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (optional)</p></li>
 <li><p>นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</p></li>
 <li><p>ทำการ Reconcile และตรวจสอบผลลัพธ์</p></li>
 </ol>
@@ -233,7 +247,8 @@
 <p>ขั้นตอนนี้เป็นขั้นตอนพิเศษเพื่อได้ข้อมูลทดสอบ การทำงานจริงข้อมูลจะมาจาก statement ตรงๆ</p>
 </div>
 <p>ตัวอย่าง Excel ของการ Export Excel - AR Provider โดยจะมีการ Switch Dr/Cr ไว้รอ
-และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้ โปรดตรวจสอบความถูกต้องก่อนทำการ Import เพื่อสร้าง Journal Entry</p>
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้</p>
+<p>โปรดตรวจสอบความถูกต้องก่อนทำการ Import เพื่อสร้าง Journal Entry</p>
 <img alt="../_images/3_export_excel.png" class="align-center" src="../_images/3_export_excel.png" />
 </div>
 <div class="section" id="journal-entry-statement">
@@ -294,10 +309,10 @@
 </ol>
 <p>สร้าง Journal Entry ใหม่เพื่อทำหน้าที่เป็น Payment Entry</p>
 <img alt="../_images/4_create_payment_entry1.png" class="align-center" src="../_images/4_create_payment_entry1.png" />
-<p>เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้โดยเลือก Template = <strong>AP Commission</strong></p>
+<p>Import Excel ตามที่ได้เตรียมด้วย Template = <strong>AP Commission</strong></p>
 <img alt="../_images/5_import_excel1.png" class="align-center" src="../_images/5_import_excel1.png" />
 <p>ในขณะที่ JE ยังมีสถานะ <strong>Draft</strong> ให้ทำการ Split Journal Entry by Partner, ระบบทำการ Split JE ตาม
-จำนวนผู้รับส่วนแบ่ง พร้อมๆกับทำการลบ Journal Entry ตั้งต้นนี้</p>
+จำนวนผู้รับส่วนแบ่ง (และลบ Journal Entry ตั้งต้นนี้)</p>
 <img alt="../_images/6_split_je.png" class="align-center" src="../_images/6_split_je.png" />
 <p>ในตอนนี้เราจะมี Journal Entries สำหรับผู้รับส่วนแบ่งทุกๆคน เพื่อเราจะได้สามารถออก WHT Cert. ได้พร้อมๆกัน</p>
 <img alt="../_images/7_new_split_je.png" class="align-center" src="../_images/7_new_split_je.png" />
@@ -308,9 +323,9 @@
 <img alt="../_images/8_create_wht_certs.png" class="align-center" src="../_images/8_create_wht_certs.png" />
 <p>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</p>
 <img alt="../_images/9_create_wht_certs_wizard.png" class="align-center" src="../_images/9_create_wht_certs_wizard.png" />
-<p>ระบบจะสร้าง Withholding Tax Certs ให้ตามจำนวนของ Journal Entry
-ให้ผู้ใช้งานตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p>
+<p>ระบบจะสร้าง Withholding Tax Certs ให้ตามจำนวนของ Journal Entry</p>
 <img alt="../_images/10_wht_cert.png" class="align-center" src="../_images/10_wht_cert.png" />
+<p>ให้ผู้ใช้งานตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p>
 <p>เลือก Print &gt; Withholding Tax Cert เป็น PDF (สามารถ print ได้พร้อมๆกันหลายรายการ)</p>
 <img alt="../_images/11_print_wht_cert.png" class="align-center" src="../_images/11_print_wht_cert.png" />
 <div class="admonition note">
@@ -460,12 +475,12 @@
 <div class="section" id="id7">
 <h3>3. Import Excel เพื่อสร้าง JE สำหรับการจ่าย<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>สร้าง Journal Entry <strong>Bank</strong> ใหม่ แล้วจึงสร้างรายการด้วยการ Import Excel</p>
+<img alt="../_images/4_review_and_post1.png" class="align-center" src="../_images/4_review_and_post1.png" />
 <ol class="arabic simple">
 <li><p>เนื่องจากมีรายการ VAT ที่ต้องการ Tax Invoice ระบบจะยังไม่ให้ Post</p></li>
 <li><p>ใส่ข้อมูล Tax Invoice</p></li>
 <li><p>ทำการ Post</p></li>
 </ol>
-<img alt="../_images/4_review_and_post1.png" class="align-center" src="../_images/4_review_and_post1.png" />
 </div>
 <div class="section" id="id8">
 <h3>4 ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
