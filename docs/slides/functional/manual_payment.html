@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&gt; Manual Payment &mdash; 945 Manuals  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/single.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../_static/odoo.css" type="text/css" />
+    
+    
+    
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/common.js"></script>
+    
+    <script type="text/javascript" src="../_static/slides.js"></script>
+    <script type="text/javascript" src="../_static/sync.js"></script>
+    <script type="text/javascript" src="../_static/controller.js"></script>
+    <script type="text/javascript" src="../_static/init.js"></script>
+    
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="945 Manuals  documentation" href="../index.html" />
+    <link rel="next" title="945 Technical Manual" href="../technical/technical.html" />
+    <link rel="prev" title="&gt; Automatic Workflow" href="auto_workflow.html" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="manual-payment">
+
+<h1>&gt; Manual Payment</h1>
+
+<p>ในระบบของ 945 เพื่อให้การเคลียร์หนี้ (reconcile AR/AP) ทำได้อย่างรวดเร็ว เราจะใช้ฟังก์ชั่น <strong>Mass Automatic Reconcile</strong></p>
+<p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Actions &gt; Mass Automatic Reconcile</p>
+<img alt="../_images/all_mass_reconcile.png" class="align-center" src="../_images/all_mass_reconcile.png" />
+
+
+
+
+</article>
+<article class="slide level-1" id="id9">
+
+<h1>&gt; Manual Payment</h1>
+
+<p>ในทุกๆ Profile เราจะมีการเซตค่าตามรูป</p>
+<img alt="../_images/sample_mass_reconcile.png" class="align-center" src="../_images/sample_mass_reconcile.png" />
+
+
+
+
+</article>
+<article class="slide level-1" id="id10">
+
+<h1>&gt; Manual Payment</h1>
+
+<p>การทำงานของหน้าต่าง Mass Automatic Reconcile</p>
+<ol class="arabic simple">
+<li>ตั้งชื่อ Profile และเลือก Account Code</li>
+<li>ตั้งกฏการ Reconcile ด้วย Partner และ Parcel ID</li>
+<li>แสดงรายการ journal items ที่ใช้ Account เดียวกันจะอาจถูก reconcile หากจับคู่ได้ตรงตามกฏ</li>
+<li>สั่งให้ระบบทำการ Reconcile (เราสามารถตั้งค่า Scheduled Job ให้ทำงานเป็นช่วงๆแบบอัตโนมัติได้ด้วย)</li>
+<li>ดูรายการ Reconcile ล่าสุดที่เกิดขึ้น (ดูย้อนหลังได้ที่ tab History)</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-2" id="clear-ar-provider">
+
+<h2>Clear AR Provider</h2>
+
+<p>เมื่อได้รับ Statement จากธนาคารว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
+<ol class="arabic simple">
+<li>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (ขั้นตอนนี้ข้ามได้)</li>
+<li>นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</li>
+<li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="excel">
+
+<h3>1. เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ</h3>
+
+<p>Export journal items ที่สนใจมาเป็นค่าตั้งต้นหากต้องการเทียบกับ statement ที่ได้รับมา</p>
+<ol class="arabic simple">
+<li>กรองรายการด้วย Favorite = <strong>AR Provider</strong></li>
+<li>เลือกรายการที่ต้องการ Export</li>
+<li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AR Provider</strong></li>
+</ol>
+<img alt="../_images/1_search_journal_items.png" class="align-center" src="../_images/1_search_journal_items.png" />
+<img alt="../_images/2_export_excel_wizard.png" class="align-center" src="../_images/2_export_excel_wizard.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ขั้นตอนนี้เป็นขั้นตอนพิเศษเพื่อได้ข้อมูลทดสอบ การทำงานจริงข้อมูลจะมาจาก statement ตรงๆ</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-3" id="id11">
+
+<h3>1. เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ</h3>
+
+<p>ตัวอย่าง Excel ของการ Export Excel - AR Provider โดยจะมีการ Switch Dr/Cr ไว้รอ
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้ โปรดตรวจสอบความถูกต้องก่อนทำการ Import เพื่อสร้าง Journal Entry</p>
+<img alt="../_images/3_export_excel.png" class="align-center" src="../_images/3_export_excel.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="journal-entry-statement">
+
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+
+<ol class="arabic simple">
+<li>เตรียม Excel โดยใช้ข้อมูลจาก statement ที่ได้รับมา</li>
+<li>ที่เมนู Journal Entries สร้างรายการใหม่ ซึ่งจะทำหน้าที่เป็น Payment Entry</li>
+<li>ที่ JE, คลิกเมนู Action &gt; Import Excel โดยเลือก Template = <strong>AR Provider</strong></li>
+<li>ตรวจทานให้เรียบร้อยจึงก่อน Post</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id12">
+
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>สร้าง Journal Entry ใหม่เพื่อทำหน้าที่เป็น Payment Entry</p>
+<img alt="../_images/4_create_payment_entry.png" class="align-center" src="../_images/4_create_payment_entry.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id13">
+
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้โดยเลือก Template = <strong>AR Provider</strong></p>
+<img alt="../_images/5_import_excel.png" class="align-center" src="../_images/5_import_excel.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id14">
+
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+
+<p>ตรวจสอบให้แน่ใจ แล้วจึงค่อย Post (เฉพาะรายการที่ Posted แล้วเท่านั้นที่ Mass Reconcile จะสนใจ)</p>
+<img alt="../_images/6_post_payment_entry.png" class="align-center" src="../_images/6_post_payment_entry.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="reconcile">
+
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<ol class="arabic simple">
+<li>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>113101 ลูกหนี้การค้า</strong></li>
+<li>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</li>
+<li>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</li>
+<li>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</li>
+</ol>
+<p>End.</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="clear-ap-commission">
+
+<h2>Clear AP Commission</h2>
+
+<p>การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าคอมมิชชั่น ซึ่งทาง 945 ต้องทำจ่ายให้กันผู้ได้รับส่วนแบ่งที่เกี่ยวข้อง</p>
+<ol class="arabic simple">
+<li>เตรียมไฟล์ Excel จากระบบ เพื่อการจ่ายค่า Commission</li>
+<li>นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</li>
+<li>ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</li>
+<li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="excel-commission">
+
+<h3>1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า Commission</h3>
+
+<p>สำหรับ Commission จะดูตามวันที่ (เช่น ศุกร์ถัดไป) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้</p>
+<ol class="arabic simple">
+<li>กรองรายการด้วย Favorite = <strong>AP Commission</strong></li>
+<li>เลือกรายการที่ต้องการ Export</li>
+<li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Commission</strong></li>
+</ol>
+<img alt="../_images/1_search_journal_items1.png" class="align-center" src="../_images/1_search_journal_items1.png" />
+<img alt="../_images/2_export_excel_wizard1.png" class="align-center" src="../_images/2_export_excel_wizard1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id15">
+
+<h3>1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า Commission</h3>
+
+<p>ตัวอย่าง Excel ของการ Export Excel - AP Commission โดยจะมีการ Switch Dr/Cr ไว้รอ
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้ <strong>แต่ผู้ใช้งานต้องเพิ่มรายการ Withholding Tax ให้กับผู้รับ Commission เอง</strong></p>
+<img alt="../_images/3_export_excel1.png" class="align-center" src="../_images/3_export_excel1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="je-split-je">
+
+<h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
+
+<ol class="arabic simple">
+<li>เตรียม Excel และตรวจทานความถูกต้อง และสร้าง Journal Entries เพื่อทำ Payment Entry</li>
+<li>ที่ JE, คลิกเมนู Action &gt; Import Excel โดยเลือก Template = <strong>AP Commission</strong></li>
+<li>ทำการ Split Journal Entry สำหรับแต่ละผู้รับส่วนแบ่ง</li>
+</ol>
+<p>สร้าง Journal Entry ใหม่เพื่อทำหน้าที่เป็น Payment Entry</p>
+<img alt="../_images/4_create_payment_entry1.png" class="align-center" src="../_images/4_create_payment_entry1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id16">
+
+<h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
+
+<p>เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้โดยเลือก Template = <strong>AP Commission</strong></p>
+<img alt="../_images/5_import_excel1.png" class="align-center" src="../_images/5_import_excel1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id17">
+
+<h3>2. นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</h3>
+
+<p>ในขณะที่ JE ยังมีสถานะ <strong>Draft</strong> ให้ทำการ Split Journal Entry by Partner, ระบบทำการ Split JE ตาม
+จำนวนผู้รับส่วนแบ่ง พร้อมๆกับทำการลบ Journal Entry ตั้งต้นนี้</p>
+<img alt="../_images/6_split_je.png" class="align-center" src="../_images/6_split_je.png" />
+<p>ในตอนนี้เราจะมี Journal Entries สำหรับผู้รับส่วนแบ่งทุกๆคน เพื่อเราจะได้สามารถออก WHT Cert. ได้พร้อมๆกัน</p>
+<img alt="../_images/7_new_split_je.png" class="align-center" src="../_images/7_new_split_je.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="withholding-tax-cert">
+
+<h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
+
+<p>จาก Journal Entries ทั้งหมดในขั้นตอนก่อน เลือก Action &gt; Create Withholding Cert</p>
+<img alt="../_images/8_create_wht_certs.png" class="align-center" src="../_images/8_create_wht_certs.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id18">
+
+<h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
+
+<p>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</p>
+<img alt="../_images/9_create_wht_certs_wizard.png" class="align-center" src="../_images/9_create_wht_certs_wizard.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id19">
+
+<h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
+
+<p>ระบบจะสร้าง Withholding Tax Certs ให้ตามจำนวนของ Journal Entry
+ให้ผู้ใช้งานตรวจสอบความถูกต้องแล้วกดปุ่ม Done</p>
+<img alt="../_images/10_wht_cert.png" class="align-center" src="../_images/10_wht_cert.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id20">
+
+<h3>3. ออก Withholding Tax Cert ให้กับผู้รับเงินพร้อมๆกัน</h3>
+
+<p>เลือก Print &gt; Withholding Tax Cert เป็น PDF (สามารถ print ได้พร้อมๆกันหลายรายการ)</p>
+<img alt="../_images/11_print_wht_cert.png" class="align-center" src="../_images/11_print_wht_cert.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ผู้ใช้งานสามารถดู Certificate. ทั้งหมดในภายหลังได้ที่เมนู Accounting &gt; Vendors &gt; WT Certificates</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-3" id="id1">
+
+<h3>4. ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<ol class="arabic simple">
+<li>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>212101 เจ้าหนี้การค้า</strong></li>
+<li>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</li>
+<li>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</li>
+<li>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</li>
+</ol>
+<p>End.</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="clear-ap-transport">
+
+<h2>Clear AP Transport</h2>
+
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>ย้ายเจ้าหนี้ประมาณการค่าขนส่งเป็นเจ้าหนี้ ด้วย Excel</dt><dd><ol class="arabic">
+<li>เลือกรายการที่ต้องทำจ่าย (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และ Export Excel ตั้งต้น</li>
+<li>ปรับปรุง JE และ Import Excel เพื่อสร้าง JE ล้างประมาณการเข้าเจ้าหนี้</li>
+<li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>การเคลียร์เจ้าหนี้ โดยจะมีการหักภาษี ณ ที่จ่าย ภงด 53 ไว้ 1% ด้วย Journal Entry</dt><dd><ol class="arabic">
+<li>สร้าง Journal Entry ด้วย Template ที่เตรียมไว้ล่วงหน้า</li>
+<li>Manual Reconcile เพื่อเคลียร์เจ้าหนี้ขนส่ง</li>
+<li>ออกเอกสาร Withholding Tax Cert.</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id2">
+
+<h3>1.1 เลือกรายการที่ต้องทำจ่าย</h3>
+
+<p>รายการประมาณการค่าขนส่ง จะดูตามวันที่ 15 โดยสามารถค้นหาที่เมนู Journal Items</p>
+<ol class="arabic simple">
+<li>กรองรายการด้วย Favorite = <strong>AP Transport</strong></li>
+<li>เลือกรายการที่ต้องการ Export</li>
+<li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Transport Estimated</strong></li>
+</ol>
+<img alt="../_images/1_search_journal_items2.png" class="align-center" src="../_images/1_search_journal_items2.png" />
+<img alt="../_images/2_export_excel_wizard2.png" class="align-center" src="../_images/2_export_excel_wizard2.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id21">
+
+<h3>1.1 เลือกรายการที่ต้องทำจ่าย</h3>
+
+<p>ตัวอย่าง Excel ของการ Export Excel - AP Transport Estimated โดยจะมีการ Switch Dr/Cr ไว้รอ
+<strong>แต่ผู้ใช้งานต้องเพิ่มรายการปรับปรุงรายการเมื่อเทียบกับข้อมูล External เอง</strong></p>
+<img alt="../_images/3_export_excel2.png" class="align-center" src="../_images/3_export_excel2.png" />
+<ol class="arabic simple">
+<li>ข้อมูลที่ Export ออกมาจาก Odoo</li>
+<li>ให้นำข้อมูลที่ได้จาก Transporter ใส่ที่ External</li>
+<li>ระบบจะเปรียบเทียบรายการที่ตรงกัน</li>
+<li>ให้ทำการลบรายการที่ไม่ตรงกัน</li>
+<li>ระบบได้ทำการคำนวนส่วนต่างค่าขนส่งให้เบื้องต้น แต่ผู้ใช้งานสามารถใส่ส่วนลดและอื่นๆได้เอง</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="import-excel-je">
+
+<h3>1.2 Import Excel เพื่อสร้าง JE ล้างประมาณการเข้าเจ้าหนี้</h3>
+
+<p>สร้าง Journal Entry <strong>Vendor Bill</strong> ใหม่ แล้วจึงสร้างรายการด้วยการ Import Excel,
+ทำการกำหนดวันที่ถึงกำหนดขำระ และใส่ Remarks เพื่อการอ้างถึงในภายหลัง</p>
+<img alt="../_images/4_review_and_post.png" class="align-center" src="../_images/4_review_and_post.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ต้องตรวจสอบให้แน่ใจ แล้วจึงค่อย Post</p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-3" id="id3">
+
+<h3>1.3 ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<ol class="arabic simple">
+<li>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>212107 ประมาณการ - เจ้าหนี้การค้า</strong></li>
+<li>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</li>
+<li>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</li>
+<li>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="journal-entry-template-pay-for-ap-transporter">
+
+<h3>2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter</h3>
+
+<p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Create Entry from Template</p>
+<p>ให้เลือก Template ให้ถูกต้องและกดปุ่ม Next</p>
+<img alt="../_images/5_create_je_ap_transporter.png" class="align-center" src="../_images/5_create_je_ap_transporter.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id22">
+
+<h3>2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter</h3>
+
+<p>ใส่ข้อมูลตามรูป แล้วกดปุ่ม Create Journal Entry</p>
+<img alt="../_images/6_create_je_ap_transporter.png" class="align-center" src="../_images/6_create_je_ap_transporter.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id23">
+
+<h3>2.1 สร้าง Journal Entry ด้วย Template - Pay for AP Transporter</h3>
+
+<p>ระบบจะช่วยสร้าง Journal Entry ให้ พร้อมๆกับช่วยคำนวน WHT 1% ด้วย</p>
+<img alt="../_images/7_je_ap_transporter.png" class="align-center" src="../_images/7_je_ap_transporter.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="manual-reconcile">
+
+<h3>2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง</h3>
+
+<p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Actions &gt; Reconciliation</p>
+<p>เราสามารถใช้หน้าต่างนี้ทำการ Reconcile รายการทั่วๆไป ในกรณีนี้เราต้องการเคลียร์เจ้าหนี้ของ Transporter</p>
+<img alt="../_images/8_manual_reconcile.png" class="align-center" src="../_images/8_manual_reconcile.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id4">
+
+<h3>2.3 ออก Withholding Tax Cert ให้กับผู้รับเงิน</h3>
+
+<ol class="arabic simple">
+<li>จาก Journal Entry ในขั้นตอนก่อน เลือก Action &gt; Create Withholding Cert</li>
+<li>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</li>
+<li>ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done</li>
+<li>เลือก Print &gt; Withholding Tax Cert เป็น PDF</li>
+</ol>
+<p>End.</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="clear-ap-service">
+
+<h2>Clear AP Service</h2>
+
+<p>การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าบริการ ซึ่งทาง 945 ต้องทำจ่ายให้กับผู้ให้บริการ</p>
+<ol class="arabic simple">
+<li>เลือกรายการที่ต้องทำจ่าย โดยดูตามวันที่ (ครบกำหนดวันที่ 15 ของ 2 เดือนหลัง) และนำไปสร้าง Journal Entry สำหรับการจ่ายเงิน</li>
+<li>ออก Withholding Tax Cert ให้กับผู้รับเงิน</li>
+<li>บันทึกเลขที่ Tax Invoice และทดสอบการออกรายงานภาษี</li>
+<li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id5">
+
+<h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
+
+<p>รายการประมาณการค่าขนส่ง จะดูตามวันที่ 15 โดยสามารถค้นหาที่เมนู Journal Items</p>
+<ol class="arabic simple">
+<li>กรองรายการด้วย Favorite = <strong>AP Service</strong></li>
+<li>เลือกรายการที่ต้องการ Export</li>
+<li>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Service</strong></li>
+</ol>
+<img alt="../_images/1_search_journal_items3.png" class="align-center" src="../_images/1_search_journal_items3.png" />
+<img alt="../_images/2_export_excel_wizard3.png" class="align-center" src="../_images/2_export_excel_wizard3.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id24">
+
+<h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
+
+<p>ตัวอย่าง Excel ของการ Export Excel - AP Service โดยจะมีการ Switch Dr/Cr ไว้รอ
+<strong>แต่ผู้ใช้งานต้องเพิ่มรายการปรับปรุงรายการเมื่อเทียบกับข้อมูล External เอง</strong></p>
+<img alt="../_images/3_export_excel2.png" class="align-center" src="../_images/3_export_excel2.png" />
+<ol class="arabic simple">
+<li>ข้อมูลที่ Export ออกมาจาก Odoo</li>
+<li>ให้นำข้อมูลที่ได้จาก Transporter ใส่ที่ External</li>
+<li>ระบบจะเปรียบเทียบรายการที่ตรงกัน</li>
+<li>ให้ทำการลบรายการที่ไม่ตรงกัน</li>
+<li>ระบบได้ทำการคำนวนส่วนต่างค่าขนส่งให้เบื้องต้น แต่ผู้ใช้งานสามารถใส่ส่วนลดและอื่นๆได้เอง</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id6">
+
+<h3>2. ออก Withholding Tax Cert ให้กับผู้รับเงิน</h3>
+
+<ol class="arabic simple">
+<li>จาก Journal Entry ในขั้นตอนก่อน เลือก Action &gt; Create Withholding Cert</li>
+<li>ระบบจะช่วยสร้าง Cert จากรายการที่บันทึก Account Code - WHT</li>
+<li>ให้ผู้ใช้งานกรอกข้อมูลให้ครบแล้วกด Save ตรวจสอบความถูกต้องแล้วกดปุ่ม Done</li>
+<li>เลือก Print &gt; Withholding Tax Cert เป็น PDF</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id7">
+
+<h3>3. Import Excel เพื่อสร้าง JE สำหรับการจ่าย</h3>
+
+<p>สร้าง Journal Entry <strong>Bank</strong> ใหม่ แล้วจึงสร้างรายการด้วยการ Import Excel</p>
+<ol class="arabic simple">
+<li>เนื่องจากมีรายการ VAT ที่ต้องการ Tax Invoice ระบบจะยังไม่ให้ Post</li>
+<li>ใส่ข้อมูล Tax Invoice</li>
+<li>ทำการ Post</li>
+</ol>
+<img alt="../_images/4_review_and_post1.png" class="align-center" src="../_images/4_review_and_post1.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id8">
+
+<h3>4 ทำการ Reconcile และตรวจสอบผลลัพธ์</h3>
+
+<ol class="arabic simple">
+<li>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>212101 เจ้าหนี้การค้า</strong></li>
+<li>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</li>
+<li>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</li>
+<li>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</li>
+</ol>
+<p>End.</p>
+
+
+
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>
