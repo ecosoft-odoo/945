@@ -369,7 +369,7 @@ Clear AP Service
 ตัวอย่าง Excel ของการ Export Excel - AP Service โดยจะมีการ Switch Dr/Cr ไว้รอ
 **แต่ผู้ใช้งานต้องเพิ่มรายการปรับปรุงรายการเมื่อเทียบกับข้อมูล External เอง**
 
-.. image:: images/reconcile_ap_transport/3_export_excel.png
+.. image:: images/reconcile_ap_service/3_export_excel.png
     :align: center
 
 .. nextslide::
