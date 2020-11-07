@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="945 Manuals  documentation" href="../index.html" />
-    <link rel="next" title="945 Technical Manual" href="../technical/technical.html" />
+    <link rel="next" title="&gt; Thai Tax Report" href="th_tax_report.html" />
     <link rel="prev" title="&gt; Automatic Workflow" href="auto_workflow.html" /> 
   </head>
   <body>
@@ -109,10 +109,10 @@
 
 <h2>Clear AR Provider</h2>
 
-<p>เมื่อได้รับ Statement จากธนาคารว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
+<p>เมื่อได้รับ Statement จาก Transporter ว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
 <ol class="arabic simple">
 <li>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (optional)</li>
-<li>นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</li>
+<li>นำเข้า Statement ตามที่ได้รับแจ้งจาก Transporter</li>
 <li>ทำการ Reconcile และตรวจสอบผลลัพธ์</li>
 </ol>
 
@@ -165,7 +165,7 @@
 </article>
 <article class="slide level-3" id="journal-entry-statement">
 
-<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้ง</h3>
 
 <ol class="arabic simple">
 <li>เตรียม Excel โดยใช้ข้อมูลจาก statement ที่ได้รับมา</li>
@@ -180,7 +180,7 @@
 </article>
 <article class="slide level-3" id="id12">
 
-<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้ง</h3>
 
 <p>สร้าง Journal Entry ใหม่เพื่อทำหน้าที่เป็น Payment Entry</p>
 <img alt="../_images/4_create_payment_entry.png" class="align-center" src="../_images/4_create_payment_entry.png" />
@@ -191,7 +191,7 @@
 </article>
 <article class="slide level-3" id="id13">
 
-<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้ง</h3>
 
 <p>เพิ่มรายการด้วยการ Import Excel ตามที่ได้เตรียมไว้โดยเลือก Template = <strong>AR Provider</strong></p>
 <img alt="../_images/5_import_excel.png" class="align-center" src="../_images/5_import_excel.png" />
@@ -202,7 +202,7 @@
 </article>
 <article class="slide level-3" id="id14">
 
-<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</h3>
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้ง</h3>
 
 <p>ตรวจสอบให้แน่ใจ แล้วจึงค่อย Post (เฉพาะรายการที่ Posted แล้วเท่านั้นที่ Mass Reconcile จะสนใจ)</p>
 <img alt="../_images/6_post_payment_entry.png" class="align-center" src="../_images/6_post_payment_entry.png" />
@@ -548,8 +548,23 @@
 
 <h3>2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง</h3>
 
-<p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Actions &gt; Reconciliation</p>
-<p>เราสามารถใช้หน้าต่างนี้ทำการ Reconcile รายการทั่วๆไป ในกรณีนี้เราต้องการเคลียร์เจ้าหนี้ของ Transporter</p>
+<p>ขึ้นตอนนี้เราจะใช้วิธี Manual Reconcile โดยไม่ผ่าน Mass Automatic Reconcile เหมือนกรณีอื่นๆเนื่องจาก
+จะเป็นการล้าง รายการเจ้าหนี้ Transporter ตรงๆ (ไม่มี Parcel ID)</p>
+<ol class="arabic simple">
+<li>ไปที่หน้าต่าง Journal Items</li>
+<li>Filter รายการ Unreconciled, เจ้าหนี้การค้า ที่ไม่มี Parcal ID</li>
+<li>เลือกรายการ และทำการ Reconcile ผ่าน Action</li>
+<li>ตรวจสอบ และกดปุ่ม Reconcile</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id28">
+
+<h3>2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง</h3>
+
 <img alt="../_images/8_manual_reconcile.png" class="align-center" src="../_images/8_manual_reconcile.png" />
 
 
@@ -604,7 +619,7 @@
 
 
 </article>
-<article class="slide level-3" id="id28">
+<article class="slide level-3" id="id29">
 
 <h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
 
@@ -614,7 +629,7 @@
 
 
 </article>
-<article class="slide level-3" id="id29">
+<article class="slide level-3" id="id30">
 
 <h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
 
@@ -626,7 +641,7 @@
 
 
 </article>
-<article class="slide level-3" id="id30">
+<article class="slide level-3" id="id31">
 
 <h3>1. เลือกรายการที่ต้องทำจ่าย</h3>
 
@@ -668,7 +683,7 @@
 
 
 </article>
-<article class="slide level-3" id="id31">
+<article class="slide level-3" id="id32">
 
 <h3>3. Import Excel เพื่อสร้าง JE สำหรับการจ่าย</h3>
 
