@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="945 Technical Manual" href="../technical/technical.html" />
+    <link rel="next" title="&gt; Thai Tax Report" href="th_tax_report.html" />
     <link rel="prev" title="&gt; Automatic Workflow" href="auto_workflow.html" /> 
 </head>
 
@@ -97,7 +97,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#clear-ar-provider">Clear AR Provider</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#excel">1. เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#journal-entry-statement">2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#journal-entry-statement">2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้ง</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reconcile">3. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
 </ul>
 </li>
@@ -126,6 +126,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="th_tax_report.html">&gt; Thai Tax Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../technical/technical.html">945 Technical Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#modules">&gt; Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#apis">&gt; 945 APIs</a></li>
@@ -226,10 +227,10 @@
 </div>
 <div class="section" id="clear-ar-provider">
 <h2>Clear AR Provider<a class="headerlink" href="#clear-ar-provider" title="Permalink to this headline">¶</a></h2>
-<p>เมื่อได้รับ Statement จากธนาคารว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
+<p>เมื่อได้รับ Statement จาก Transporter ว่าได้รับเงินเข้ามาจากลูกหนี้ของทาง 945 และต้องการเคลียร์ลูกหนี้ที่ค้างจ่าย</p>
 <ol class="arabic simple">
 <li><p>เตรียมไฟล์ Excel จากระบบเพื่อการตรวจสอบ (optional)</p></li>
-<li><p>นำเข้า Statement ตามที่ได้รับแจ้งจากธนาคาร</p></li>
+<li><p>นำเข้า Statement ตามที่ได้รับแจ้งจาก Transporter</p></li>
 <li><p>ทำการ Reconcile และตรวจสอบผลลัพธ์</p></li>
 </ol>
 <div class="section" id="excel">
@@ -252,7 +253,7 @@
 <img alt="../_images/3_export_excel.png" class="align-center" src="../_images/3_export_excel.png" />
 </div>
 <div class="section" id="journal-entry-statement">
-<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้งจากธนาคาร<a class="headerlink" href="#journal-entry-statement" title="Permalink to this headline">¶</a></h3>
+<h3>2. สร้าง Journal Entry ตาม statement ที่ได้รับแจ้ง<a class="headerlink" href="#journal-entry-statement" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>เตรียม Excel โดยใช้ข้อมูลจาก statement ที่ได้รับมา</p></li>
 <li><p>ที่เมนู Journal Entries สร้างรายการใหม่ ซึ่งจะทำหน้าที่เป็น Payment Entry</p></li>
@@ -418,8 +419,14 @@
 </div>
 <div class="section" id="manual-reconcile">
 <h3>2.2 Manual Reconcile ลูกหนี้ค่าขนส่ง<a class="headerlink" href="#manual-reconcile" title="Permalink to this headline">¶</a></h3>
-<p><strong>Menu:</strong> Accounting &gt; Accounting &gt; Actions &gt; Reconciliation</p>
-<p>เราสามารถใช้หน้าต่างนี้ทำการ Reconcile รายการทั่วๆไป ในกรณีนี้เราต้องการเคลียร์เจ้าหนี้ของ Transporter</p>
+<p>ขึ้นตอนนี้เราจะใช้วิธี Manual Reconcile โดยไม่ผ่าน Mass Automatic Reconcile เหมือนกรณีอื่นๆเนื่องจาก
+จะเป็นการล้าง รายการเจ้าหนี้ Transporter ตรงๆ (ไม่มี Parcel ID)</p>
+<ol class="arabic simple">
+<li><p>ไปที่หน้าต่าง Journal Items</p></li>
+<li><p>Filter รายการ Unreconciled, เจ้าหนี้การค้า ที่ไม่มี Parcal ID</p></li>
+<li><p>เลือกรายการ และทำการ Reconcile ผ่าน Action</p></li>
+<li><p>ตรวจสอบ และกดปุ่ม Reconcile</p></li>
+</ol>
 <img alt="../_images/8_manual_reconcile.png" class="align-center" src="../_images/8_manual_reconcile.png" />
 </div>
 <div class="section" id="id4">
@@ -503,7 +510,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../technical/technical.html" class="btn btn-neutral float-right" title="945 Technical Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="th_tax_report.html" class="btn btn-neutral float-right" title="&gt; Thai Tax Report" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="auto_workflow.html" class="btn btn-neutral float-left" title="&gt; Automatic Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

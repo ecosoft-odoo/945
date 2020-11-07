@@ -13,6 +13,7 @@ Welcome to 945 Documentations
    functional/overview
    functional/auto_workflow
    functional/manual_payment
+   functional/th_tax_report
    technical/technical
 
 Indices and tables

@@ -31,7 +31,7 @@ Odoo + OCA + 945
 .. _modules:
 
 > Modules
-=========
+==========
 
 OCA Modules
 -----------
@@ -428,7 +428,9 @@ API1 (sale.order):
         "payload": {
             "status": "out of delivery",  # Status: out of delivery
             "partner_id": 1,  # Customer (res.partner)
-            "sunteen_dealer_id": 2,  # Dealer (res.partner)
+            "sunteen_merchant_id": 33,  # Merchant (res.partner)
+            "sunteen_merchant_level": "ecom",  # Merchant Level: ecom/agent/franchise
+            "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945, others
             "workflow_process_id": "Express Standard",  # Automatic Workflow (sale.workflow.process)
             "date_order": "2020-01-31",  # Order Date
             "transaction_date": "",  # Transaction Date
@@ -443,22 +445,19 @@ API1 (sale.order):
                     "product_id": 16,  # Product (product.product)
                     "product_uom_qty": 1,  # Quantity
                     "dealer_price_unit": 100.0,  # Dealer Unit Price
+                    "type": "normal",  # Type: normal, cod
+                    "cod_amount": 0,  # COD Amount
+
                 },
                 {
-                    "sunteen_parcel_number": "TDZ001",
-                    "sunteen_partner_id": 14,
+                    "sunteen_parcel_number": "TDZ002",
+                    "sunteen_partner_id": 15,
                     "sunteen_customer": "CUSTOMER1",
                     "product_id": 17,
                     "product_uom_qty": 2,
                     "dealer_price_unit": 200.0,
-                },
-                {
-                    "sunteen_parcel_number": "TDZ001",  # Dealer Amount Difference Line
-                    "sunteen_partner_id": 14,
-                    "sunteen_customer": "CUSTOMER1",
-                    "product_id": 18,
-                    "product_uom_qty": 1,
-                    "dealer_price_unit": 20.0,  # API sent +, odoo change to -
+                    "type": "cod",
+                    "cod_amount": 20,
                 },
             ]
         },
@@ -480,7 +479,9 @@ API2 (ecommerce.delivery.complete):
         "payload": {
             "status": "completed",  # Status : completed/return
             "partner_id": 1,  # Customer (res.partner)
-            "sunteen_dealer_id": 2,  # Dealer (res.partner)
+            "sunteen_merchant_id": 33,  # Merchant (res.partner)
+            "sunteen_merchant_level": "ecom",  # Merchant Level: ecom/agent/franchise
+            "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945, others
             "workflow_process_id": "Express Standard",  # Automatic Workflow (sale.workflow.process)
             "date_order": "2020-01-31",  # Order Date
             "transaction_date": "",  # Transaction Date
@@ -495,22 +496,21 @@ API2 (ecommerce.delivery.complete):
                     "product_id": 16,  # Product (product.product)
                     "product_uom_qty": 1,  # Quantity
                     "dealer_price_unit": 100.0,  # Dealer Unit Price
+                    "type": "normal",  # Type: normal, cod
+                    "cod_amount": 0,  # COD Amount
+                    "status": "completed",  # Status: completed/return
+
                 },
                 {
-                    "sunteen_parcel_number": "TDZ001",
-                    "sunteen_partner_id": 14,
+                    "sunteen_parcel_number": "TDZ002",
+                    "sunteen_partner_id": 15,
                     "sunteen_customer": "CUSTOMER1",
                     "product_id": 17,
                     "product_uom_qty": 2,
                     "dealer_price_unit": 200.0,
-                },
-                {
-                    "sunteen_parcel_number": "TDZ001",  # Dealer Amount Difference Line
-                    "sunteen_partner_id": 14,
-                    "sunteen_customer": "CUSTOMER1",
-                    "product_id": 18,
-                    "product_uom_qty": 1,
-                    "dealer_price_unit": 20.0,  # API sent +, odoo change to -
+                    "type": "cod",
+                    "cod_amount": 20,
+                    "status": "completed",
                 },
             ]
         },
@@ -523,6 +523,9 @@ API2 (ecommerce.delivery.complete):
             ]
         }
     }
+
+.. note::
+    สำหรับ eCommerce การส่งข้อมูลจะเป็น 1 API ต่อ 1 Parcel Number ส่วน Express จะเป็น 1 API ต่อ หลาย Parcel Number
 
 
 .. _job_queue:
@@ -637,6 +640,3 @@ Configurations
 
 What is unit test?
 ------------------
-
-
-
