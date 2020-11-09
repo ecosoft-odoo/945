@@ -282,7 +282,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>API2 (ecommerce.delivery.complete):</p>
+<p>API2 (sunteen.delivery.complete):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status : completed/return</span>
@@ -341,7 +341,7 @@
 
 <h3>eCommerce - Consignment Fix GP</h3>
 
-<p>API1 (ecommerce.record.transportation.cost):</p>
+<p>API1 (sunteen.record.transportation.cost):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
@@ -450,7 +450,7 @@
 
 <h3>eCommerce - Consignment Var GP</h3>
 
-<p>API1 (ecommerce.record.transportation.cost):</p>
+<p>API1 (sunteen.record.transportation.cost):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
@@ -579,12 +579,10 @@
         <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
         <span class="s2">&quot;sunteen_merchant_id&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>  <span class="c1"># Merchant (res.partner)</span>
         <span class="s2">&quot;sunteen_merchant_level&quot;</span><span class="p">:</span> <span class="s2">&quot;ecom&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Level: ecom/agent/franchise</span>
-        <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945, others</span>
+        <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945/others</span>
         <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
         <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
         <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
-        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
-        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
         <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
         <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
             <span class="p">{</span>
@@ -621,19 +619,17 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>API2 (ecommerce.delivery.complete):</p>
+<p>API2 (sunteen.express.delivery.complete):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status : completed/return</span>
         <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
         <span class="s2">&quot;sunteen_merchant_id&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>  <span class="c1"># Merchant (res.partner)</span>
         <span class="s2">&quot;sunteen_merchant_level&quot;</span><span class="p">:</span> <span class="s2">&quot;ecom&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Level: ecom/agent/franchise</span>
-        <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945, others</span>
+        <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945/others</span>
         <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
         <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
         <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
-        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
-        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
         <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
         <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
             <span class="p">{</span>
