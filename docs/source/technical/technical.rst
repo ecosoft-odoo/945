@@ -140,7 +140,7 @@ API 1 (sale.order)
         }
     }
 
-API2 (ecommerce.delivery.complete):
+API2 (sunteen.delivery.complete):
 
 
 .. code-block:: python
@@ -197,7 +197,7 @@ API2 (ecommerce.delivery.complete):
 eCommerce - Consignment Fix GP
 ##############################
 
-API1 (ecommerce.record.transportation.cost):
+API1 (sunteen.record.transportation.cost):
 
 .. code-block:: python
 
@@ -306,7 +306,7 @@ API2 (sale.order):
 eCommerce - Consignment Var GP
 ##############################
 
-API1 (ecommerce.record.transportation.cost):
+API1 (sunteen.record.transportation.cost):
 
 .. code-block:: python
 
@@ -430,12 +430,10 @@ API1 (sale.order):
             "partner_id": 1,  # Customer (res.partner)
             "sunteen_merchant_id": 33,  # Merchant (res.partner)
             "sunteen_merchant_level": "ecom",  # Merchant Level: ecom/agent/franchise
-            "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945, others
+            "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945/others
             "workflow_process_id": "Express Standard",  # Automatic Workflow (sale.workflow.process)
             "date_order": "2020-01-31",  # Order Date
             "transaction_date": "",  # Transaction Date
-            "sunteen_payment_method_id": 3,  # Payment Method (sunteen.payment.method)
-            "sunteen_payment_provider_id": 34,  # Payment Provider (res.partner)
             "total": 500.0,  # Total
             "order_line": [  # Sale Order Line
                 {
@@ -471,7 +469,7 @@ API1 (sale.order):
         }
     }
 
-API2 (ecommerce.delivery.complete):
+API2 (sunteen.express.delivery.complete):
 
 .. code-block:: python
 
@@ -481,12 +479,10 @@ API2 (ecommerce.delivery.complete):
             "partner_id": 1,  # Customer (res.partner)
             "sunteen_merchant_id": 33,  # Merchant (res.partner)
             "sunteen_merchant_level": "ecom",  # Merchant Level: ecom/agent/franchise
-            "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945, others
+            "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945/others
             "workflow_process_id": "Express Standard",  # Automatic Workflow (sale.workflow.process)
             "date_order": "2020-01-31",  # Order Date
             "transaction_date": "",  # Transaction Date
-            "sunteen_payment_method_id": 3,  # Payment Method (sunteen.payment.method)
-            "sunteen_payment_provider_id": 34,  # Payment Provider (res.partner)
             "total": 500.0,  # Total
             "order_line": [  # Sale Order Line
                 {
