@@ -124,6 +124,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#id8">4 ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#clear-ap-consignment">Clear AP Consignment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#excel-consignment">1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า Consignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#je">2. นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-switched-dr-cr-je">Create Switched Dr/Cr JE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-delivery-statement-transporter">1. Import Delivery Statement (ที่ได้รับจาก Transporter)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#journal-items-ar-transport-export-je">2. เลือก journal items AR Transport ที่ต้องการ export เพื่อสร้าง JE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-verify-with-delivery-statement">3. ตรวจสอบส่วนต่างด้วย Action &gt; Verify with Delivery Statement</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="th_tax_report.html">&gt; Thai Tax Report</a></li>
@@ -280,7 +292,7 @@
 </div>
 <div class="section" id="clear-ap-commission">
 <h2>Clear AP Commission<a class="headerlink" href="#clear-ap-commission" title="Permalink to this headline">¶</a></h2>
-<p>การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าคอมมิชชั่น ซึ่งทาง 945 ต้องทำจ่ายให้กันผู้ได้รับส่วนแบ่งที่เกี่ยวข้อง</p>
+<p>การบันทึกคู่บญชีอัตโนมัติของ Delivery Complete ได้ทำให้เกิดค่าคอมมิชชั่น ซึ่งทาง 945 ต้องทำจ่ายให้กับผู้ได้รับส่วนแบ่งที่เกี่ยวข้อง</p>
 <ol class="arabic simple">
 <li><p>เตรียมไฟล์ Excel จากระบบ เพื่อการจ่ายค่า Commission</p></li>
 <li><p>นำเข้ารายการเพื่อสร้าง JE และ Split JE สำหรับแต่ละบุคคล</p></li>
@@ -367,6 +379,11 @@
 </dl>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>การย้ายเจ้าหนี้ประมาณการค่าขนส่งเป็นเจ้าหนี้ กรณีต้องเทียบกับรายการส่งจริง (delivery statement) จำนวนมาก
+สามารถไปใช้วิธีการสร้าง JE Switched Dr/Cr ตรงจาก Journal Items ได้</p>
+</div>
 <div class="section" id="id2">
 <h3>1.1 เลือกรายการที่ต้องทำจ่าย<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>รายการประมาณการค่าขนส่ง จะดูตามวันที่ 15 โดยสามารถค้นหาที่เมนู Journal Items</p>
@@ -497,6 +514,86 @@
 <li><p>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</p></li>
 <li><p>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</p></li>
 </ol>
+<p>End.</p>
+</div>
+</div>
+<div class="section" id="clear-ap-consignment">
+<h2>Clear AP Consignment<a class="headerlink" href="#clear-ap-consignment" title="Permalink to this headline">¶</a></h2>
+<p>การบันทึกคู่บญชีอัตโนมัติของ Account Payable Transfer ได้ทำให้เกิดค่า Consignment Payable ซึ่งทาง 945 ต้องทำจ่ายให้กับผู้ที่เกี่ยวข้อง</p>
+<ol class="arabic simple">
+<li><p>เตรียมไฟล์ Excel จากระบบ เพื่อการจ่ายค่า Consignment</p></li>
+<li><p>นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน</p></li>
+<li><p>ทำการ Reconcile และตรวจสอบผลลัพธ์</p></li>
+</ol>
+<div class="section" id="excel-consignment">
+<h3>1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า Consignment<a class="headerlink" href="#excel-consignment" title="Permalink to this headline">¶</a></h3>
+<p>สำหรับ Consignment จะดูตามวันที่ (เช่น ศุกร์ถัดไป) โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้</p>
+<ol class="arabic simple">
+<li><p>กรองรายการด้วย Favorite = <strong>AP Consignment</strong></p></li>
+<li><p>เลือกรายการที่ต้องการ Export</p></li>
+<li><p>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP Consignment</strong></p></li>
+</ol>
+<img alt="../_images/1_search_journal_items4.png" class="align-center" src="../_images/1_search_journal_items4.png" />
+<img alt="../_images/2_export_excel_wizard1.png" class="align-center" src="../_images/2_export_excel_wizard1.png" />
+<p>ตัวอย่าง Excel ของการ Export Excel - AP Commission โดยจะมีการ Switch Dr/Cr ไว้รอ
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้</p>
+<img alt="../_images/3_export_excel4.png" class="align-center" src="../_images/3_export_excel4.png" />
+</div>
+<div class="section" id="je">
+<h3>2. นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน<a class="headerlink" href="#je" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>เตรียม Excel และตรวจทานความถูกต้อง และสร้าง Journal Entries เพื่อทำ Payment Entry</p></li>
+<li><p>ที่ JE, คลิกเมนู Action &gt; Import Excel โดยเลือก Template = <strong>AP Consignment</strong></p></li>
+</ol>
+<p>สร้าง Journal Entry และ Import Excel ตามที่ได้เตรียมด้วย Template = <strong>AP Consignment</strong>
+หลังจากตรวจสอบ แล้วจึงทำการ Post</p>
+<img alt="../_images/4_journal_entry.png" class="align-center" src="../_images/4_journal_entry.png" />
+</div>
+<div class="section" id="id9">
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>212101 เจ้าหนี้การค้า</strong></p></li>
+<li><p>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</p></li>
+<li><p>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</p></li>
+<li><p>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</p></li>
+</ol>
+<p>End.</p>
+</div>
+</div>
+<div class="section" id="create-switched-dr-cr-je">
+<h2>Create Switched Dr/Cr JE<a class="headerlink" href="#create-switched-dr-cr-je" title="Permalink to this headline">¶</a></h2>
+<p>การทำงานนี้สร้างมาเพื่อแก้ปัญหาการทำงานกับรายการใน Excel จำนวนมาก (มากกว่าแสนรายการ) เพื่อสร้าง JE ย้ายเจ้าหนี้ ใน AP Transport
+เพื่อแก้ปัญหาการ Export / Import Excel ซึ่ง Excel ไม่สามารถรับรายการจำนวนมากขนาดนั้นได้</p>
+<p>โดยวิธีนี้เป็นการข้ามการใช้งาน Excel ไปเลย การทำงานจะประกอบด้วย</p>
+<ol class="arabic simple">
+<li><p>Import รายการ Delivery Statement (by Parcel) เข้าที่หน้าต่าง Vendors &gt; Delivery Statement</p></li>
+<li><p>ที่หน้าต่าง Journal Items เลือก items ที่ต้องการ export และทำ Action &gt; Create Switched Dr/Cr JE</p></li>
+<li><p>ที่ JE ที่สร้างใหม่ ทำการตรวจสอบส่วนต่างด้วย Action &gt; Verify with Delivery Statement และปรับปรุง JE</p></li>
+</ol>
+<div class="section" id="import-delivery-statement-transporter">
+<h3>1. Import Delivery Statement (ที่ได้รับจาก Transporter)<a class="headerlink" href="#import-delivery-statement-transporter" title="Permalink to this headline">¶</a></h3>
+<p>Menu: Accounting &gt; Vendors &gt; Delivery Statement</p>
+<img alt="../_images/import_switch_drcr_je.png" class="align-center" src="../_images/import_switch_drcr_je.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>หัว Column ในไฟล์ Excel ที่ต้องการ Import</p></li>
+<li><p>ถ้าจำนวนรายการเยอะมาก แนะนำให้ใช้ Import in the background</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="journal-items-ar-transport-export-je">
+<h3>2. เลือก journal items AR Transport ที่ต้องการ export เพื่อสร้าง JE<a class="headerlink" href="#journal-items-ar-transport-export-je" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/create_switch_drcr_je.png" class="align-center" src="../_images/create_switch_drcr_je.png" />
+<p>กรอกข้อมูลสำหรับสร้าง Journal Entry</p>
+<img alt="../_images/create_switch_drcr_je2.png" class="align-center" src="../_images/create_switch_drcr_je2.png" />
+</div>
+<div class="section" id="action-verify-with-delivery-statement">
+<h3>3. ตรวจสอบส่วนต่างด้วย Action &gt; Verify with Delivery Statement<a class="headerlink" href="#action-verify-with-delivery-statement" title="Permalink to this headline">¶</a></h3>
+<p>ตรวจสอบกับ Parcel Number จากหน้าต่าง Delivery Statement โดย 1) ลบรายการที่ไม่เจอ 2) ประเมินส่วนต่าง</p>
+<img alt="../_images/verify_with_delivery_statement.png" class="align-center" src="../_images/verify_with_delivery_statement.png" />
+<p>โดยหลังจากตรวจสอบเสร็จ ระบบจะแจ้งผลในส่วน Chatter ด้านล่างของเอกสาร ผู้ใช้งานสามารถนำค่านี้ไปปรับ JE ตามต้องการ</p>
+<img alt="../_images/verify_result.png" class="align-center" src="../_images/verify_result.png" />
 <p>End.</p>
 </div>
 </div>
