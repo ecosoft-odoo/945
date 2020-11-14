@@ -56,6 +56,182 @@
 
 <h1>&gt; Automatic Workflow</h1>
 
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>eCommerce</dt><dd><ul>
+<li>eCommerce Standard</li>
+<li><dl class="first docutils">
+<dt>eCommerce Consignment</dt><dd><ul>
+<li>eCommerce Consignment Fix GP</li>
+<li>eCommerce Consignment Var GP</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Express</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-2" id="ecommerce">
+
+<h2>eCommerce</h2>
+
+<p>Automatic Flow ของ eCommerce แบ่งตามการยิง APIs ออกเป็น 2 Flow ดังนี้</p>
+<ol class="arabic simple">
+<li>eCommerce Standard</li>
+<li>eCommerce Consignment</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="ecommerce-standard">
+
+<h3>eCommerce Standard</h3>
+
+<img alt="../_images/ecom_std_flow.png" class="align-center" src="../_images/ecom_std_flow.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id1">
+
+<h3>eCommerce Standard</h3>
+
+<p><strong>API 1</strong> จะยิงเข้าระบบ Odoo ทาง Sale Order (sale.order)
+และหลังจากที่ API 1 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li>สร้าง Sale Order</li>
+<li>คำนวณรายได้ต่างๆแล้วเพิ่มเข้าไปใน Sale Order</li>
+<li>ยืนยัน Sale Order</li>
+<li>สร้าง Delivery Order เพื่อบันทึกการส่งสินค้า (ตอนนี้ไม่ได้ใช้)</li>
+<li>สร้าง Journal Entry เพื่อบันทึกประมาณการค่าขนส่ง (TC)</li>
+<li>สร้าง Customer Invoice เพื่อบันทึกรายได้ ภาษี(ถ้ามี) และลูกหนี้การค้า</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-3" id="id2">
+
+<h3>eCommerce Standard</h3>
+
+<p><strong>API 2</strong> จะยิงเข้าระบบ Odoo ทาง Delivery Complete (sunteen.delivery.complete)
+และหลังจากที่ API 2 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li>สร้าง Journal Entry เพื่อบันทึกต้นทุนค่าบริการ ส่วนแบ่งค่านายหน้า และเจ้าหนี้การค้า (DC)</li>
+<li>กลับลูกหนี้จาก Customer เป็น Payment Provider</li>
+<li>กลับประมาณการค่าขนส่ง</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-3" id="ecommerce-consignment">
+
+<h3>eCommerce Consignment</h3>
+
+<p>eCommerce Consignment สามารถแบ่งตามวิธีการคำนวณรายได้ ออกเป็น 2 รูปแบบ ดังนี้</p>
+<ol class="arabic simple">
+<li>eCommerce Consignment Fix GP</li>
+<li>eCommerce Consignment Var GP</li>
+</ol>
+<p>ถึงแม้ว่า eCommerce Consignment จะมีการคำนวณรายได้ 2 รูปแบบ แต่การยิง APIs เข้าระบบ Odoo ของ
+eCommerce Consignment Fix GP และ eCommerce Consignment Var GP เหมือนกัน</p>
+<img alt="../_images/ecom_consign_flow.png" class="align-center" src="../_images/ecom_consign_flow.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id3">
+
+<h3>eCommerce Consignment</h3>
+
+<p><strong>API 1</strong> จะยิงเข้าระบบ Odoo ทาง Transportation Cost (sunteen.record.transportation.cost)
+และหลังจากที่ API 1 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li>สร้าง Journal Entry เพื่อบันทึกประมาณการค่าขนส่ง (TC)</li>
+</ul>
+<p><strong>API 2</strong> จะยิงเข้าระบบ Odoo ทาง Sale Order (sale.order)
+และหลังจากที่ API 2 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+
+
+
+
+</article>
+<article class="slide level-3" id="id4">
+
+<h3>eCommerce Consignment</h3>
+
+<ul class="simple">
+<li>สร้าง Sale Order</li>
+<li>คำนวณรายได้ต่างๆแล้วเพิ่มเข้าไปใน Sale Order</li>
+<li>ยืนยัน Sale Order</li>
+<li>สร้าง Delivery Order เพื่อบันทึกการส่งสินค้า (ตอนนี้ไม่ได้ใช้)</li>
+<li>สร้าง Customer Invoice เพื่อบันทึกรายได้ ภาษี(ถ้ามี) และลูกหนี้การค้า</li>
+<li>สร้าง Journal Entry เพื่อบันทึกเจ้าหนี้ฝากขาย โดยการกลับเจ้าหนี้พักมาเป็นเจ้าหนี้ฝากขาย (APT)</li>
+<li>สร้าง Journal Entry เพื่อบันทึกต้นทุนค่าบริการ ส่วนแบ่งค่านายหน้า และเจ้าหนี้การค้า (DC)</li>
+<li>กลับลูกหนี้จาก Customer เป็น Payment Provider</li>
+<li>กลับประมาณการค่าขนส่ง</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="express">
+
+<h2>Express</h2>
+
+<img alt="../_images/express_std_flow.png" class="align-center" src="../_images/express_std_flow.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="id5">
+
+<h2>Express</h2>
+
+<p><strong>API 1</strong> จะยิงเข้าระบบ Odoo ทาง Sale Order (sale.order)
+และหลังจากที่ API 1 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li>สร้างและยืนยัน Sale Order</li>
+<li>สร้าง Delivery Order เพื่อบันทึกการส่งสินค้า (ตอนนี้ไม่ได้ใช้)</li>
+<li>สร้าง Journal Entry เพื่อบันทึกประมาณการค่าขนส่ง (TC)</li>
+<li>สร้าง Customer Invoice เพื่อบันทึกรายได้ ภาษี(ถ้ามี) และลูกหนี้การค้า</li>
+<li>สร้าง Journal Entry เพื่อบันทึกค่า Rebate เมื่อ Agent ส่งสินค้ากับ 945 (REBATE)</li>
+<li>สร้าง Journal Entry เพื่อหักเงินออกจาก Wallet (WD)</li>
+<li>สร้าง Journal Entry เพื่อเติมเงินคืนใน Wallet (WT)</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="id6">
+
+<h2>Express</h2>
+
+<p><strong>API 2</strong> จะยิงเข้าระบบ Odoo ทาง Express Delivery Complete (sunteen.express.delivery.complete)
+และหลังจากที่ API 2 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li>สร้าง Journal Entry เพื่อบันทึกรายได้จากการบริการเก็บเงินปลายทาง ต้นทุนค่าบริการ และเจ้าหนี้การค้า (DC)</li>
+<li>กลับประมาณการค่าขนส่ง</li>
+<li>สร้าง Journal Entry เพื่อเติมเงินคืนใน Wallet (WT)</li>
+</ul>
 
 
 

@@ -89,7 +89,15 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">945 Functional Manual</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">&gt; Automatic Workflow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">&gt; Automatic Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ecommerce">eCommerce</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ecommerce-standard">eCommerce Standard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ecommerce-consignment">eCommerce Consignment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#express">Express</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="manual_payment.html">&gt; Manual Payment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="th_tax_report.html">&gt; Thai Tax Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../technical/technical.html">945 Technical Manual</a></li>
@@ -167,6 +175,104 @@
             
   <div class="section" id="automatic-workflow">
 <h1>&gt; Automatic Workflow<a class="headerlink" href="#automatic-workflow" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>eCommerce</dt><dd><ul class="simple">
+<li><p>eCommerce Standard</p></li>
+<li><dl class="simple">
+<dt>eCommerce Consignment</dt><dd><ul>
+<li><p>eCommerce Consignment Fix GP</p></li>
+<li><p>eCommerce Consignment Var GP</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Express</p></li>
+</ol>
+<div class="section" id="ecommerce">
+<h2>eCommerce<a class="headerlink" href="#ecommerce" title="Permalink to this headline">¶</a></h2>
+<p>Automatic Flow ของ eCommerce แบ่งตามการยิง APIs ออกเป็น 2 Flow ดังนี้</p>
+<ol class="arabic simple">
+<li><p>eCommerce Standard</p></li>
+<li><p>eCommerce Consignment</p></li>
+</ol>
+<div class="section" id="ecommerce-standard">
+<h3>eCommerce Standard<a class="headerlink" href="#ecommerce-standard" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/ecom_std_flow.png" class="align-center" src="../_images/ecom_std_flow.png" />
+<p><strong>API 1</strong> จะยิงเข้าระบบ Odoo ทาง Sale Order (sale.order)
+และหลังจากที่ API 1 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li><p>สร้าง Sale Order</p></li>
+<li><p>คำนวณรายได้ต่างๆแล้วเพิ่มเข้าไปใน Sale Order</p></li>
+<li><p>ยืนยัน Sale Order</p></li>
+<li><p>สร้าง Delivery Order เพื่อบันทึกการส่งสินค้า (ตอนนี้ไม่ได้ใช้)</p></li>
+<li><p>สร้าง Journal Entry เพื่อบันทึกประมาณการค่าขนส่ง (TC)</p></li>
+<li><p>สร้าง Customer Invoice เพื่อบันทึกรายได้ ภาษี(ถ้ามี) และลูกหนี้การค้า</p></li>
+</ul>
+<p><strong>API 2</strong> จะยิงเข้าระบบ Odoo ทาง Delivery Complete (sunteen.delivery.complete)
+และหลังจากที่ API 2 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li><p>สร้าง Journal Entry เพื่อบันทึกต้นทุนค่าบริการ ส่วนแบ่งค่านายหน้า และเจ้าหนี้การค้า (DC)</p></li>
+<li><p>กลับลูกหนี้จาก Customer เป็น Payment Provider</p></li>
+<li><p>กลับประมาณการค่าขนส่ง</p></li>
+</ul>
+</div>
+<div class="section" id="ecommerce-consignment">
+<h3>eCommerce Consignment<a class="headerlink" href="#ecommerce-consignment" title="Permalink to this headline">¶</a></h3>
+<p>eCommerce Consignment สามารถแบ่งตามวิธีการคำนวณรายได้ ออกเป็น 2 รูปแบบ ดังนี้</p>
+<ol class="arabic simple">
+<li><p>eCommerce Consignment Fix GP</p></li>
+<li><p>eCommerce Consignment Var GP</p></li>
+</ol>
+<p>ถึงแม้ว่า eCommerce Consignment จะมีการคำนวณรายได้ 2 รูปแบบ แต่การยิง APIs เข้าระบบ Odoo ของ
+eCommerce Consignment Fix GP และ eCommerce Consignment Var GP เหมือนกัน</p>
+<img alt="../_images/ecom_consign_flow.png" class="align-center" src="../_images/ecom_consign_flow.png" />
+<p><strong>API 1</strong> จะยิงเข้าระบบ Odoo ทาง Transportation Cost (sunteen.record.transportation.cost)
+และหลังจากที่ API 1 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li><p>สร้าง Journal Entry เพื่อบันทึกประมาณการค่าขนส่ง (TC)</p></li>
+</ul>
+<p><strong>API 2</strong> จะยิงเข้าระบบ Odoo ทาง Sale Order (sale.order)
+และหลังจากที่ API 2 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li><p>สร้าง Sale Order</p></li>
+<li><p>คำนวณรายได้ต่างๆแล้วเพิ่มเข้าไปใน Sale Order</p></li>
+<li><p>ยืนยัน Sale Order</p></li>
+<li><p>สร้าง Delivery Order เพื่อบันทึกการส่งสินค้า (ตอนนี้ไม่ได้ใช้)</p></li>
+<li><p>สร้าง Customer Invoice เพื่อบันทึกรายได้ ภาษี(ถ้ามี) และลูกหนี้การค้า</p></li>
+<li><p>สร้าง Journal Entry เพื่อบันทึกเจ้าหนี้ฝากขาย โดยการกลับเจ้าหนี้พักมาเป็นเจ้าหนี้ฝากขาย (APT)</p></li>
+<li><p>สร้าง Journal Entry เพื่อบันทึกต้นทุนค่าบริการ ส่วนแบ่งค่านายหน้า และเจ้าหนี้การค้า (DC)</p></li>
+<li><p>กลับลูกหนี้จาก Customer เป็น Payment Provider</p></li>
+<li><p>กลับประมาณการค่าขนส่ง</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="express">
+<h2>Express<a class="headerlink" href="#express" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/express_std_flow.png" class="align-center" src="../_images/express_std_flow.png" />
+<p><strong>API 1</strong> จะยิงเข้าระบบ Odoo ทาง Sale Order (sale.order)
+และหลังจากที่ API 1 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li><p>สร้างและยืนยัน Sale Order</p></li>
+<li><p>สร้าง Delivery Order เพื่อบันทึกการส่งสินค้า (ตอนนี้ไม่ได้ใช้)</p></li>
+<li><p>สร้าง Journal Entry เพื่อบันทึกประมาณการค่าขนส่ง (TC)</p></li>
+<li><p>สร้าง Customer Invoice เพื่อบันทึกรายได้ ภาษี(ถ้ามี) และลูกหนี้การค้า</p></li>
+<li><p>สร้าง Journal Entry เพื่อบันทึกค่า Rebate เมื่อ Agent ส่งสินค้ากับ 945 (REBATE)</p></li>
+<li><p>สร้าง Journal Entry เพื่อหักเงินออกจาก Wallet (WD)</p></li>
+<li><p>สร้าง Journal Entry เพื่อเติมเงินคืนใน Wallet (WT)</p></li>
+</ul>
+<p><strong>API 2</strong> จะยิงเข้าระบบ Odoo ทาง Express Delivery Complete (sunteen.express.delivery.complete)
+และหลังจากที่ API 2 ถูกยิงเข้ามา ในระบบจะเกิดกระบวนการอัตโนมัติ ดังนี้</p>
+<ul class="simple">
+<li><p>สร้าง Journal Entry เพื่อบันทึกรายได้จากการบริการเก็บเงินปลายทาง ต้นทุนค่าบริการ และเจ้าหนี้การค้า (DC)</p></li>
+<li><p>กลับประมาณการค่าขนส่ง</p></li>
+<li><p>สร้าง Journal Entry เพื่อเติมเงินคืนใน Wallet (WT)</p></li>
+</ul>
+</div>
 </div>
 
 
