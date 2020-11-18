@@ -123,17 +123,28 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#sale-automatic-workflow">&gt; Sale Automatic Workflow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id8">Sale Automatic Workflow คืออะไร</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">Configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#s-configs">945’s Configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">Configurations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#order-configuration">Order Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-options">Workflow Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">945 Workflow Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#s-configs">945’s Configs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">eCommerce Standard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">eCommerce Consignment Fix GP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">eCommerce Consignment Var GP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Express Standard</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#account-move-template">&gt; Account Move Template</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#compute-helper">Account Move Template คืออะไร</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id12">Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">Account Move Template คืออะไร</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">Configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#s-templates">945’s Templates</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#id13">&gt; Compute helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#compute-helper">&gt; Compute helper</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#unit-test">&gt; Unit Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-unit-test">What is unit test?</a></li>
 </ul>
@@ -796,25 +807,103 @@
 <span id="id7"></span><h1>&gt; Sale Automatic Workflow<a class="headerlink" href="#sale-automatic-workflow" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id8">
 <h2>Sale Automatic Workflow คืออะไร<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Sale Automatic Workflow คือ กระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย ตัวอย่างกระบวนการการดำเนินงานที่เกี่ยวข้องกับการขาย เช่น
+การ Confirm Sale Order, การสร้าง Invoice จาก Sale Order และการ Validate Invoice ของ Sale Order เป็นต้น
+โดยกระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย สามารถทำงานได้ใช้โมดูล
+sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
+<p>โมดูล sale_automatic_workflow เป็นโมดูลที่ใช้ในการสร้างและตั้งค่าการทำงานของ Automatic Workflow
+ที่จะนำมาใช้ในกระบวนการขาย ซึ่งเหมาะสำหรับระบบที่มีการทำงานโดยการ Interface ผ่าน API เข้ามาที่ Sale Order ใน Odoo</p>
+<p>โมดูล sale_automatic_workflow_job เป็นโมดูลที่รวมการทำงานของ sale_automatic_workflow และ job_queue เข้าด้วยกัน
+ทำให้ระบบสามารถจัดลำดับการทำงานของ Automatic Workflow ได้</p>
 </div>
 <div class="section" id="id9">
 <h2>Configurations<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>การตั้งค่า Sale Automatic Workflow แบ่งออกเป็น 3 ส่วน ดังนี้</p>
+<ol class="arabic simple">
+<li><p>Order Configuration</p></li>
+<li><p>Workflow Options</p></li>
+<li><p>945 Workflow Options</p></li>
+</ol>
+<div class="section" id="order-configuration">
+<h3>Order Configuration<a class="headerlink" href="#order-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><strong>Shipping Policy</strong> คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Deliver all products at once คือ ส่งสินค้าทั้งหมดที่ลูกค้าต้องการในครั้งเดียว</p></li>
+<li><p>Deliver each product when available คือ ส่งสินค้าเท่าที่มีในคลัง(ตามที่ระบุในระบบ)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Sales Team</strong> คือ ทีมที่ขายสินค้าได้</p></li>
+</ol>
+</div>
+<div class="section" id="workflow-options">
+<h3>Workflow Options<a class="headerlink" href="#workflow-options" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Validate Order</strong> คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ <strong>Order Filter</strong></p></li>
+<li><p><strong>Confirm and Transfer Picking</strong> คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่</p></li>
+<li><p><strong>Create Invoice</strong> คือ ต้องการให้สร้าง Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการสร้าง Invoice ได้ที่ <strong>Create Invoice Filter</strong></p></li>
+<li><p><strong>Validate Invoice</strong> คือ ต้องการให้ Validate Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Validate ได้ที่ <strong>Validate Invoice Filter</strong></p></li>
+<li><p><strong>Sale Done</strong> คือ ต้องการ Locked Sale Order หลังจาก Confirm Sale Oder หรือไม่</p></li>
+<li><p><strong>Force Invoice Date</strong> คือ ต้องการให้ Invoice Date ใน Invoice เป็นวันเดียวกับ Order Date ใน Sale Order หรือไม่</p></li>
+<li><p><strong>Invoice Service on delivery</strong> คือ ต้องการให้บันทึกจำนวน Deliveried ของสินค้าประเภทบริการใน Sale Order หลังจากสร้าง Invoice หรือไม่</p></li>
+<li><p><strong>Sales Journal</strong> คือ Journal ที่จะใช้ใน Invoice</p></li>
+<li><p><strong>Warning Message</strong> คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order</p></li>
+</ol>
+</div>
+<div class="section" id="id10">
+<h3>945 Workflow Options<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><strong>Allow Compute Sale Order Line</strong> คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่</p></li>
+<li><p><strong>Record Transportation Cost</strong> คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่</p></li>
+<li><p><strong>Record Delivery Complete</strong> คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่</p></li>
+<li><p><strong>Consignment Payable</strong> คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>None คือ ไม่คำนวณ Consignment Payable</p></li>
+<li><p>Fixed Cost คือ คำนวณโดยที่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า A ได้ จะต้องจ่ายเงินให้ผู้ฝากขาย 10 บาท/หน่วย</p></li>
+<li><p>Variance Cost คือ คำนวณโดยที่ไม่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า B ได้ ผู้ฝากขายจะได้รับเงินตามรายได้หลังหักค่าใช้จ่ายต่างๆแล้ว</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
 </div>
 <div class="section" id="s-configs">
 <h2>945’s Configs<a class="headerlink" href="#s-configs" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Standard</p></li>
-<li><p>???</p></li>
-</ul>
+<p>ปัจจุบัน 945 มีการใช้ Sale Automatic Workflow ทั้งหมด 4 แบบ ดังนี้</p>
+<ol class="arabic simple">
+<li><p>eCommerce Standard</p></li>
+<li><p>eCommerce Consignment Fix GP</p></li>
+<li><p>eCommerce Consignment Var GP</p></li>
+<li><p>Express Standard</p></li>
+</ol>
+<div class="section" id="id11">
+<h3>eCommerce Standard<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/automatic_workflow_ecom_std.png" class="align-center" src="../_images/automatic_workflow_ecom_std.png" />
+</div>
+<div class="section" id="id12">
+<h3>eCommerce Consignment Fix GP<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/automatic_workflow_ecom_consign_fix.png" class="align-center" src="../_images/automatic_workflow_ecom_consign_fix.png" />
+</div>
+<div class="section" id="id13">
+<h3>eCommerce Consignment Var GP<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/automatic_workflow_ecom_consign_var.png" class="align-center" src="../_images/automatic_workflow_ecom_consign_var.png" />
+</div>
+<div class="section" id="id14">
+<h3>Express Standard<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/automatic_workflow_express_std.png" class="align-center" src="../_images/automatic_workflow_express_std.png" />
+</div>
 </div>
 </div>
 <div class="section" id="account-move-template">
-<span id="id10"></span><h1>&gt; Account Move Template<a class="headerlink" href="#account-move-template" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="compute-helper">
-<span id="id11"></span><h2>Account Move Template คืออะไร<a class="headerlink" href="#compute-helper" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h1>&gt; Account Move Template<a class="headerlink" href="#account-move-template" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id16">
+<h2>Account Move Template คืออะไร<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="id12">
-<h2>Configurations<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h2>Configurations<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="s-templates">
 <h2>945’s Templates<a class="headerlink" href="#s-templates" title="Permalink to this headline">¶</a></h2>
@@ -824,11 +913,11 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id13">
-<h1>&gt; Compute helper<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="compute-helper">
+<span id="id18"></span><h1>&gt; Compute helper<a class="headerlink" href="#compute-helper" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="unit-test">
-<span id="id14"></span><h1>&gt; Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h1>
+<span id="id19"></span><h1>&gt; Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-unit-test">
 <h2>What is unit test?<a class="headerlink" href="#what-is-unit-test" title="Permalink to this headline">¶</a></h2>
 </div>

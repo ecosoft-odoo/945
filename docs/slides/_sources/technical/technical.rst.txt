@@ -597,22 +597,105 @@ Usage
 Sale Automatic Workflow คืออะไร
 ---------------------------------
 
+Sale Automatic Workflow คือ กระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย ตัวอย่างกระบวนการการดำเนินงานที่เกี่ยวข้องกับการขาย เช่น
+การ Confirm Sale Order, การสร้าง Invoice จาก Sale Order และการ Validate Invoice ของ Sale Order เป็นต้น
+โดยกระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย สามารถทำงานได้ใช้โมดูล
+sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA
+
+โมดูล sale_automatic_workflow เป็นโมดูลที่ใช้ในการสร้างและตั้งค่าการทำงานของ Automatic Workflow
+ที่จะนำมาใช้ในกระบวนการขาย ซึ่งเหมาะสำหรับระบบที่มีการทำงานโดยการ Interface ผ่าน API เข้ามาที่ Sale Order ใน Odoo
+
+โมดูล sale_automatic_workflow_job เป็นโมดูลที่รวมการทำงานของ sale_automatic_workflow และ job_queue เข้าด้วยกัน
+ทำให้ระบบสามารถจัดลำดับการทำงานของ Automatic Workflow ได้
 
 Configurations
---------------
+----------------
+
+การตั้งค่า Sale Automatic Workflow แบ่งออกเป็น 3 ส่วน ดังนี้
+
+#. Order Configuration
+#. Workflow Options
+#. 945 Workflow Options
+
+Order Configuration
+#####################
+
+#. **Shipping Policy** คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้
+
+    * Deliver all products at once คือ ส่งสินค้าทั้งหมดที่ลูกค้าต้องการในครั้งเดียว
+    * Deliver each product when available คือ ส่งสินค้าเท่าที่มีในคลัง(ตามที่ระบุในระบบ)
+
+#. **Sales Team** คือ ทีมที่ขายสินค้าได้
+
+Workflow Options
+#################
+
+#. **Validate Order** คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ **Order Filter**
+#. **Confirm and Transfer Picking** คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่
+#. **Create Invoice** คือ ต้องการให้สร้าง Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการสร้าง Invoice ได้ที่ **Create Invoice Filter**
+#. **Validate Invoice** คือ ต้องการให้ Validate Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Validate ได้ที่ **Validate Invoice Filter**
+#. **Sale Done** คือ ต้องการ Locked Sale Order หลังจาก Confirm Sale Oder หรือไม่
+#. **Force Invoice Date** คือ ต้องการให้ Invoice Date ใน Invoice เป็นวันเดียวกับ Order Date ใน Sale Order หรือไม่
+#. **Invoice Service on delivery** คือ ต้องการให้บันทึกจำนวน Deliveried ของสินค้าประเภทบริการใน Sale Order หลังจากสร้าง Invoice หรือไม่
+#. **Sales Journal** คือ Journal ที่จะใช้ใน Invoice
+#. **Warning Message** คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order
+
+945 Workflow Options
+#####################
+
+#. **Allow Compute Sale Order Line** คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่
+#. **Record Transportation Cost** คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่
+#. **Record Delivery Complete** คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่
+#. **Consignment Payable** คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้
+
+    * None คือ ไม่คำนวณ Consignment Payable
+    * Fixed Cost คือ คำนวณโดยที่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า A ได้ จะต้องจ่ายเงินให้ผู้ฝากขาย 10 บาท/หน่วย
+    * Variance Cost คือ คำนวณโดยที่ไม่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า B ได้ ผู้ฝากขายจะได้รับเงินตามรายได้หลังหักค่าใช้จ่ายต่างๆแล้ว
 
 945's Configs
--------------
+--------------
 
-* Standard
-* ???
+ปัจจุบัน 945 มีการใช้ Sale Automatic Workflow ทั้งหมด 4 แบบ ดังนี้
+
+#. eCommerce Standard
+#. eCommerce Consignment Fix GP
+#. eCommerce Consignment Var GP
+#. Express Standard
+
+eCommerce Standard
+###################
+
+.. image:: images/sale_automatic_workflow/automatic_workflow_ecom_std.png
+    :align: center
+
+.. nextslide::
+
+eCommerce Consignment Fix GP
+#############################
+
+.. image:: images/sale_automatic_workflow/automatic_workflow_ecom_consign_fix.png
+    :align: center
+
+.. nextslide::
+
+eCommerce Consignment Var GP
+#############################
+
+.. image:: images/sale_automatic_workflow/automatic_workflow_ecom_consign_var.png
+    :align: center
+
+.. nextslide::
+
+Express Standard
+#################
+
+.. image:: images/sale_automatic_workflow/automatic_workflow_express_std.png
+    :align: center
 
 .. _account_move_template:
 
 > Account Move Template
 =======================
-
-.. _compute_helper:
 
 Account Move Template คืออะไร
 ---------------------------------
@@ -625,6 +708,8 @@ Configurations
 
 * Standard
 * ???
+
+.. _compute_helper:
 
 > Compute helper
 ================
