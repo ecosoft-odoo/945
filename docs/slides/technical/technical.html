@@ -75,7 +75,7 @@
 
 
 </article>
-<article class="slide level-2" id="id15">
+<article class="slide level-2" id="id20">
 
 <h2>945 Development Concept</h2>
 
@@ -143,7 +143,7 @@
 
 
 </article>
-<article class="slide level-2" id="id16">
+<article class="slide level-2" id="id21">
 
 <h2>OCA Modules</h2>
 
@@ -189,7 +189,7 @@
 
 
 </article>
-<article class="slide level-2" id="id17">
+<article class="slide level-2" id="id22">
 
 <h2>945 Modules</h2>
 
@@ -756,7 +756,7 @@
 
 
 </article>
-<article class="slide level-2" id="id18">
+<article class="slide level-2" id="id23">
 
 <h2>Usage</h2>
 
@@ -786,6 +786,14 @@
 
 <h2>Sale Automatic Workflow คืออะไร</h2>
 
+<p>Sale Automatic Workflow คือ กระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย ตัวอย่างกระบวนการการดำเนินงานที่เกี่ยวข้องกับการขาย เช่น
+การ Confirm Sale Order, การสร้าง Invoice จาก Sale Order และการ Validate Invoice ของ Sale Order เป็นต้น
+โดยกระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย สามารถทำงานได้ใช้โมดูล
+sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
+<p>โมดูล sale_automatic_workflow เป็นโมดูลที่ใช้ในการสร้างและตั้งค่าการทำงานของ Automatic Workflow
+ที่จะนำมาใช้ในกระบวนการขาย ซึ่งเหมาะสำหรับระบบที่มีการทำงานโดยการ Interface ผ่าน API เข้ามาที่ Sale Order ใน Odoo</p>
+<p>โมดูล sale_automatic_workflow_job เป็นโมดูลที่รวมการทำงานของ sale_automatic_workflow และ job_queue เข้าด้วยกัน
+ทำให้ระบบสามารถจัดลำดับการทำงานของ Automatic Workflow ได้</p>
 
 
 
@@ -795,6 +803,79 @@
 
 <h2>Configurations</h2>
 
+<p>การตั้งค่า Sale Automatic Workflow แบ่งออกเป็น 3 ส่วน ดังนี้</p>
+<ol class="arabic simple">
+<li>Order Configuration</li>
+<li>Workflow Options</li>
+<li>945 Workflow Options</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="order-configuration">
+
+<h3>Order Configuration</h3>
+
+<ol class="arabic">
+<li><p class="first"><strong>Shipping Policy</strong> คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้</p>
+<blockquote>
+<div><ul class="simple">
+<li>Deliver all products at once คือ ส่งสินค้าทั้งหมดที่ลูกค้าต้องการในครั้งเดียว</li>
+<li>Deliver each product when available คือ ส่งสินค้าเท่าที่มีในคลัง(ตามที่ระบุในระบบ)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sales Team</strong> คือ ทีมที่ขายสินค้าได้</p>
+</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="workflow-options">
+
+<h3>Workflow Options</h3>
+
+<ol class="arabic simple">
+<li><strong>Validate Order</strong> คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ <strong>Order Filter</strong></li>
+<li><strong>Confirm and Transfer Picking</strong> คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่</li>
+<li><strong>Create Invoice</strong> คือ ต้องการให้สร้าง Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการสร้าง Invoice ได้ที่ <strong>Create Invoice Filter</strong></li>
+<li><strong>Validate Invoice</strong> คือ ต้องการให้ Validate Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Validate ได้ที่ <strong>Validate Invoice Filter</strong></li>
+<li><strong>Sale Done</strong> คือ ต้องการ Locked Sale Order หลังจาก Confirm Sale Oder หรือไม่</li>
+<li><strong>Force Invoice Date</strong> คือ ต้องการให้ Invoice Date ใน Invoice เป็นวันเดียวกับ Order Date ใน Sale Order หรือไม่</li>
+<li><strong>Invoice Service on delivery</strong> คือ ต้องการให้บันทึกจำนวน Deliveried ของสินค้าประเภทบริการใน Sale Order หลังจากสร้าง Invoice หรือไม่</li>
+<li><strong>Sales Journal</strong> คือ Journal ที่จะใช้ใน Invoice</li>
+<li><strong>Warning Message</strong> คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id10">
+
+<h3>945 Workflow Options</h3>
+
+<ol class="arabic">
+<li><p class="first"><strong>Allow Compute Sale Order Line</strong> คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่</p>
+</li>
+<li><p class="first"><strong>Record Transportation Cost</strong> คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่</p>
+</li>
+<li><p class="first"><strong>Record Delivery Complete</strong> คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่</p>
+</li>
+<li><p class="first"><strong>Consignment Payable</strong> คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้</p>
+<blockquote>
+<div><ul class="simple">
+<li>None คือ ไม่คำนวณ Consignment Payable</li>
+<li>Fixed Cost คือ คำนวณโดยที่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า A ได้ จะต้องจ่ายเงินให้ผู้ฝากขาย 10 บาท/หน่วย</li>
+<li>Variance Cost คือ คำนวณโดยที่ไม่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า B ได้ ผู้ฝากขายจะได้รับเงินตามรายได้หลังหักค่าใช้จ่ายต่างๆแล้ว</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
 
 
 
@@ -804,10 +885,53 @@
 
 <h2>945’s Configs</h2>
 
-<ul class="simple">
-<li>Standard</li>
-<li>???</li>
-</ul>
+<p>ปัจจุบัน 945 มีการใช้ Sale Automatic Workflow ทั้งหมด 4 แบบ ดังนี้</p>
+<ol class="arabic simple">
+<li>eCommerce Standard</li>
+<li>eCommerce Consignment Fix GP</li>
+<li>eCommerce Consignment Var GP</li>
+<li>Express Standard</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-3" id="id11">
+
+<h3>eCommerce Standard</h3>
+
+<img alt="../_images/automatic_workflow_ecom_std.png" class="align-center" src="../_images/automatic_workflow_ecom_std.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id12">
+
+<h3>eCommerce Consignment Fix GP</h3>
+
+<img alt="../_images/automatic_workflow_ecom_consign_fix.png" class="align-center" src="../_images/automatic_workflow_ecom_consign_fix.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id13">
+
+<h3>eCommerce Consignment Var GP</h3>
+
+<img alt="../_images/automatic_workflow_ecom_consign_var.png" class="align-center" src="../_images/automatic_workflow_ecom_consign_var.png" />
+
+
+
+
+</article>
+<article class="slide level-3" id="id14">
+
+<h3>Express Standard</h3>
+
+<img alt="../_images/automatic_workflow_express_std.png" class="align-center" src="../_images/automatic_workflow_express_std.png" />
 
 
 
@@ -822,7 +946,7 @@
 
 
 </article>
-<article class="slide level-2" id="compute-helper">
+<article class="slide level-2" id="id16">
 
 <h2>Account Move Template คืออะไร</h2>
 
@@ -831,7 +955,7 @@
 
 
 </article>
-<article class="slide level-2" id="id12">
+<article class="slide level-2" id="id17">
 
 <h2>Configurations</h2>
 
@@ -853,7 +977,7 @@
 
 
 </article>
-<article class="slide level-1" id="id13">
+<article class="slide level-1" id="compute-helper">
 
 <h1>&gt; Compute helper</h1>
 
