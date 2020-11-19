@@ -714,6 +714,65 @@ Configurations
 > Compute helper
 ================
 
+Compute Helper คืออะไร
+------------------------------
+
+**Menu:** 945 > Configurations > Compute > Compute Type / Helper
+
+Compute Helper เกิดขึ้นเนื่องจากการคำนวนเพื่อให้ได้ค่าต่างๆที่เกิดขึ้นในระบบเช่น Service Cost ซึ่งหลังจากที่เราพัฒนาระบบไปได้ซักระยะ
+พบว่าระบบมีความซับซ้อนเพราะสูตรการคำนวนขึ้นอยู่กับหลายตัวแปร เช่น Partner, Product, Payment Method การฝังกฏการคำนวนไว้ในโค้ด (hard code)
+จะทำให้การดูแลระบบเป็นไปอย่างยากลำบาก
+
+จึงได้มีการสร้างตาราง Mapping ไว้แยกต่างหาก (Compute Helper) เพื่อให้เห็นว่าในแต่ละประเภทของการคำนวน (Compute Type)
+มีสูตรการคำนวน (Server Action) อย่างไร
+
+.. nextslide::
+
+ตัวอย่างตามรูปคือตัวช่วยการคำนวนสำหรับฟังก์ชั่น _get_service_cost()
+
+.. image:: images/compute_helper/compute_helper.png
+    :align: center
+
+.. nextslide::
+
+ตัวอย่างสำหรับ _get_service_cost() จะถูกเรียกใช้งานผ่าน compute helper ตามตัวอย่างด้านล่าง
+
+.. code-block:: python
+
+    def _get_service_cost(self, payment_method_id, payment_provider_id):
+        res = self.env["sunteen.compute.helper"].run(
+            self, "_get_service_cost", partner_id=payment_provider_id.id or False,
+            payment_method_id=payment_method_id.id or False, input_dict={}
+        )
+        return res
+
+.. note::
+    Compute Helper ทั้งหมดปัจจุบันจะถูกโหลดเข้าระบบด้วยไฟล์ data จาก
+        * sunteen/data/sunteen_compute_helper_data.xml
+        * sunteen_data/data/sunteen.compute.helper.csv
+
+Server Actions
+--------------------
+
+**Menu:** Settings > Technical > Actions > Server Actions
+
+ด้วย Compute Helper จะมาเรียก Server Action ต่อ แล้ว Server Action คืออะไร?
+
+Server Action เป็นฟังก์ชั่นมาตรฐานหนึ่งของ Odoo ใช้สำหรับการเขียน scriptlet ด้วย Python สั้นๆได้ โดยใน scriptlet
+สามารถรับการผ่านค่าต่างๆผ่านตัวแปร Context (เช่น model, active_id และอื่นๆ) โดยหลังจากที่สร้าง scriptlet นี้แล้วสามารถนำมันไปผูกใช้งาน
+กับโมเดลที่สนใจได้ ในกรณีของ 945 เราสร้าง scriptlet โดยไม่ได้นำไปผูกกับโมเดลใดๆ แต่เรียกใช้โดยตรงผ่านฟัังชั่นดังตัวอย่าง _get_service_cost()
+
+.. nextslide::
+
+รูปนี้เป็นตัวอย่างการเขียน Server Action ที่ใช้ในการคำนวน Service Cost
+
+.. image:: images/compute_helper/server_action.png
+    :align: center
+
+.. note::
+    รายละเอียดเพิ่มเติมเกี่ยวกับ `Server Action
+    <https://www.odoo.com/documentation/14.0/reference/actions.html#server-actions-ir-actions-server>`_
+
 .. _unit_test:
 
 > Unit Test
@@ -721,3 +780,66 @@ Configurations
 
 What is unit test?
 ------------------
+
+Unit Test คือ script ในการจำลองให้ระบบทำงานผ่านโค้ด มีประโยชน์ในการตรวจสอบระบบที่มีการแก้ไขต่อเนื่องให้แน่ใจว่าสิ่งที่แก้ไม่ไปขัดแย้งกับส่วนเดิม
+หรือถ้าแย้งกันเราจะได้รู้ว่าระบบทำงานถูกต้องหรือไม่ หรือต้องปรับโค้ดและ test script ให้ถูกต้อง
+
+ในระบบ 945 เรามีการเขียน Unit Test เฉพาะกับการทำงานกับ API และซึ่งมีการบันทึกบัญชีอัตโนมัติ
+โดยปกติเราจะรัน unit test บน development machine เท่านั้นเพื่อตรวจสอบการทำงานของโค้ดก่อนการ deploy
+
+.. nextslide::
+
+Test script จะถูกเก็บไว้ที่โมดูล sunteen_test โดยเมื่อจะรัน test สิ่งที่ต้องทำคือการ start Odoo ผ่าน Command Line
+ด้วย -d <database> -i sunteen_test --test-enable เช่น
+
+.. code-block:: python
+
+    > ./odoo-bin -c odoo.conf -d api_odoo -i sunteen_test --test-enable
+
+คำสั่งนี้จะบอกให้ Odoo ทำงานกับ database api_odoo และทำการรันการทดสอบของโมดูล sunteen_test
+
+โดย log ของ command line จะมีผลดังตัวอย่างนี้หากสำเร็จ
+
+.. code-block:: python
+   :emphasize-lines: 4
+
+    2020-11-19 05:02:50,837 23016 INFO sunteen odoo.addons.sunteen_test.tests.test_ecom_standard_1: Starting TestEcomStandard.test_2_transportation_cost ...
+    2020-11-19 05:02:50,958 23016 WARNING sunteen odoo.addons.base.models.res_company: The method '_company_default_get' on res.company is deprecated and shouldn't be used anymore
+    2020-11-19 05:02:51,428 23016 INFO sunteen odoo.addons.sunteen_test.tests.test_ecom_standard_1: Starting TestEcomStandard.test_3_invoice_entry ...
+    2020-11-19 05:02:51,432 23016 INFO sunteen odoo.modules.module: Ran 3 tests in 1.024s
+
+และอาจมีผลลัพธ์แบบนี้หากไม่สำเร็จ
+
+.. code-block:: python
+   :emphasize-lines: 9
+
+    2020-11-19 04:49:11,697 21813 INFO sunteen odoo.addons.sunteen_test.tests.test_ecom_standard_1: Starting TestEcomStandard.test_4_delivery_complete ...
+    2020-11-19 04:49:11,698 21813 INFO sunteen odoo.addons.sunteen_api.models.utils: [sunteen.delivery.complete].create_data(), input: {'payload': {'status': 'out for delivery', 'partner_id': 4960, 'sunteen_dealer_id': 4961, 'name': '55-CP20053042686x', 'workflow_process_id': 'eCommerce Standard', 'date_order': '2020-06-01', 'transation_date': '2020-06-01', 'sunteen_payment_method_id': 1, 'sunteen_payment_provider_id': 10, 'total': 3200.0, 'order_line': [{'product_id': 1323, 'product_uom_qty': 1, 'dealer_price_unit': 1600.0, 'sunteen_parcel_number': 'TDZ20982676x', 'sunteen_partner_id': 10, 'sunteen_customer': 'คันธรส จงอร่ามเรือง(Kantarost)', 'name': 'Colla Tab 10 กระปุก'}, {'product_id': 1324, 'product_uom_qty': 1, 'dealer_price_unit': 1600.0, 'sunteen_parcel_number': 'TDZ20982676x', 'sunteen_partner_id': 10, 'sunteen_customer': 'คันธรส จงอร่ามเรือง(Kantarost)', 'name': 'Aqua S คอลลาเจน 10 แพ็ค'}, {'product_id': 1, 'product_uom_qty': 1, 'dealer_price_unit': 50.0, 'sunteen_parcel_number': 'TDZ20982676x', 'sunteen_partner_id': 10, 'sunteen_customer': 'sudtinee jaithip', 'name': 'Dealer Amount Difference'}]}, 'status': 'completed'}
+    2020-11-19 04:49:11,701 21813 INFO sunteen odoo.addons.sunteen_test.tests.test_ecom_standard_1: ======================================================================
+    2020-11-19 04:49:11,701 21813 ERROR sunteen odoo.addons.sunteen_test.tests.test_ecom_standard_1: ERROR: TestEcomStandard.test_4_delivery_complete
+    Traceback (most recent call last):
+      File "/home/kittiu/PycharmProjects/odoo-945-erp/sunteen_test/tests/test_ecom_standard_1.py", line 131, in test_4_delivery_complete
+        res = self.DC.create_data(self.ecom_standard_api2_data)
+    ...
+    ValueError: Wrong value for sunteen.delivery.complete.delivery_status: 'out for delivery'
+
+การเขียน Unit Test
+---------------------
+
+การเขียน Unit Test มีหลักการคือให้มองการทำงานเป็น blackbox เราจะใส่ input data เรียกการทำงาน และประเมินผลที่ได้
+และเป้าหมายคือพยายามเขียน script ให้รันผ่านโค้ดให้มากที่สุด โดยเมื่อมีการ start Odoo ด้วย --test-enable
+ระบบจะเข้าไปหาโฟลเดอร์ tests และไฟล์ที่ชื่อเริ่มต้นด้วย test_xxx.py และจะไปรัน method ที่เริ่มต้นด้วย def test_yyy()
+
+.. image:: images/unit_test/unit_test.png
+    :align: center
+
+1. ระบบจะมองหาโฟลเดอร์ tests และหารไฟล์ที่เริ่มด้วย test_xxx.py
+2. Inherit Test Class
+3. Setup() คือส่วนที่เอาไว้ initialize ข้อมูลที่ต้องการใช้สำหรับแต่ละการทดสอบ
+4. Test Cases, 1, 2, 3, 4... แล้วแต่เรื่องที่ต้องการ
+
+.. note::
+    รายละเอียดเพิ่มเติมเกี่ยวกับ `Unit Testing
+    <https://www.odoo.com/documentation/14.0/reference/testing.html>`_
+
+
