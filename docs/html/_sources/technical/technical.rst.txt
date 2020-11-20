@@ -597,10 +597,14 @@ Usage
 Sale Automatic Workflow คืออะไร
 ---------------------------------
 
+**Menu:** Sales > Configuration > Automatic Workflow > Automatic Workflow
+
 Sale Automatic Workflow คือ กระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย ตัวอย่างกระบวนการการดำเนินงานที่เกี่ยวข้องกับการขาย เช่น
 การ Confirm Sale Order, การสร้าง Invoice จาก Sale Order และการ Validate Invoice ของ Sale Order เป็นต้น
 โดยกระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย สามารถทำงานได้ใช้โมดูล
 sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA
+
+.. nextslide::
 
 โมดูล sale_automatic_workflow เป็นโมดูลที่ใช้ในการสร้างและตั้งค่าการทำงานของ Automatic Workflow
 ที่จะนำมาใช้ในกระบวนการขาย ซึ่งเหมาะสำหรับระบบที่มีการทำงานโดยการ Interface ผ่าน API เข้ามาที่ Sale Order ใน Odoo
@@ -620,40 +624,38 @@ Configurations
 Order Configuration
 #####################
 
-#. **Shipping Policy** คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้
-
+* **Shipping Policy** คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้
     * Deliver all products at once คือ ส่งสินค้าทั้งหมดที่ลูกค้าต้องการในครั้งเดียว
     * Deliver each product when available คือ ส่งสินค้าเท่าที่มีในคลัง(ตามที่ระบุในระบบ)
 
-#. **Sales Team** คือ ทีมที่ขายสินค้าได้
+* **Sales Team** คือ ทีมที่ขายสินค้าได้
 
 Workflow Options
 #################
 
-#. **Validate Order** คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ **Order Filter**
-#. **Confirm and Transfer Picking** คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่
-#. **Create Invoice** คือ ต้องการให้สร้าง Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการสร้าง Invoice ได้ที่ **Create Invoice Filter**
-#. **Validate Invoice** คือ ต้องการให้ Validate Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Validate ได้ที่ **Validate Invoice Filter**
-#. **Sale Done** คือ ต้องการ Locked Sale Order หลังจาก Confirm Sale Oder หรือไม่
-#. **Force Invoice Date** คือ ต้องการให้ Invoice Date ใน Invoice เป็นวันเดียวกับ Order Date ใน Sale Order หรือไม่
-#. **Invoice Service on delivery** คือ ต้องการให้บันทึกจำนวน Deliveried ของสินค้าประเภทบริการใน Sale Order หลังจากสร้าง Invoice หรือไม่
-#. **Sales Journal** คือ Journal ที่จะใช้ใน Invoice
-#. **Warning Message** คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order
+* **Validate Order** คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ **Order Filter**
+* **Confirm and Transfer Picking** คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่
+* **Create Invoice** คือ ต้องการให้สร้าง Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการสร้าง Invoice ได้ที่ **Create Invoice Filter**
+* **Validate Invoice** คือ ต้องการให้ Validate Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Validate ได้ที่ **Validate Invoice Filter**
+* **Sale Done** คือ ต้องการ Locked Sale Order หลังจาก Confirm Sale Oder หรือไม่
+* **Force Invoice Date** คือ ต้องการให้ Invoice Date ใน Invoice เป็นวันเดียวกับ Order Date ใน Sale Order หรือไม่
+* **Invoice Service on delivery** คือ ต้องการให้บันทึกจำนวน Deliveried ของสินค้าประเภทบริการใน Sale Order หลังจากสร้าง Invoice หรือไม่
+* **Sales Journal** คือ Journal ที่จะใช้ใน Invoice
+* **Warning Message** คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order
 
 945 Workflow Options
 #####################
 
-#. **Allow Compute Sale Order Line** คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่
-#. **Record Transportation Cost** คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่
-#. **Record Delivery Complete** คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่
-#. **Consignment Payable** คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้
-
+* **Allow Compute Sale Order Line** คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่
+* **Record Transportation Cost** คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่
+* **Record Delivery Complete** คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่
+* **Consignment Payable** คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้
     * None คือ ไม่คำนวณ Consignment Payable
     * Fixed Cost คือ คำนวณโดยที่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า A ได้ จะต้องจ่ายเงินให้ผู้ฝากขาย 10 บาท/หน่วย
     * Variance Cost คือ คำนวณโดยที่ไม่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า B ได้ ผู้ฝากขายจะได้รับเงินตามรายได้หลังหักค่าใช้จ่ายต่างๆแล้ว
 
-945's Configs
---------------
+945's Configurations
+---------------------
 
 ปัจจุบัน 945 มีการใช้ Sale Automatic Workflow ทั้งหมด 4 แบบ ดังนี้
 
@@ -700,14 +702,110 @@ Express Standard
 Account Move Template คืออะไร
 ---------------------------------
 
+**Menu:** Accounting > Configuration > Accounting > Journal Entry Templates
+
+Account Move Template หรือ Journal Entry Template คือ Template ของการบันทึกบัญชี
+มีประโยชน์ในการบันทึกบัญชีที่มีรูปแบบของคู่บัญชีเหมือนๆกัน แต่มีจำนวนมาก
+
 Configurations
 --------------
 
-945's Templates
----------------
+.. image:: images/account_move_template/account_move_template.png
+    :align: center
 
-* Standard
-* ???
+* **Name** คือ ชื่อของ Template
+* **Journal** คือ สมุดบัญชี
+* **Reference** คือ ข้อความที่ต้องการให้แสดงใน Reference ของ Journal Entry
+
+.. nextslide::
+
+.. image:: images/account_move_template/account_move_template_line.png
+    :align: center
+
+.. nextslide::
+
+* **Sequence** คือ ลำดับของ line และใช้อ้างอิงในการคำนวณด้วย
+* **Label** คือ ข้อความที่ใช้อธิบายการบันทึกบัญชีของ line นั้นๆ
+* **Account** คือ บัญชีที่ต้องการบันทึก
+* **Account Opt.** คือ บัญชีที่ต้องการบันทึก เมื่อ Amount ติดลบ
+* **Partner** คือ คู่ค้า
+* **Payment Terms** คือ ระยะเวลาที่กำหนดในการจ่ายเงิน
+
+.. nextslide::
+
+Amount
+
+* **Direction** คือ ทิศทางในการบันทึกบัญชี ได้แก่ Credit และ Debit
+* **Type** คือ วิธีการรับข้อมูล Amount มี 2 แบบ คือ Computed และ User Input
+* **Note** คือ ข้อความที่ต้องการบันทึกเพิ่มเติม
+
+.. note::
+    Compute Formula คือ ส่วนที่ไว้ใส่สูตรที่ใช้ในการคำนวณ Amount ของ line นั้น จะปรากฏเมื่อเลือก **Type** เป็น Computed
+
+Taxes
+
+* **Is a refund?** คือ เป็นการคืนเงินหรือไม่
+* **Originator Tax** คือ ภาษีตั้งต้น
+* **Taxes** คือ ภาษี
+
+.. nextslide::
+
+**ตัวอย่าง Account Move Template**
+
+.. image:: images/account_move_template/deferred_revenue_template.png
+    :align: center
+
+วิธีใช้ Account Move Template
+-----------------------------
+
+1. เรียกใช้งานผ่าน Code
+######################
+
+สิ่งที่จำเป็นในการเรียกใช้งาน Account Move Template คือ
+
+#. สร้าง Record ของ `account.move.template.run`
+#. เรียกใช้ function `generate_move()`
+
+ตัวอย่างการเรียกใช้งานผ่าน Code
+
+.. code-block:: python
+
+    def process_generate_move(self):
+        wiz = self.create_move()
+        wizard = self.env[wiz["res_model"]].browse(wiz["res_id"])
+        wizard.with_context(wiz["context"]).generate_move()
+
+.. nextslide::
+
+2. เรียกใช้งานผ่าน UI
+####################
+
+**วิธีที่ 1**
+
+.. image:: images/account_move_template/gen_move_1.gif
+    :align: center
+
+#. เข้าไปที่ Accounting > Accounting > Miscellaneous > Create Entry from Template
+#. เลือก Template ที่ต้องการใช้เป็นแบบในการบันทึกบัญชี
+#. ใส่ข้อมูลที่ต้องการให้แสดงใน Journal Entry
+#. หลังจากใส่ข้อมูลและตรวจสอบข้อมูลเรียบร้อยแล้ว ให้กดที่ปุ่ม **CREATE JOURNAL ENTRY** เพื่อสร้าง Journal Entry
+
+.. note::
+    สามารถ overwrite ข้อมูลใน line ที่เราต้องการได้ โดยการเพิ่มข้อมูลที่ต้องการ overwrite ไปที่ฟิลด์ **Overwrite**
+    ในรูปแบบของ Dictionary เช่น `{"L0": {"partner_id": 1, "date_maturity": "2020-02-02"}}`
+
+.. nextslide::
+
+**วิธีที่ 2**
+
+.. image:: images/account_move_template/gen_move_2.gif
+    :align: center
+
+#. เข้าไปที่ Accounting > Configuration > Accounting > Journal Entry Templates
+#. เลือก Template ที่ต้องการใช้เป็นแบบในการบันทึกบัญชี
+#. กดที่ปุ่ม **GENERATE JOURNAL ENTRY**
+#. ใส่ข้อมูลที่ต้องการให้แสดงใน Journal Entry
+#. หลังจากใส่ข้อมูลและตรวจสอบข้อมูลเรียบร้อยแล้ว ให้กดที่ปุ่ม **CREATE JOURNAL ENTRY** เพื่อสร้าง Journal Entry
 
 .. _compute_helper:
 
@@ -841,5 +939,3 @@ Test script จะถูกเก็บไว้ที่โมดูล sunteen
 .. note::
     รายละเอียดเพิ่มเติมเกี่ยวกับ `Unit Testing
     <https://www.odoo.com/documentation/14.0/reference/testing.html>`_
-
-
