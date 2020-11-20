@@ -75,7 +75,7 @@
 
 
 </article>
-<article class="slide level-2" id="id22">
+<article class="slide level-2" id="id23">
 
 <h2>945 Development Concept</h2>
 
@@ -143,7 +143,7 @@
 
 
 </article>
-<article class="slide level-2" id="id23">
+<article class="slide level-2" id="id24">
 
 <h2>OCA Modules</h2>
 
@@ -189,7 +189,7 @@
 
 
 </article>
-<article class="slide level-2" id="id24">
+<article class="slide level-2" id="id25">
 
 <h2>945 Modules</h2>
 
@@ -756,7 +756,7 @@
 
 
 </article>
-<article class="slide level-2" id="id25">
+<article class="slide level-2" id="id26">
 
 <h2>Usage</h2>
 
@@ -786,10 +786,20 @@
 
 <h2>Sale Automatic Workflow คืออะไร</h2>
 
+<p><strong>Menu:</strong> Sales &gt; Configuration &gt; Automatic Workflow &gt; Automatic Workflow</p>
 <p>Sale Automatic Workflow คือ กระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย ตัวอย่างกระบวนการการดำเนินงานที่เกี่ยวข้องกับการขาย เช่น
 การ Confirm Sale Order, การสร้าง Invoice จาก Sale Order และการ Validate Invoice ของ Sale Order เป็นต้น
 โดยกระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย สามารถทำงานได้ใช้โมดูล
 sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
+
+
+
+
+</article>
+<article class="slide level-2" id="id27">
+
+<h2>Sale Automatic Workflow คืออะไร</h2>
+
 <p>โมดูล sale_automatic_workflow เป็นโมดูลที่ใช้ในการสร้างและตั้งค่าการทำงานของ Automatic Workflow
 ที่จะนำมาใช้ในกระบวนการขาย ซึ่งเหมาะสำหรับระบบที่มีการทำงานโดยการ Interface ผ่าน API เข้ามาที่ Sale Order ใน Odoo</p>
 <p>โมดูล sale_automatic_workflow_job เป็นโมดูลที่รวมการทำงานของ sale_automatic_workflow และ job_queue เข้าด้วยกัน
@@ -818,18 +828,17 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 <h3>Order Configuration</h3>
 
-<ol class="arabic">
-<li><p class="first"><strong>Shipping Policy</strong> คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Shipping Policy</strong> คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้</dt><dd><ul>
 <li>Deliver all products at once คือ ส่งสินค้าทั้งหมดที่ลูกค้าต้องการในครั้งเดียว</li>
 <li>Deliver each product when available คือ ส่งสินค้าเท่าที่มีในคลัง(ตามที่ระบุในระบบ)</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-<li><p class="first"><strong>Sales Team</strong> คือ ทีมที่ขายสินค้าได้</p>
-</li>
-</ol>
+<li><strong>Sales Team</strong> คือ ทีมที่ขายสินค้าได้</li>
+</ul>
 
 
 
@@ -839,7 +848,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 <h3>Workflow Options</h3>
 
-<ol class="arabic simple">
+<ul class="simple">
 <li><strong>Validate Order</strong> คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ <strong>Order Filter</strong></li>
 <li><strong>Confirm and Transfer Picking</strong> คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่</li>
 <li><strong>Create Invoice</strong> คือ ต้องการให้สร้าง Invoice หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการสร้าง Invoice ได้ที่ <strong>Create Invoice Filter</strong></li>
@@ -849,7 +858,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <li><strong>Invoice Service on delivery</strong> คือ ต้องการให้บันทึกจำนวน Deliveried ของสินค้าประเภทบริการใน Sale Order หลังจากสร้าง Invoice หรือไม่</li>
 <li><strong>Sales Journal</strong> คือ Journal ที่จะใช้ใน Invoice</li>
 <li><strong>Warning Message</strong> คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order</li>
-</ol>
+</ul>
 
 
 
@@ -859,31 +868,28 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 <h3>945 Workflow Options</h3>
 
-<ol class="arabic">
-<li><p class="first"><strong>Allow Compute Sale Order Line</strong> คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่</p>
-</li>
-<li><p class="first"><strong>Record Transportation Cost</strong> คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่</p>
-</li>
-<li><p class="first"><strong>Record Delivery Complete</strong> คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่</p>
-</li>
-<li><p class="first"><strong>Consignment Payable</strong> คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
+<li><strong>Allow Compute Sale Order Line</strong> คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่</li>
+<li><strong>Record Transportation Cost</strong> คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่</li>
+<li><strong>Record Delivery Complete</strong> คือ ต้องการสร้าง Delivery Complete (DC) หรือไม่</li>
+<li><dl class="first docutils">
+<dt><strong>Consignment Payable</strong> คือ วิธีการคำนวณเจ้าหนี้การค้าฝากขาย ซึ่งจะเท่ากับ Account Payable Transfer (APT) โดยสามารถเลือกได้ ดังนี้</dt><dd><ul>
 <li>None คือ ไม่คำนวณ Consignment Payable</li>
 <li>Fixed Cost คือ คำนวณโดยที่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า A ได้ จะต้องจ่ายเงินให้ผู้ฝากขาย 10 บาท/หน่วย</li>
 <li>Variance Cost คือ คำนวณโดยที่ไม่ทราบต้นทุนที่แน่นอน เช่น เมื่อขายสินค้า B ได้ ผู้ฝากขายจะได้รับเงินตามรายได้หลังหักค่าใช้จ่ายต่างๆแล้ว</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
-</ol>
+</ul>
 
 
 
 
 </article>
-<article class="slide level-2" id="s-configs">
+<article class="slide level-2" id="s-configurations">
 
-<h2>945’s Configs</h2>
+<h2>945’s Configurations</h2>
 
 <p>ปัจจุบัน 945 มีการใช้ Sale Automatic Workflow ทั้งหมด 4 แบบ ดังนี้</p>
 <ol class="arabic simple">
@@ -950,6 +956,9 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 <h2>Account Move Template คืออะไร</h2>
 
+<p><strong>Menu:</strong> Accounting &gt; Configuration &gt; Accounting &gt; Journal Entry Templates</p>
+<p>Account Move Template หรือ Journal Entry Template คือ Template ของการบันทึกบัญชี
+มีประโยชน์ในการบันทึกบัญชีที่มีรูปแบบของคู่บัญชีเหมือนๆกัน แต่มีจำนวนมาก</p>
 
 
 
@@ -959,19 +968,145 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 <h2>Configurations</h2>
 
+<img alt="../_images/account_move_template.png" class="align-center" src="../_images/account_move_template.png" />
+<ul class="simple">
+<li><strong>Name</strong> คือ ชื่อของ Template</li>
+<li><strong>Journal</strong> คือ สมุดบัญชี</li>
+<li><strong>Reference</strong> คือ ข้อความที่ต้องการให้แสดงใน Reference ของ Journal Entry</li>
+</ul>
 
 
 
 
 </article>
-<article class="slide level-2" id="s-templates">
+<article class="slide level-2" id="id28">
 
-<h2>945’s Templates</h2>
+<h2>Configurations</h2>
+
+<img alt="../_images/account_move_template_line.png" class="align-center" src="../_images/account_move_template_line.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="id29">
+
+<h2>Configurations</h2>
 
 <ul class="simple">
-<li>Standard</li>
-<li>???</li>
+<li><strong>Sequence</strong> คือ ลำดับของ line และใช้อ้างอิงในการคำนวณด้วย</li>
+<li><strong>Label</strong> คือ ข้อความที่ใช้อธิบายการบันทึกบัญชีของ line นั้นๆ</li>
+<li><strong>Account</strong> คือ บัญชีที่ต้องการบันทึก</li>
+<li><strong>Account Opt.</strong> คือ บัญชีที่ต้องการบันทึก เมื่อ Amount ติดลบ</li>
+<li><strong>Partner</strong> คือ คู่ค้า</li>
+<li><strong>Payment Terms</strong> คือ ระยะเวลาที่กำหนดในการจ่ายเงิน</li>
 </ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="id30">
+
+<h2>Configurations</h2>
+
+<p>Amount</p>
+<ul class="simple">
+<li><strong>Direction</strong> คือ ทิศทางในการบันทึกบัญชี ได้แก่ Credit และ Debit</li>
+<li><strong>Type</strong> คือ วิธีการรับข้อมูล Amount มี 2 แบบ คือ Computed และ User Input</li>
+<li><strong>Note</strong> คือ ข้อความที่ต้องการบันทึกเพิ่มเติม</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Compute Formula คือ ส่วนที่ไว้ใส่สูตรที่ใช้ในการคำนวณ Amount ของ line นั้น จะปรากฏเมื่อเลือก <strong>Type</strong> เป็น Computed</p>
+</div>
+<p>Taxes</p>
+<ul class="simple">
+<li><strong>Is a refund?</strong> คือ เป็นการคืนเงินหรือไม่</li>
+<li><strong>Originator Tax</strong> คือ ภาษีตั้งต้น</li>
+<li><strong>Taxes</strong> คือ ภาษี</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="id31">
+
+<h2>Configurations</h2>
+
+<p><strong>ตัวอย่าง Account Move Template</strong></p>
+<img alt="../_images/deferred_revenue_template.png" class="align-center" src="../_images/deferred_revenue_template.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="id18">
+
+<h2>วิธีใช้ Account Move Template</h2>
+
+
+
+
+
+</article>
+<article class="slide level-3" id="code">
+
+<h3>1. เรียกใช้งานผ่าน Code</h3>
+
+<p>สิ่งที่จำเป็นในการเรียกใช้งาน Account Move Template คือ</p>
+<ol class="arabic simple">
+<li>สร้าง Record ของ <cite>account.move.template.run</cite></li>
+<li>เรียกใช้ function <cite>generate_move()</cite></li>
+</ol>
+<p>ตัวอย่างการเรียกใช้งานผ่าน Code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_generate_move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">wiz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_move</span><span class="p">()</span>
+    <span class="n">wizard</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="n">wiz</span><span class="p">[</span><span class="s2">&quot;res_model&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">browse</span><span class="p">(</span><span class="n">wiz</span><span class="p">[</span><span class="s2">&quot;res_id&quot;</span><span class="p">])</span>
+    <span class="n">wizard</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="n">wiz</span><span class="p">[</span><span class="s2">&quot;context&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">generate_move</span><span class="p">()</span>
+</pre></div>
+</div>
+
+
+
+
+</article>
+<article class="slide level-3" id="ui">
+
+<h3>2. เรียกใช้งานผ่าน UI</h3>
+
+<p><strong>วิธีที่ 1</strong></p>
+<img alt="../_images/gen_move_1.gif" class="align-center" src="../_images/gen_move_1.gif" />
+<ol class="arabic simple">
+<li>เข้าไปที่ Accounting &gt; Accounting &gt; Miscellaneous &gt; Create Entry from Template</li>
+<li>เลือก Template ที่ต้องการใช้เป็นแบบในการบันทึกบัญชี</li>
+<li>ใส่ข้อมูลที่ต้องการให้แสดงใน Journal Entry</li>
+<li>หลังจากใส่ข้อมูลและตรวจสอบข้อมูลเรียบร้อยแล้ว ให้กดที่ปุ่ม <strong>CREATE JOURNAL ENTRY</strong> เพื่อสร้าง Journal Entry</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">สามารถ overwrite ข้อมูลใน line ที่เราต้องการได้ โดยการเพิ่มข้อมูลที่ต้องการ overwrite ไปที่ฟิลด์ <strong>Overwrite</strong>
+ในรูปแบบของ Dictionary เช่น <cite>{“L0”: {“partner_id”: 1, “date_maturity”: “2020-02-02”}}</cite></p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-3" id="id32">
+
+<h3>2. เรียกใช้งานผ่าน UI</h3>
+
+<p><strong>วิธีที่ 2</strong></p>
+<img alt="../_images/gen_move_2.gif" class="align-center" src="../_images/gen_move_2.gif" />
+<ol class="arabic simple">
+<li>เข้าไปที่ Accounting &gt; Configuration &gt; Accounting &gt; Journal Entry Templates</li>
+<li>เลือก Template ที่ต้องการใช้เป็นแบบในการบันทึกบัญชี</li>
+<li>กดที่ปุ่ม <strong>GENERATE JOURNAL ENTRY</strong></li>
+<li>ใส่ข้อมูลที่ต้องการให้แสดงใน Journal Entry</li>
+<li>หลังจากใส่ข้อมูลและตรวจสอบข้อมูลเรียบร้อยแล้ว ให้กดที่ปุ่ม <strong>CREATE JOURNAL ENTRY</strong> เพื่อสร้าง Journal Entry</li>
+</ol>
 
 
 
@@ -986,7 +1121,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
-<article class="slide level-2" id="id19">
+<article class="slide level-2" id="id20">
 
 <h2>Compute Helper คืออะไร</h2>
 
@@ -1001,7 +1136,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
-<article class="slide level-2" id="id26">
+<article class="slide level-2" id="id33">
 
 <h2>Compute Helper คืออะไร</h2>
 
@@ -1012,7 +1147,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
-<article class="slide level-2" id="id27">
+<article class="slide level-2" id="id34">
 
 <h2>Compute Helper คืออะไร</h2>
 
@@ -1054,7 +1189,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
-<article class="slide level-2" id="id28">
+<article class="slide level-2" id="id35">
 
 <h2>Server Actions</h2>
 
@@ -1091,7 +1226,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
-<article class="slide level-2" id="id29">
+<article class="slide level-2" id="id36">
 
 <h2>What is unit test?</h2>
 
@@ -1125,7 +1260,7 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
-<article class="slide level-2" id="id21">
+<article class="slide level-2" id="id22">
 
 <h2>การเขียน Unit Test</h2>
 
