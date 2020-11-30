@@ -941,3 +941,73 @@ Test script จะถูกเก็บไว้ที่โมดูล sunteen
 .. note::
     รายละเอียดเพิ่มเติมเกี่ยวกับ `Unit Testing
     <https://www.odoo.com/documentation/14.0/reference/testing.html>`_
+
+> SQL Views Editor
+=====================
+
+หน้าต่าง SQL Views
+---------------------
+
+**Menu:** Settings > Technical > Database Structure > SQL Views
+
+แทนที่จะเขียน SQL ดิบๆ เพื่อสร้าง Database View โดยตรงที่ระบบฐานข้อมูล เรามีโมดูลช่วยให้การสร้างและดูแล View
+ง่ายและมีระเบียบขึ้นด้วยหน้าต่าง SQL Views
+
+.. image:: images/bi_sql_view/1_sql_view_editor.png
+    :align: center
+
+สร้าง SQL View
+--------------------
+
+เราสามารถสร้างใหม่และปรับปรุง SQL View ได้จากหน้าต่างนี้
+
+1. ตั้งชื่อ Name (จะเป็นชื่อเมนู) และชื่อ Technical Name (จะเป็นชื่อ database view)
+2. ชื่อของ database view ที่จะสร้างขึ้น **สามารถเรียกใช้งานได้จากระบบ BI อื่นๆ**
+3. ลำดับของ UI View ที่จะสร้างขึ้น เป็น View ที่ใช้เพื่อดูข้อมูล, export excel และอื่นๆ
+4. Is Materialized View, สร้าง view แบบ static จาก dynamic sql
+   (ข้อดีคือเร็วเหมือน data table แต่จะไม่ real time เพราะถูก refresh เป็นระยะ)
+5. SQL Query ที่ใช้ในการสร้าง View
+
+Activate View
+------------------
+
+หลังจากทดสอบ View เสร็จ (Preview SQL Expression) เราสามารถเริ่มใช้งานได้โดย กดปุ่มเหล่านี้
+
+* [Validate SQL Expression] -> [Create SQL View, Indexes And Model] > [Create UI]
+
+.. image:: images/bi_sql_view/2_activate_view.png
+    :align: center
+
+Open View
+---------------
+
+คลิกหที่ปุ่ม Open View จากหน้าต่าง SQL View Edit เพื่อเริ่มใช้งานได้ทันที
+หรือจะเข้ามาทางเมนู Dashboard จากหน้าต่าง Desktop ก็ได้เช่นกัน
+
+.. image:: images/bi_sql_view/3_open_view.png
+    :align: center
+
+.. nextslide::
+
+Export Excel จาก Tree View โดยการเลือก Column
+
+.. image:: images/bi_sql_view/4_export_excel.png
+    :align: center
+
+.. image:: images/bi_sql_view/5_excel.png
+    :align: center
+
+
+Refresh Materialized View
+-------------------------------
+
+หากต้องการ Refresh Data ของ view ที่สร้างขี้นสามารถทำได้โดย
+
+1. กดปุ่ม Refresh โดยตรง
+2. ดูการตั้งค่าการ Refresh ของ Scheduled Job ของ View นี้
+
+.. image:: images/bi_sql_view/refresh_view.png
+    :align: center
+
+.. note::
+   ปกติตั้งไว้ 1 Month สามารถปรับให้ถี่ขึ้นตามต้องการ เช่นวันละ 1 ครั้ง ไม่ควรถี่เกินไปเพราะถ้าข้อมูลเยอะจะใช้เวลานาน
