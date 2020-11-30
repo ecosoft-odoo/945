@@ -93,6 +93,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_workflow.html">&gt; Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deferred_revenue.html">&gt; Deferred Revenue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual_payment.html">&gt; Manual Payment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="th_tax_report.html">&gt; Thai Tax Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../technical/technical.html">945 Technical Manual</a></li>
@@ -172,10 +173,11 @@
 <h1>945 Functional Manual<a class="headerlink" href="#functional-manual" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>ส่วนต่างๆ 3 ส่วนที่ประกอบกันขึ้นมาเป็นระบบ 945</p>
+<p>ส่วนต่างๆ 4 ส่วนที่ประกอบกันขึ้นมาเป็นระบบ 945</p>
 <ol class="arabic simple">
 <li><p>ส่วน Automatic Workflow :: ส่วนนี้เป็นการบันทึก Operations ต่างๆที่เกิดขึ้นจากระบบหน้าบ้านทั้งหมด เช่น การขาย ค่าขนส่ง การส่งของ โดยทั้งหมดจะยิงผ่าน API
 เข้ามาทางหน้าต่างของ Odoo/945 ที่เกี่ยวข้อง ทำให้เกิดการบันทึกบัญชีตามกระบวนการ และไปจบที่การตั้งหนี้เพื่อรอการ Manual เคลียร์โดยนักบัญชี</p></li>
+<li><p>ส่วน Deferred Revenue :: เป็นการสร้างและเติมเงิน Wallet ให้กับ Business Unit</p></li>
 <li><p>ส่วน Manual Payment :: เป็นการทำงานโดยนักบัญชีผ่านหน้าจอเพื่อทำงานต่างๆของ Odoo เช่น การจ่ายหนี้ การจ่าย Commission การรับเงินเข้าธนาคาร</p></li>
 <li><p>ส่วน Reporting :: ข้อมูลด้านบัญชีทั้งหมดที่เกิดขึ้นในข้อ 1 และ 2 จะถูกนำมาวิเคราะห์ผ่านระบบรายงานของ Odoo หรือผ่านระบบ BI หลังบ้านอื่นๆ</p></li>
 </ol>

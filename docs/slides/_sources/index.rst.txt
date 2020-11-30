@@ -12,6 +12,7 @@ Welcome to 945 Documentations
 
    functional/overview
    functional/auto_workflow
+   functional/deferred_revenue
    functional/manual_payment
    functional/th_tax_report
    technical/technical

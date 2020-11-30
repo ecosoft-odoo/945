@@ -89,6 +89,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../functional/overview.html">945 Functional Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/auto_workflow.html">&gt; Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/deferred_revenue.html">&gt; Deferred Revenue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/manual_payment.html">&gt; Manual Payment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/th_tax_report.html">&gt; Thai Tax Report</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">945 Technical Manual</a><ul>
@@ -263,6 +264,23 @@
 </dl>
 </li>
 <li><dl class="simple">
+<dt>account_mass_reconcile, account_mass_reconcile_helper</dt><dd><p>โมดูลเสริมเพื่อให้ผู้ใช้งานทางบัญชีสามารถจับคู่เคลียร์ได้่ง่ายขึ้น โดยตั้งค่าการเคลียร์แบบอัตโนมัติได้</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>account_move_template</dt><dd><p>ช่วยในการสร้าง Template สำหรับการบันทึกบัญชี เรียกใช้โดย Operations ต่างๆ</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>account_payment_term_extension</dt><dd><p>เพิ่ม Payment Term ตามโจทย์ของ 945 เช่นเอกสารในอาทิตย์นี้ทั้งหมดให้ไปกองวันครบกำหนดที่ศูกร์หน้า เป็นต้น</p>
+</dd>
+</dl>
+</li>
+</ul>
+<ul class="simple">
+<li><dl class="simple">
 <dt>queue_job</dt><dd><p>Base module สำหรับ Queue Job ถูกเรียกใช้โดย sunteen_api ในการเปลี่ยน function ให้เป็นแบบ queue <code class="code docutils literal notranslate"><span class="pre">&#64;job_auto_delay</span></code></p>
 </dd>
 </dl>
@@ -273,19 +291,12 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>account_mass_reconcile</dt><dd><p>โมดูลเสริมเพื่อให้ผู้ใช้งานทางบัญชีสามารถจับคู่เคลียร์ได้่ง่ายขึ้น โดยตั้งค่าการเคลียร์แบบอัตโนมัติได้</p>
-</dd>
-</dl>
-</li>
-</ul>
-<ul class="simple">
-<li><dl class="simple">
-<dt>account_move_template, account_move_template_enhanced</dt><dd><p>ช่วยในการสร้าง Template สำหรับการบันทึกบัญชี เรียกใช้โดย Operations ต่างๆ</p>
+<dt>base_import_async</dt><dd><p>โมดูลเสริมเพื่อให้สามารถ import ไฟล์ csv เป็นเบื้องหลังได้ ทำให้สามารถทำงานที่เกี่ยวข้องกับการ import ได้รวดเร็วยิ่งขึ้น</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>account_payment_term_extension</dt><dd><p>เพิ่ม Payment Term ตามโจทย์ของ 945 เช่นเอกสารในอาทิตย์นี้ทั้งหมดให้ไปกองวันครบกำหนดที่ศูกร์หน้า เป็นต้น</p>
+<dt>bi_sql_editor</dt><dd><p>โมดูลที่ช่วยในการ query ข้อมมูลจาก database ผ่าน UI</p>
 </dd>
 </dl>
 </li>
@@ -300,12 +311,19 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt>sunteen_install</dt><dd><p>ทำหน้าที่่เรียกการติดตั้งโมดูลทั่งหมดที่ต้องใช้ใน 945 โดยตัวเองไม่ได้มี logic ใดๆ</p>
+<dt>sunteen_api</dt><dd><p>ทำหน้าที่ interface ระหว่างระบบ Odoo กับระบบอื่นๆ</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>sunteen_coa, sunteen_data, sunteen_form</dt><dd><p>ทำหน้าที่โหลดข้อมูลที่ต้องใช้งาน เช่น Chart of Account, Move Templates, การตั้งค่าต่างๆ และแบบฟอร์ม</p>
+<dt>sunteen_bi_sql, sunteen_coa, sunteen_data, sunteen_form, sunteen_bi_sql</dt><dd><p>ทำหน้าที่โหลดข้อมูลที่ต้องใช้งาน เช่น Chart of Account, Move Templates, การตั้งค่าต่างๆ และแบบฟอร์ม</p>
+</dd>
+</dl>
+</li>
+</ul>
+<ul class="simple">
+<li><dl class="simple">
+<dt>sunteen_install</dt><dd><p>ทำหน้าที่่เรียกการติดตั้งโมดูลทั่งหมดที่ต้องใช้ใน 945 โดยตัวเองไม่ได้มี logic ใดๆ</p>
 </dd>
 </dl>
 </li>
@@ -314,8 +332,6 @@
 </dd>
 </dl>
 </li>
-</ul>
-<ul class="simple">
 <li><dl class="simple">
 <dt>sunteen_test</dt><dd><p>โมดูลเสริมสำหรับการทำ Unit Test</p>
 </dd>
@@ -662,7 +678,6 @@
         <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945/others</span>
         <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
         <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
-        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
         <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
         <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
             <span class="p">{</span>
@@ -674,7 +689,6 @@
                 <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
                 <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>  <span class="c1"># Type: normal, cod</span>
                 <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># COD Amount</span>
-
             <span class="p">},</span>
             <span class="p">{</span>
                 <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ002&quot;</span><span class="p">,</span>
@@ -709,7 +723,6 @@
         <span class="s2">&quot;sunteen_merchant_ownership&quot;</span><span class="p">:</span> <span class="s2">&quot;my945&quot;</span><span class="p">,</span>  <span class="c1"># Merchant Ownership: my945/others</span>
         <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Express Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
         <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
-        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
         <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
         <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
             <span class="p">{</span>
@@ -722,7 +735,7 @@
                 <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>  <span class="c1"># Type: normal, cod</span>
                 <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># COD Amount</span>
                 <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>  <span class="c1"># Status: completed/return</span>
-
+                <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-02&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
             <span class="p">},</span>
             <span class="p">{</span>
                 <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ002&quot;</span><span class="p">,</span>
@@ -734,6 +747,7 @@
                 <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cod&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;cod_amount&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
                 <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-02-20&quot;</span><span class="p">,</span>
             <span class="p">},</span>
         <span class="p">]</span>
     <span class="p">},</span>
