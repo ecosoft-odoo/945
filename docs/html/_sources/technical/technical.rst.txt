@@ -38,36 +38,40 @@ OCA Modules
 
 * l10n_th_xxx (โมดูลที่เริ่มต้นด้วย)
     เกี่ยวกับภาษีไทย - WHT, VAT, Undue VAT, Tax Reports.
-* queue_job
-    Base module สำหรับ Queue Job ถูกเรียกใช้โดย sunteen_api ในการเปลี่ยน function ให้เป็นแบบ queue :code:`@job_auto_delay`
-* sale_automatic_workflow, sale_automatic_workflow_job
-    โมดูลเสริมเพื่อให้ workflow จาก Sales Order -> Invoice เกิดขึ้นโดยอัตโนมัติ
-* account_mass_reconcile
+* account_mass_reconcile, account_mass_reconcile_helper
     โมดูลเสริมเพื่อให้ผู้ใช้งานทางบัญชีสามารถจับคู่เคลียร์ได้่ง่ายขึ้น โดยตั้งค่าการเคลียร์แบบอัตโนมัติได้
-
-.. nextslide::
-
-* account_move_template, account_move_template_enhanced
+* account_move_template
     ช่วยในการสร้าง Template สำหรับการบันทึกบัญชี เรียกใช้โดย Operations ต่างๆ
 * account_payment_term_extension
     เพิ่ม Payment Term ตามโจทย์ของ 945 เช่นเอกสารในอาทิตย์นี้ทั้งหมดให้ไปกองวันครบกำหนดที่ศูกร์หน้า เป็นต้น
 
 .. nextslide::
 
+* queue_job
+    Base module สำหรับ Queue Job ถูกเรียกใช้โดย sunteen_api ในการเปลี่ยน function ให้เป็นแบบ queue :code:`@job_auto_delay`
+* sale_automatic_workflow, sale_automatic_workflow_job
+    โมดูลเสริมเพื่อให้ workflow จาก Sales Order -> Invoice เกิดขึ้นโดยอัตโนมัติ
+* base_import_async
+    โมดูลเสริมเพื่อให้สามารถ import ไฟล์ csv เป็นเบื้องหลังได้ ทำให้สามารถทำงานที่เกี่ยวข้องกับการ import ได้รวดเร็วยิ่งขึ้น
+* bi_sql_editor
+    โมดูลที่ช่วยในการ query ข้อมมูลจาก database ผ่าน UI
+
 945 Modules
 -----------
 
 * sunteen
     โมดูลหลักสำหรับ Business Process ของ 945 ทั้งหมด เช่น eCommerce, Express.
-* sunteen_install
-    ทำหน้าที่่เรียกการติดตั้งโมดูลทั่งหมดที่ต้องใช้ใน 945 โดยตัวเองไม่ได้มี logic ใดๆ
-* sunteen_coa, sunteen_data, sunteen_form
+* sunteen_api
+    ทำหน้าที่ interface ระหว่างระบบ Odoo กับระบบอื่นๆ
+* sunteen_bi_sql, sunteen_coa, sunteen_data, sunteen_form, sunteen_bi_sql
     ทำหน้าที่โหลดข้อมูลที่ต้องใช้งาน เช่น Chart of Account, Move Templates, การตั้งค่าต่างๆ และแบบฟอร์ม
-* sunteen_mass_reconcile
-    เสริมการทำงานของ account_mass_reconcile เพื่อให้จับคู่เคลียร์ผ่าน Parcel Number ได้
 
 .. nextslide::
 
+* sunteen_install
+    ทำหน้าที่่เรียกการติดตั้งโมดูลทั่งหมดที่ต้องใช้ใน 945 โดยตัวเองไม่ได้มี logic ใดๆ
+* sunteen_mass_reconcile
+    เสริมการทำงานของ account_mass_reconcile เพื่อให้จับคู่เคลียร์ผ่าน Parcel Number ได้
 * sunteen_test
     โมดูลเสริมสำหรับการทำ Unit Test
 
@@ -433,7 +437,6 @@ API1 (sale.order):
             "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945/others
             "workflow_process_id": "Express Standard",  # Automatic Workflow (sale.workflow.process)
             "date_order": "2020-01-31",  # Order Date
-            "transaction_date": "",  # Transaction Date
             "total": 500.0,  # Total
             "order_line": [  # Sale Order Line
                 {
@@ -445,7 +448,6 @@ API1 (sale.order):
                     "dealer_price_unit": 100.0,  # Dealer Unit Price
                     "type": "normal",  # Type: normal, cod
                     "cod_amount": 0,  # COD Amount
-
                 },
                 {
                     "sunteen_parcel_number": "TDZ002",
@@ -482,7 +484,6 @@ API2 (sunteen.express.delivery.complete):
             "sunteen_merchant_ownership": "my945",  # Merchant Ownership: my945/others
             "workflow_process_id": "Express Standard",  # Automatic Workflow (sale.workflow.process)
             "date_order": "2020-01-31",  # Order Date
-            "transaction_date": "",  # Transaction Date
             "total": 500.0,  # Total
             "order_line": [  # Sale Order Line
                 {
@@ -495,7 +496,7 @@ API2 (sunteen.express.delivery.complete):
                     "type": "normal",  # Type: normal, cod
                     "cod_amount": 0,  # COD Amount
                     "status": "completed",  # Status: completed/return
-
+                    "transaction_date": "2020-02-02",  # Transaction Date
                 },
                 {
                     "sunteen_parcel_number": "TDZ002",
@@ -507,6 +508,7 @@ API2 (sunteen.express.delivery.complete):
                     "type": "cod",
                     "cod_amount": 20,
                     "status": "completed",
+                    "transaction_date": "2020-02-20",
                 },
             ]
         },
