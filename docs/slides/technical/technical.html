@@ -1283,6 +1283,103 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 
 
 </article>
+<article class="slide level-1" id="sql-views-editor">
+
+<h1>&gt; SQL Views Editor</h1>
+
+
+
+
+
+</article>
+<article class="slide level-2" id="sql-views">
+
+<h2>หน้าต่าง SQL Views</h2>
+
+<p><strong>Menu:</strong> Settings &gt; Technical &gt; Database Structure &gt; SQL Views</p>
+<p>แทนที่จะเขียน SQL ดิบๆ เพื่อสร้าง Database View โดยตรงที่ระบบฐานข้อมูล เรามีโมดูลช่วยให้การสร้างและดูแล View
+ง่ายและมีระเบียบขึ้นด้วยหน้าต่าง SQL Views</p>
+<img alt="../_images/1_sql_view_editor.png" class="align-center" src="../_images/1_sql_view_editor.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="sql-view">
+
+<h2>สร้าง SQL View</h2>
+
+<p>เราสามารถสร้างใหม่และปรับปรุง SQL View ได้จากหน้าต่างนี้</p>
+<ol class="arabic simple">
+<li>ตั้งชื่อ Name (จะเป็นชื่อเมนู) และชื่อ Technical Name (จะเป็นชื่อ database view)</li>
+<li>ชื่อของ database view ที่จะสร้างขึ้น <strong>สามารถเรียกใช้งานได้จากระบบ BI อื่นๆ</strong></li>
+<li>ลำดับของ UI View ที่จะสร้างขึ้น เป็น View ที่ใช้เพื่อดูข้อมูล, export excel และอื่นๆ</li>
+<li>Is Materialized View, สร้าง view แบบ static จาก dynamic sql
+(ข้อดีคือเร็วเหมือน data table แต่จะไม่ real time เพราะถูก refresh เป็นระยะ)</li>
+<li>SQL Query ที่ใช้ในการสร้าง View</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-2" id="activate-view">
+
+<h2>Activate View</h2>
+
+<p>หลังจากทดสอบ View เสร็จ (Preview SQL Expression) เราสามารถเริ่มใช้งานได้โดย กดปุ่มเหล่านี้</p>
+<ul class="simple">
+<li>[Validate SQL Expression] -&gt; [Create SQL View, Indexes And Model] &gt; [Create UI]</li>
+</ul>
+<img alt="../_images/2_activate_view.png" class="align-center" src="../_images/2_activate_view.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="open-view">
+
+<h2>Open View</h2>
+
+<p>คลิกหที่ปุ่ม Open View จากหน้าต่าง SQL View Edit เพื่อเริ่มใช้งานได้ทันที
+หรือจะเข้ามาทางเมนู Dashboard จากหน้าต่าง Desktop ก็ได้เช่นกัน</p>
+<img alt="../_images/3_open_view.png" class="align-center" src="../_images/3_open_view.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="id37">
+
+<h2>Open View</h2>
+
+<p>Export Excel จาก Tree View โดยการเลือก Column</p>
+<img alt="../_images/4_export_excel.png" class="align-center" src="../_images/4_export_excel.png" />
+<img alt="../_images/5_excel.png" class="align-center" src="../_images/5_excel.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="refresh-materialized-view">
+
+<h2>Refresh Materialized View</h2>
+
+<p>หากต้องการ Refresh Data ของ view ที่สร้างขี้นสามารถทำได้โดย</p>
+<ol class="arabic simple">
+<li>กดปุ่ม Refresh โดยตรง</li>
+<li>ดูการตั้งค่าการ Refresh ของ Scheduled Job ของ View นี้</li>
+</ol>
+<img alt="../_images/refresh_view.png" class="align-center" src="../_images/refresh_view.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ปกติตั้งไว้ 1 Month สามารถปรับให้ถี่ขึ้นตามต้องการ เช่นวันละ 1 ครั้ง ไม่ควรถี่เกินไปเพราะถ้าข้อมูลเยอะจะใช้เวลานาน</p>
+</div>
+
+
+
+
+</article>
 
 </section>
 
