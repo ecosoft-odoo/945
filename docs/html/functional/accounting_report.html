@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&gt; Accounting Report &mdash; 945 Manuals  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="945 Technical Manual" href="../technical/technical.html" />
+    <link rel="prev" title="&gt; Thai Tax Report" href="th_tax_report.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> 945 Manuals
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                13.0.1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">945 Functional Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_workflow.html">&gt; Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_payment.html">&gt; Manual Payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="th_tax_report.html">&gt; Thai Tax Report</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">&gt; Accounting Report</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">รายงานทางการเงิน</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">วิธีการกรองรายงานทางการเงิน</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export">วิธี Export รายงาน</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odoo">รายงานทางการเงินในระบบ Odoo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trial-balance">1. Trial Balance  งบทดลอง</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-ledger">2. General Ledger รายงานบัญชีแยกประเภท</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profit-and-loss">3. Profit and Loss งบกำไรขาดทุน</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#balance-sheet">4. Balance Sheet งบดุล</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executive-summary">5. Executive Summary รายงานสัดส่วนทางการเงิน</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cash-flow-statement">6. Cash Flow Statement  งบกระแสเงินสด</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partner-ledger">7. Partner Ledger รายละเอียดลูกหนี้/เจ้าหนี้</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aged-receivable">8. Aged Receivable วิเคราะห์อายุลูกหนี้</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aged-payable">9. Aged Payable วิเคาะห์อายุเจ้าหนี้</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html">945 Technical Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#modules">&gt; Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#apis">&gt; 945 APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#job-queue">&gt; Job Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#sale-automatic-workflow">&gt; Sale Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#account-move-template">&gt; Account Move Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#compute-helper">&gt; Compute helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#unit-test">&gt; Unit Test</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">945 Manuals</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&gt; Accounting Report</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/functional/accounting_report.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="accounting-report">
+<h1>&gt; Accounting Report<a class="headerlink" href="#accounting-report" title="Permalink to this headline">¶</a></h1>
+<p>รายงานทางการเงินสำหรับ Odoo V.13 (Enterprise Edition)</p>
+<div class="section" id="id1">
+<h2>รายงานทางการเงิน<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>รายงานทางการเงิน หรือ การสื่อข้อมูลทางการเงินเพื่อให้บุคคลภายใน และบุคคลภายนอกนําไปใช้ในการตัดสินใจเชิงเศรษฐกิจ
+โดยมีงบการเงินเป็นส่วนประกอบที่สําคัญของการรายงานทางการเงิน ทั้งนี้อาจจะทําในรูปแบบของรายงานภายในกิจการ รายงานประจําปี</p>
+</div></blockquote>
+<p>Odoo มีรายงานทางการเงินดังนี้</p>
+<img alt="../_images/all_report.png" class="align-center" src="../_images/all_report.png" />
+<ol class="arabic simple">
+<li><p>Trial Balance : งบทดลอง</p></li>
+<li><p>General Ledger : รายงานบัญชีแยกประเภท</p></li>
+<li><p>Profit and Loss : งบกำไรขาดทุน</p></li>
+<li><p>Balance Sheet : งบดุล</p></li>
+<li><p>Executive Summary : รายงานสัดส่วนทางการเงิน</p></li>
+<li><p>Cash Flow Statement : งบกระแสเงินสด</p></li>
+<li><p>Partner Ledger : รายละเอียดลูกหนี้/เจ้าหนี้</p></li>
+<li><p>Aged Receivable : วิเคราะห์อายุลูกหนี้</p></li>
+<li><p>Aged Payable : วิเคราะห์อายุเจ้าหนี้</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>วิธีการกรองรายงานทางการเงิน<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>เมื่อเข้ามาที่หน้ารายงาน ระบบจะแสดงข้อมูลเริ่มต้น ดังนี้</p>
+<ol class="arabic">
+<li><p><img alt="date" src="../_images/date.png" /> โดยระบบจะแสดง <strong>ค่าเริ่มต้นเป็นเดือนปัจจุบัน</strong> แต่สามารถเลือกได้ว่าต้องการดูรายงาน ในช่วงเวลาใด</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This Month : เดือนปัจจุบัน</p></li>
+<li><p>This Quarter : ไตรมาสปัจจุบัน</p></li>
+<li><p>This Financial Year : ปีปัจจุบัน</p></li>
+<li><p>Last Month : เดือนก่อนหน้า</p></li>
+<li><p>Last Quarter : ไตรมาสก่อนหน้า</p></li>
+<li><p>Last Financial Year : ปีก่อนหน้า</p></li>
+<li><p>Custom : สามารถเลือกวันเริ่มต้น (Start Date) และ วันสิ้นสุด (End Date)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p><img alt="comp" src="../_images/compare.png" /> สามารถดูแบบเปรียบเทียบกันได้</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No Comparison : ไม่มีการเปรียบเทียบ</p></li>
+<li><p>Previous Period : เดือนก่อนหน้า</p></li>
+<li><p>Same Period Last Year : ปีก่อนหน้า</p></li>
+<li><p>Custom : สามารถเลือกวันที่เริ่มต้น (Start Date) และ วันสิ้นสุด (End Date) เพื่อมาเปรียบเทียบได้</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p><img alt="jour" src="../_images/journal.png" /> สามารถกำหนดได้ว่า จะแสดง Journal ใดบ้าง</p></li>
+</ol>
+<p>4. <img alt="opt" src="../_images/option.png" /> สามารถเลือกได้ว่าต้องการให้ระบบแสดงเอกสารที่อยู่ในสถานะใดบ้าง
+โดยระบบจะเลือกเอกสาร Stage : Posted Entries Only เป็นค่าเริ่มต้น</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Include Unposted Entries : แสดงเอกสารรวมเอกสารที่ยังไม่ถูก Posted</p></li>
+<li><p>Hierarchy and Subtotals : แสดงหน้าวิวเป็นรูปแบบ Hierarchy</p></li>
+<li><p>Unfold All : แสดงทั้งหมด</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p><img alt="acc" src="../_images/acc.png" /> สามารถเลือกได้ว่าจะดู Account ประเภทไหน โดยค่าเริ่มต้นระบบจะเลือกทั้งหมด “Both”</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Payable เจ้าหนี้</p></li>
+<li><p>Receivable ลูกหนี้</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p><img alt="part" src="../_images/partner.png" /> สามารถค้นหาเจ้าหนี้/ลูกหนี้ที่ต้องการได้ โดยค่าเริ่มต้นระบบจะแสดงทั้งหมด</p></li>
+</ol>
+</div>
+<div class="section" id="export">
+<h2>วิธี Export รายงาน<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/export1.png" class="align-center" src="../_images/export1.png" />
+<ul class="simple">
+<li><p>Print Preview : Export รายงานออกมาเป็นไฟล์ PDF</p></li>
+<li><p>Export (XLSX) : Export รายงานออกมาเป็นไฟล์ XLSX</p></li>
+</ul>
+</div>
+<div class="section" id="odoo">
+<h2>รายงานทางการเงินในระบบ Odoo<a class="headerlink" href="#odoo" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="trial-balance">
+<h3>1. Trial Balance  งบทดลอง<a class="headerlink" href="#trial-balance" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>งบทดลอง เป็นงบที่จัดทำขึ้นด้วยการนำยอดดุลในบัญชีแยกประเภทต่าง ๆ (5 หมวดบัญชี) ไม่ว่าจะอยู่ด้านเดบิต หรือเครดิตก็ตาม มาคำนวณหายอดคงเหลือทั้งสองด้าน
+เพื่อพิสูจน์ความถูกต้องในการบันทึกบัญชีตามระบบบัญชีคู่ ณ วันใดวันหนึ่ง เช่น ทุกสิ้นเดือน ทุก 3 เดือน หรือเมื่อสิ้นงวดบัญชี</p>
+</div></blockquote>
+<img alt="../_images/trial_balance.gif" class="align-center" src="../_images/trial_balance.gif" />
+</div>
+<div class="section" id="general-ledger">
+<h3>2. General Ledger รายงานบัญชีแยกประเภท<a class="headerlink" href="#general-ledger" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>รายงานบัญชีแยกประเภท รายงานที่แสดงข้อมูลตามรหัสบัญชีตามช่วงเวลาที่กำหนด</p>
+</div></blockquote>
+<img alt="../_images/general_ledger.gif" class="align-center" src="../_images/general_ledger.gif" />
+</div>
+<div class="section" id="profit-and-loss">
+<h3>3. Profit and Loss งบกำไรขาดทุน<a class="headerlink" href="#profit-and-loss" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>งบกําไรขาดทุน เป็นรายงานทางการเงินที่แสดงผลการดําเนินงานของกิจการ โดยนํารายได้และค่าใช้จ่ายที่เกิดขึ้นในงวดบัญชีนั้น ๆ
+มาเปรียบเทียบกัน ผลต่างที่เกิดขึ้นจะเป็นกําไรหรือขาดทุนสุทธิ</p>
+</div></blockquote>
+<img alt="../_images/profit_loss.gif" class="align-center" src="../_images/profit_loss.gif" />
+</div>
+<div class="section" id="balance-sheet">
+<h3>4. Balance Sheet งบดุล<a class="headerlink" href="#balance-sheet" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>งบดุล (Balance Sheet) เป็นรายงานที่แสดงให้เห็นถึงฐานะการเงินของกิจการ ณ วันใดวันหนึ่ง ว่ากิจการมีสินทรัพย์ หนี้สิน ทั้งสิ้นเป็นจํานวนเท่าใด
+ประกอบด้วยรายการใดบ้าง และคงเหลือเป็นสินทรัพย์สุทธิหรือส่วนของเจ้าของกิจการเป็นจํานวนทั้งสิ้นเท่าใด</p>
+</div></blockquote>
+<img alt="../_images/balance_sheet.gif" class="align-center" src="../_images/balance_sheet.gif" />
+</div>
+<div class="section" id="executive-summary">
+<h3>5. Executive Summary รายงานสัดส่วนทางการเงิน<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>เป็นรายงานที่แสดงภาพรวมทางการเงิน เป็นบทสรุปสำหรับการบหริหารภายใน</p>
+</div></blockquote>
+<img alt="../_images/executive_summary.gif" class="align-center" src="../_images/executive_summary.gif" />
+</div>
+<div class="section" id="cash-flow-statement">
+<h3>6. Cash Flow Statement  งบกระแสเงินสด<a class="headerlink" href="#cash-flow-statement" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>งบกระแสเงินสด คือ รายงานแสดงถึงกิจกรรมที่เกิดขึ้นในกิจการ ประกอบด้วย กิจกรรมการดำเนินงาน กิจกรรมการลงทุน และกิจกรรมจัดหาเงิน</p>
+</div></blockquote>
+<img alt="../_images/cash_flow.gif" class="align-center" src="../_images/cash_flow.gif" />
+</div>
+<div class="section" id="partner-ledger">
+<h3>7. Partner Ledger รายละเอียดลูกหนี้/เจ้าหนี้<a class="headerlink" href="#partner-ledger" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/partner_ledger.gif" class="align-center" src="../_images/partner_ledger.gif" />
+</div>
+<div class="section" id="aged-receivable">
+<h3>8. Aged Receivable วิเคราะห์อายุลูกหนี้<a class="headerlink" href="#aged-receivable" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/aged_receivable.gif" class="align-center" src="../_images/aged_receivable.gif" />
+</div>
+<div class="section" id="aged-payable">
+<h3>9. Aged Payable วิเคาะห์อายุเจ้าหนี้<a class="headerlink" href="#aged-payable" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/aged_payable.gif" class="align-center" src="../_images/aged_payable.gif" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../technical/technical.html" class="btn btn-neutral float-right" title="945 Technical Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="th_tax_report.html" class="btn btn-neutral float-left" title="&gt; Thai Tax Report" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, 945 Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
