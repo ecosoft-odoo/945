@@ -130,6 +130,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#id9">3. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#clear-ap-cod">Clear AP COD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#excel-cod">1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า COD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">2. นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">3. ทำการ Reconcile และตรวจสอบผลลัพธ์</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#create-switched-dr-cr-je">Create Switched Dr/Cr JE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#import-delivery-statement-transporter">1. Import Delivery Statement (ที่ได้รับจาก Transporter)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#journal-items-ar-transport-export-je">2. เลือก journal items AR Transport ที่ต้องการ export เพื่อสร้าง JE</a></li>
@@ -553,6 +559,49 @@
 </div>
 <div class="section" id="id9">
 <h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>212101 เจ้าหนี้การค้า</strong></p></li>
+<li><p>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</p></li>
+<li><p>กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป</p></li>
+<li><p>หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry</p></li>
+</ol>
+<p>End.</p>
+</div>
+</div>
+<div class="section" id="clear-ap-cod">
+<h2>Clear AP COD<a class="headerlink" href="#clear-ap-cod" title="Permalink to this headline">¶</a></h2>
+<p>การบันทึกคู่บญชีอัตโนมัติได้ทำให้เกิดค่า COD Payable ซึ่งทาง 945 ต้องทำจ่ายให้กับผู้ที่เกี่ยวข้อง</p>
+<ol class="arabic simple">
+<li><p>เตรียมไฟล์ Excel จากระบบ เพื่อการจ่ายค่า COD</p></li>
+<li><p>นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน</p></li>
+<li><p>ทำการ Reconcile และตรวจสอบผลลัพธ์</p></li>
+</ol>
+<div class="section" id="excel-cod">
+<h3>1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า COD<a class="headerlink" href="#excel-cod" title="Permalink to this headline">¶</a></h3>
+<p>สำหรับ COD จะดูตามวันที่ โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้</p>
+<ol class="arabic simple">
+<li><p>กรองรายการด้วย Favorite = <strong>AP COD</strong></p></li>
+<li><p>เลือกรายการที่ต้องการ Export</p></li>
+<li><p>คลิกเมนู Action &gt; Export Excel โดยเลือก Template = <strong>AP COD</strong></p></li>
+</ol>
+<img alt="../_images/1_search_journal_items5.png" class="align-center" src="../_images/1_search_journal_items5.png" />
+<img alt="../_images/2_export_excel_wizard4.png" class="align-center" src="../_images/2_export_excel_wizard4.png" />
+<p>ตัวอย่าง Excel ของการ Export Excel - AP Commission โดยจะมีการ Switch Dr/Cr ไว้รอ
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้</p>
+<img alt="../_images/3_export_excel5.png" class="align-center" src="../_images/3_export_excel5.png" />
+</div>
+<div class="section" id="id10">
+<h3>2. นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>เตรียม Excel และตรวจทานความถูกต้อง และสร้าง Journal Entries เพื่อทำ Payment Entry</p></li>
+<li><p>ที่ JE, คลิกเมนู Action &gt; Import Excel โดยเลือก Template = <strong>AP COD</strong></p></li>
+</ol>
+<p>สร้าง Journal Entry และ Import Excel ตามที่ได้เตรียมด้วย Template = <strong>AP COD</strong>
+หลังจากตรวจสอบ แล้วจึงทำการ Post</p>
+<img alt="../_images/4_journal_entry1.png" class="align-center" src="../_images/4_journal_entry1.png" />
+</div>
+<div class="section" id="id11">
+<h3>3. ทำการ Reconcile และตรวจสอบผลลัพธ์<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>ที่เมนู Mass Automatic Reconcile เลือก Profile = <strong>212101 เจ้าหนี้การค้า</strong></p></li>
 <li><p>กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน</p></li>

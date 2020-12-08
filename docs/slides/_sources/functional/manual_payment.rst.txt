@@ -474,6 +474,65 @@ Clear AP Consignment
 
 End.
 
+
+Clear AP COD
+---------------------
+
+การบันทึกคู่บญชีอัตโนมัติได้ทำให้เกิดค่า COD Payable ซึ่งทาง 945 ต้องทำจ่ายให้กับผู้ที่เกี่ยวข้อง
+
+1. เตรียมไฟล์ Excel จากระบบ เพื่อการจ่ายค่า COD
+2. นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน
+3. ทำการ Reconcile และตรวจสอบผลลัพธ์
+
+1. เตรียมไฟล์ Excel เพื่อการจ่ายค่า COD
+##################################################
+
+สำหรับ COD จะดูตามวันที่ โดยสามารถค้นหาที่เมนู Journal Items ด้วย Filter ดังต่อไปนี้
+
+1. กรองรายการด้วย Favorite = **AP COD**
+2. เลือกรายการที่ต้องการ Export
+3. คลิกเมนู Action > Export Excel โดยเลือก Template = **AP COD**
+
+.. image:: images/reconcile_ap_cod/1_search_journal_items.png
+    :align: center
+
+.. nextslide::
+
+.. image:: images/reconcile_ap_cod/2_export_excel_wizard.png
+    :align: center
+
+.. nextslide::
+
+ตัวอย่าง Excel ของการ Export Excel - AP Commission โดยจะมีการ Switch Dr/Cr ไว้รอ
+และจะมีการตั้ง Debit เข้าธนาคารเอาไว้ให้
+
+.. image:: images/reconcile_ap_cod/3_export_excel.png
+    :align: center
+
+2. นำเข้ารายการเพื่อสร้าง JE สำหรับการจ่ายเงิน
+############################################################
+
+1. เตรียม Excel และตรวจทานความถูกต้อง และสร้าง Journal Entries เพื่อทำ Payment Entry
+2. ที่ JE, คลิกเมนู Action > Import Excel โดยเลือก Template = **AP COD**
+
+.. nextslide::
+
+สร้าง Journal Entry และ Import Excel ตามที่ได้เตรียมด้วย Template = **AP COD**
+หลังจากตรวจสอบ แล้วจึงทำการ Post
+
+.. image:: images/reconcile_ap_cod/4_journal_entry.png
+    :align: center
+
+3. ทำการ Reconcile และตรวจสอบผลลัพธ์
+############################################
+
+1. ที่เมนู Mass Automatic Reconcile เลือก Profile = **212101 เจ้าหนี้การค้า**
+2. กดปุ่ม Start Auto Reconciliation ระบบจะทำการ Reconcile รายการที่มี Partner และ Parcel ID เดียวกัน
+3. กดปุ่ม Display Items Reconciled On The Last Run เพื่อดูรายการที่ถูก Reconciled ไป
+4. หากต้องการยกเลิกสิ่งที่ทำไปให้ทำการ Reverse Entry
+
+End.
+
 Create Switched Dr/Cr JE
 ---------------------------
 
