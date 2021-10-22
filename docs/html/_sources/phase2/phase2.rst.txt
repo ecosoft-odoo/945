@@ -37,7 +37,7 @@ Inventory > Configuration > Settings > search คำว่า "multi" > เล�
 .. image:: images/install_2.png
     :align: center
 
-4. Install Module sunteen_phase_2
+4. Install Module sunteen_phase_2 และ sunteen_data_phase_2 ตามลำดับ
 
 .. image:: images/install_3.png
     :align: center
@@ -64,6 +64,10 @@ Inventory > Configuration > Settings > search คำว่า "multi" > เล�
 
 * sunteen_phase_2
     โมดูลหลักสำหรับ Business Process ของ 945 ที่เพิ่มเติมใน Phase 2
+
+* sunteen_data_phase_2
+    ตัวช่วยในการ Import Master Data BoM และ Warehouse
+    ควร Uninstall หลังจาก Install Module นี้เสร็จสิ้น
 
 .. nextslide::
 
