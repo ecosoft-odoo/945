@@ -1,74 +1,37 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>945 Technical Manual &mdash; 945 Manuals  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="945 Phase 2" href="../phase2/phase2.html" />
     <link rel="prev" title="&gt; Accounting Report" href="../functional/accounting_report.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> 945 Manuals
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 13.0.1.0.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -76,19 +39,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../functional/overview.html">945 Functional Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functional/auto_workflow.html">&gt; Automatic Workflow</a></li>
@@ -171,77 +123,37 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../phase2/phase2.html">945 Phase 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../phase3/phase3.html">945 Phase 3 (CRs)</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">945 Manuals</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>945 Technical Manual</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/technical/technical.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="technical-manual">
-<h1>945 Technical Manual<a class="headerlink" href="#technical-manual" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="development-concept">
-<h2>945 Development Concept<a class="headerlink" href="#development-concept" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="technical-manual">
+<h1>945 Technical Manual<a class="headerlink" href="#technical-manual" title="Permalink to this headline"></a></h1>
+<section id="development-concept">
+<h2>945 Development Concept<a class="headerlink" href="#development-concept" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>ออกแบบระบบโดยเน้นการคงการทำงานด้านบัญชีตามมาตรฐาน Odoo ให้มากที่สุดโดยอิงหลักการ <a class="reference internal" href="#odoo-oca-custom"><span class="std std-ref">Odoo + OCA + Custom</span></a></p></li>
 <li><p>ส่วนโมดูลเพิ่มเติม เน้นการใช้งาน OCA modules ก่อนหลังจากนั้นจึงใช้ Customer Codes ดูคำบรรยายของแต่ละโมดูลเสริมได้จาก <a class="reference internal" href="#modules"><span class="std std-ref">Modulesx</span></a></p></li>
@@ -255,9 +167,9 @@
 <li><p>ในกรณีมีการคำนวนที่่มีความซับซ้อน ระบบจะเรียกใช้งาน <a class="reference internal" href="#compute-helper"><span class="std std-ref">Compute Helper</span></a></p></li>
 <li><p>มี <a class="reference internal" href="#unit-test"><span class="std std-ref">Unit Test</span></a> สำหรับ process ที่สำคัญ</p></li>
 </ul>
-</div>
-<div class="section" id="odoo-oca-945">
-<span id="odoo-oca-custom"></span><h2>Odoo + OCA + 945<a class="headerlink" href="#odoo-oca-945" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="odoo-oca-945">
+<span id="odoo-oca-custom"></span><h2>Odoo + OCA + 945<a class="headerlink" href="#odoo-oca-945" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>Odoo Core</p></li>
 <li><p>Odoo Enterprise version 13</p></li>
@@ -265,12 +177,12 @@
 <li><p><strong>Customer Codes (945)</strong></p></li>
 </ol>
 <img alt="../_images/eco.png" class="align-center" src="../_images/eco.png" />
-</div>
-</div>
-<div class="section" id="modules">
-<span id="id1"></span><h1>&gt; Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="oca-modules">
-<h2>OCA Modules<a class="headerlink" href="#oca-modules" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="modules">
+<span id="id1"></span><h1>&gt; Modules<a class="headerlink" href="#modules" title="Permalink to this headline"></a></h1>
+<section id="oca-modules">
+<h2>OCA Modules<a class="headerlink" href="#oca-modules" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>l10n_th_xxx (โมดูลที่เริ่มต้นด้วย)</dt><dd><p>เกี่ยวกับภาษีไทย - WHT, VAT, Undue VAT, Tax Reports.</p>
@@ -305,9 +217,9 @@
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h2>945 Modules<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>945 Modules<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>sunteen</dt><dd><p>โมดูลหลักสำหรับ Business Process ของ 945 ทั้งหมด เช่น eCommerce, Express.</p>
@@ -337,20 +249,20 @@
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="apis">
-<span id="id3"></span><h1>&gt; 945 APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section id="apis">
+<span id="id3"></span><h1>&gt; 945 APIs<a class="headerlink" href="#apis" title="Permalink to this headline"></a></h1>
 <p>ตัวอย่างการใช้งาน APIs ระบบ 945</p>
-<div class="section" id="ecommerce">
-<h2>eCommerce<a class="headerlink" href="#ecommerce" title="Permalink to this headline">¶</a></h2>
+<section id="ecommerce">
+<h2>eCommerce<a class="headerlink" href="#ecommerce" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>eCommerce - Standard</p></li>
 <li><p>eCommerce - Consignment Fix GP</p></li>
 <li><p>eCommerce - Consignment VAR GP</p></li>
 </ul>
-<div class="section" id="ecommerce-standard">
-<h3>eCommerce - Standard<a class="headerlink" href="#ecommerce-standard" title="Permalink to this headline">¶</a></h3>
+<section id="ecommerce-standard">
+<h3>eCommerce - Standard<a class="headerlink" href="#ecommerce-standard" title="Permalink to this headline"></a></h3>
 <p>API 1 (sale.order)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -451,9 +363,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ecommerce-consignment-fix-gp">
-<h3>eCommerce - Consignment Fix GP<a class="headerlink" href="#ecommerce-consignment-fix-gp" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ecommerce-consignment-fix-gp">
+<h3>eCommerce - Consignment Fix GP<a class="headerlink" href="#ecommerce-consignment-fix-gp" title="Permalink to this headline"></a></h3>
 <p>API1 (sunteen.record.transportation.cost):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -554,9 +466,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ecommerce-consignment-var-gp">
-<h3>eCommerce - Consignment Var GP<a class="headerlink" href="#ecommerce-consignment-var-gp" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ecommerce-consignment-var-gp">
+<h3>eCommerce - Consignment Var GP<a class="headerlink" href="#ecommerce-consignment-var-gp" title="Permalink to this headline"></a></h3>
 <p>API1 (sunteen.record.transportation.cost):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -658,15 +570,15 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="express">
-<h2>Express<a class="headerlink" href="#express" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="express">
+<h2>Express<a class="headerlink" href="#express" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Express - Standard</p></li>
 </ul>
-<div class="section" id="express-standard">
-<h3>Express - Standard<a class="headerlink" href="#express-standard" title="Permalink to this headline">¶</a></h3>
+<section id="express-standard">
+<h3>Express - Standard<a class="headerlink" href="#express-standard" title="Permalink to this headline"></a></h3>
 <p>API1 (sale.order):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -767,22 +679,22 @@
 <p class="admonition-title">Note</p>
 <p>สำหรับ eCommerce การส่งข้อมูลจะเป็น 1 API ต่อ 1 Parcel Number ส่วน Express จะเป็น 1 API ต่อ หลาย Parcel Number</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="job-queue">
-<span id="id4"></span><h1>&gt; Job Queue<a class="headerlink" href="#job-queue" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id5">
-<h2>Job Queue คืออะไร<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="job-queue">
+<span id="id4"></span><h1>&gt; Job Queue<a class="headerlink" href="#job-queue" title="Permalink to this headline"></a></h1>
+<section id="id5">
+<h2>Job Queue คืออะไร<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h2>
 <p>Job Queue คือการหน่วงการทำงานของ process โดยแทนที่จะทำทันที ก็จะหน่วงและทำในภายหลัง</p>
 <p>เช่น หากระบบต้นทางต้องการยิง API เข้ามา 1,000 รายการ ถ้าไม่มี Job Queue ระบบต้นทางจะต้องรอจนกว่ารายการก่อนหน้าจะทำงานเสร็จ
 จึงจะยิงรายการถัดมาได้ ถ้า server ไม่สามารถทำงานได้เร็วพอก็จะเกิดปัญหาได้ ถ้าใช้ Job Queue ระบบต้นทางสามารถยิงข้อมูลเข้ามาได้ทั้งหมดอย่างรวดเร็วโดยไม่โหลด server
 (เพราะยังไม่เกิดการทำงานจริง)</p>
 <p>ข้อมูลการทำงานทั้งหมดจะเข้ามาพักที่ table <code class="code docutils literal notranslate"><span class="pre">queue.job</span></code> ของ Odoo ก่อน แล้วจึงทยอยทำงานพร้อมกันตามจำนวน <strong>workers</strong></p>
 <p>ข้อดีอีกประการหนึ่ง จากการที่ข้อมูลการทำงานได้เข้ามาพักไว้ก่อน ไม่ว่าการทำงานจะสำเร็จหรือไม่ ก็จะสามารถตรวจเช็คได้ในภายหลังที่ Odoo</p>
-</div>
-<div class="section" id="id6">
-<h2>ข้อดีของ Job Queue<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id6">
+<h2>ข้อดีของ Job Queue<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>เก็บรายการที่ยิงเข้ามาใน database table queue.job (ตั้งเวลาลบทิ้งได้หลังจากทำงานเสร็จและเวลาผ่านไปนาน)</p></li>
 <li><p>Jobrunner: ทำงานกับ queue ที่เข้ามาได้อย่างทันที</p></li>
@@ -794,9 +706,9 @@
 <p class="admonition-title">Note</p>
 <p>สำหรับ 945 เราได้ตั้งค่าการทำงานแบบทั่วๆไป อนาคตสามารถเปลี่ยนแปลงได้ตามความเหมาะสม</p>
 </div>
-</div>
-<div class="section" id="configurations">
-<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="configurations">
+<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline"></a></h2>
 <p>เพื่อให้ Job Queue ทำงานได้ ต้องมีการตั้งค่าที่ odoo config file.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Using the Odoo configuration file:
 <span class="o">[</span>options<span class="o">]</span>
@@ -813,9 +725,9 @@
 <p class="admonition-title">Note</p>
 <p>ตัวอย่างนี้ให้ใช้ worker 2 ตัวจากทั้งหมด 6 ตัว ทำงานกับ channel = root</p>
 </div>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <img alt="../_images/job_queue1.png" class="align-center" src="../_images/job_queue1.png" />
 <ol class="arabic simple">
 <li><p>Job Menu: แต่ละ API ที่ถูกยิงเข้ามาจะเข้ามาสร้าง Job โดยจะเริ่มต้นที่ status = Pending</p></li>
@@ -825,12 +737,12 @@
 <li><p>Retry: จำนวนครั้งที่ retry</p></li>
 <li><p>Result: ผลลัพธ์ที่ได้ หากเกิด Error จะแสดงเป็นข้อความ exception และเปลี่ยนสถานะเป็น status = Failed (และ retry)</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="sale-automatic-workflow">
-<span id="id7"></span><h1>&gt; Sale Automatic Workflow<a class="headerlink" href="#sale-automatic-workflow" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id8">
-<h2>Sale Automatic Workflow คืออะไร<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="sale-automatic-workflow">
+<span id="id7"></span><h1>&gt; Sale Automatic Workflow<a class="headerlink" href="#sale-automatic-workflow" title="Permalink to this headline"></a></h1>
+<section id="id8">
+<h2>Sale Automatic Workflow คืออะไร<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h2>
 <p><strong>Menu:</strong> Sales &gt; Configuration &gt; Automatic Workflow &gt; Automatic Workflow</p>
 <p>Sale Automatic Workflow คือ กระบวนการการดำเนินงานโดยอัตโนมัติที่เกี่ยวข้องกับการขาย ตัวอย่างกระบวนการการดำเนินงานที่เกี่ยวข้องกับการขาย เช่น
 การ Confirm Sale Order, การสร้าง Invoice จาก Sale Order และการ Validate Invoice ของ Sale Order เป็นต้น
@@ -840,17 +752,17 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 ที่จะนำมาใช้ในกระบวนการขาย ซึ่งเหมาะสำหรับระบบที่มีการทำงานโดยการ Interface ผ่าน API เข้ามาที่ Sale Order ใน Odoo</p>
 <p>โมดูล sale_automatic_workflow_job เป็นโมดูลที่รวมการทำงานของ sale_automatic_workflow และ job_queue เข้าด้วยกัน
 ทำให้ระบบสามารถจัดลำดับการทำงานของ Automatic Workflow ได้</p>
-</div>
-<div class="section" id="id9">
-<h2>Configurations<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id9">
+<h2>Configurations<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h2>
 <p>การตั้งค่า Sale Automatic Workflow แบ่งออกเป็น 3 ส่วน ดังนี้</p>
 <ol class="arabic simple">
 <li><p>Order Configuration</p></li>
 <li><p>Workflow Options</p></li>
 <li><p>945 Workflow Options</p></li>
 </ol>
-<div class="section" id="order-configuration">
-<h3>Order Configuration<a class="headerlink" href="#order-configuration" title="Permalink to this headline">¶</a></h3>
+<section id="order-configuration">
+<h3>Order Configuration<a class="headerlink" href="#order-configuration" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Shipping Policy</strong> คือ วิธีการจัดส่งสินค้า ซึ่งแบ่งได้ดังนี้</dt><dd><ul>
@@ -862,9 +774,9 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 </li>
 <li><p><strong>Sales Team</strong> คือ ทีมที่ขายสินค้าได้</p></li>
 </ul>
-</div>
-<div class="section" id="workflow-options">
-<h3>Workflow Options<a class="headerlink" href="#workflow-options" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="workflow-options">
+<h3>Workflow Options<a class="headerlink" href="#workflow-options" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><strong>Validate Order</strong> คือ ต้องการให้ Confirm Sale Oder หรือไม่ โดยสามารถจำกัด Domain ของ Sale Order ที่ต้องการ Confirm ได้ที่ <strong>Order Filter</strong></p></li>
 <li><p><strong>Confirm and Transfer Picking</strong> คือ ต้องการให้ส่งของและ Validate Delivery Order หรือไม่</p></li>
@@ -876,9 +788,9 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <li><p><strong>Sales Journal</strong> คือ Journal ที่จะใช้ใน Invoice</p></li>
 <li><p><strong>Warning Message</strong> คือ ข้อความที่จะขึ้นแจ้งเตือน เมื่อเลือก Automatic Workflow นี้ ใน Sale Order</p></li>
 </ul>
-</div>
-<div class="section" id="id10">
-<h3>945 Workflow Options<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id10">
+<h3>945 Workflow Options<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><strong>Allow Compute Sale Order Line</strong> คือ ต้องการให้คำนวณรายได้อื่นๆ เช่น รายได้ค่าขนส่ง ใน Sale Order หรือไม่</p></li>
 <li><p><strong>Record Transportation Cost</strong> คือ ต้องการสร้าง Transportation Cost (TC) หรือไม่</p></li>
@@ -893,10 +805,10 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="s-configurations">
-<h2>945’s Configurations<a class="headerlink" href="#s-configurations" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="s-configurations">
+<h2>945’s Configurations<a class="headerlink" href="#s-configurations" title="Permalink to this headline"></a></h2>
 <p>ปัจจุบัน 945 มีการใช้ Sale Automatic Workflow ทั้งหมด 4 แบบ ดังนี้</p>
 <ol class="arabic simple">
 <li><p>eCommerce Standard</p></li>
@@ -904,34 +816,34 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <li><p>eCommerce Consignment Var GP</p></li>
 <li><p>Express Standard</p></li>
 </ol>
-<div class="section" id="id11">
-<h3>eCommerce Standard<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<section id="id11">
+<h3>eCommerce Standard<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
 <img alt="../_images/automatic_workflow_ecom_std.png" class="align-center" src="../_images/automatic_workflow_ecom_std.png" />
-</div>
-<div class="section" id="id12">
-<h3>eCommerce Consignment Fix GP<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id12">
+<h3>eCommerce Consignment Fix GP<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
 <img alt="../_images/automatic_workflow_ecom_consign_fix.png" class="align-center" src="../_images/automatic_workflow_ecom_consign_fix.png" />
-</div>
-<div class="section" id="id13">
-<h3>eCommerce Consignment Var GP<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id13">
+<h3>eCommerce Consignment Var GP<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h3>
 <img alt="../_images/automatic_workflow_ecom_consign_var.png" class="align-center" src="../_images/automatic_workflow_ecom_consign_var.png" />
-</div>
-<div class="section" id="id14">
-<h3>Express Standard<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id14">
+<h3>Express Standard<a class="headerlink" href="#id14" title="Permalink to this headline"></a></h3>
 <img alt="../_images/automatic_workflow_express_std.png" class="align-center" src="../_images/automatic_workflow_express_std.png" />
-</div>
-</div>
-</div>
-<div class="section" id="account-move-template">
-<span id="id15"></span><h1>&gt; Account Move Template<a class="headerlink" href="#account-move-template" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id16">
-<h2>Account Move Template คืออะไร<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="account-move-template">
+<span id="id15"></span><h1>&gt; Account Move Template<a class="headerlink" href="#account-move-template" title="Permalink to this headline"></a></h1>
+<section id="id16">
+<h2>Account Move Template คืออะไร<a class="headerlink" href="#id16" title="Permalink to this headline"></a></h2>
 <p><strong>Menu:</strong> Accounting &gt; Configuration &gt; Accounting &gt; Journal Entry Templates</p>
 <p>Account Move Template หรือ Journal Entry Template คือ Template ของการบันทึกบัญชี
 มีประโยชน์ในการบันทึกบัญชีที่มีรูปแบบของคู่บัญชีเหมือนๆกัน แต่มีจำนวนมาก</p>
-</div>
-<div class="section" id="id17">
-<h2>Configurations<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id17">
+<h2>Configurations<a class="headerlink" href="#id17" title="Permalink to this headline"></a></h2>
 <img alt="../_images/account_move_template.png" class="align-center" src="../_images/account_move_template.png" />
 <ul class="simple">
 <li><p><strong>Name</strong> คือ ชื่อของ Template</p></li>
@@ -965,11 +877,11 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 </ul>
 <p><strong>ตัวอย่าง Account Move Template</strong></p>
 <img alt="../_images/deferred_revenue_template.png" class="align-center" src="../_images/deferred_revenue_template.png" />
-</div>
-<div class="section" id="id18">
-<h2>วิธีใช้ Account Move Template<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="code">
-<h3>1. เรียกใช้งานผ่าน Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id18">
+<h2>วิธีใช้ Account Move Template<a class="headerlink" href="#id18" title="Permalink to this headline"></a></h2>
+<section id="code">
+<h3>1. เรียกใช้งานผ่าน Code<a class="headerlink" href="#code" title="Permalink to this headline"></a></h3>
 <p>สิ่งที่จำเป็นในการเรียกใช้งาน Account Move Template คือ</p>
 <ol class="arabic simple">
 <li><p>สร้าง Record ของ <cite>account.move.template.run</cite></p></li>
@@ -982,9 +894,9 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
     <span class="n">wizard</span><span class="o">.</span><span class="n">with_context</span><span class="p">(</span><span class="n">wiz</span><span class="p">[</span><span class="s2">&quot;context&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">generate_move</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ui">
-<h3>2. เรียกใช้งานผ่าน UI<a class="headerlink" href="#ui" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ui">
+<h3>2. เรียกใช้งานผ่าน UI<a class="headerlink" href="#ui" title="Permalink to this headline"></a></h3>
 <p><strong>วิธีที่ 1</strong></p>
 <img alt="../_images/gen_move_1.gif" class="align-center" src="../_images/gen_move_1.gif" />
 <ol class="arabic simple">
@@ -1007,13 +919,13 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <li><p>ใส่ข้อมูลที่ต้องการให้แสดงใน Journal Entry</p></li>
 <li><p>หลังจากใส่ข้อมูลและตรวจสอบข้อมูลเรียบร้อยแล้ว ให้กดที่ปุ่ม <strong>CREATE JOURNAL ENTRY</strong> เพื่อสร้าง Journal Entry</p></li>
 </ol>
-</div>
-</div>
-</div>
-<div class="section" id="compute-helper">
-<span id="id19"></span><h1>&gt; Compute helper<a class="headerlink" href="#compute-helper" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id20">
-<h2>Compute Helper คืออะไร<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="compute-helper">
+<span id="id19"></span><h1>&gt; Compute helper<a class="headerlink" href="#compute-helper" title="Permalink to this headline"></a></h1>
+<section id="id20">
+<h2>Compute Helper คืออะไร<a class="headerlink" href="#id20" title="Permalink to this headline"></a></h2>
 <p><strong>Menu:</strong> 945 &gt; Configurations &gt; Compute &gt; Compute Type / Helper</p>
 <p>Compute Helper เกิดขึ้นเนื่องจากการคำนวนเพื่อให้ได้ค่าต่างๆที่เกิดขึ้นในระบบเช่น Service Cost ซึ่งหลังจากที่เราพัฒนาระบบไปได้ซักระยะ
 พบว่าระบบมีความซับซ้อนเพราะสูตรการคำนวนขึ้นอยู่กับหลายตัวแปร เช่น Partner, Product, Payment Method การฝังกฏการคำนวนไว้ในโค้ด (hard code)
@@ -1041,9 +953,9 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 </dd>
 </dl>
 </div>
-</div>
-<div class="section" id="server-actions">
-<h2>Server Actions<a class="headerlink" href="#server-actions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="server-actions">
+<h2>Server Actions<a class="headerlink" href="#server-actions" title="Permalink to this headline"></a></h2>
 <p><strong>Menu:</strong> Settings &gt; Technical &gt; Actions &gt; Server Actions</p>
 <p>ด้วย Compute Helper จะมาเรียก Server Action ต่อ แล้ว Server Action คืออะไร?</p>
 <p>Server Action เป็นฟังก์ชั่นมาตรฐานหนึ่งของ Odoo ใช้สำหรับการเขียน scriptlet ด้วย Python สั้นๆได้ โดยใน scriptlet
@@ -1055,12 +967,12 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <p class="admonition-title">Note</p>
 <p>รายละเอียดเพิ่มเติมเกี่ยวกับ <a class="reference external" href="https://www.odoo.com/documentation/14.0/reference/actions.html#server-actions-ir-actions-server">Server Action</a></p>
 </div>
-</div>
-</div>
-<div class="section" id="unit-test">
-<span id="id21"></span><h1>&gt; Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-unit-test">
-<h2>What is unit test?<a class="headerlink" href="#what-is-unit-test" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="unit-test">
+<span id="id21"></span><h1>&gt; Unit Test<a class="headerlink" href="#unit-test" title="Permalink to this headline"></a></h1>
+<section id="what-is-unit-test">
+<h2>What is unit test?<a class="headerlink" href="#what-is-unit-test" title="Permalink to this headline"></a></h2>
 <p>Unit Test คือ script ในการจำลองให้ระบบทำงานผ่านโค้ด มีประโยชน์ในการตรวจสอบระบบที่มีการแก้ไขต่อเนื่องให้แน่ใจว่าสิ่งที่แก้ไม่ไปขัดแย้งกับส่วนเดิม
 หรือถ้าแย้งกันเราจะได้รู้ว่าระบบทำงานถูกต้องหรือไม่ หรือต้องปรับโค้ดและ test script ให้ถูกต้อง</p>
 <p>ในระบบ 945 เรามีการเขียน Unit Test เฉพาะกับการทำงานกับ API และซึ่งมีการบันทึกบัญชีอัตโนมัติ
@@ -1090,9 +1002,9 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <span class="hll"> <span class="ne">ValueError</span><span class="p">:</span> <span class="n">Wrong</span> <span class="n">value</span> <span class="k">for</span> <span class="n">sunteen</span><span class="o">.</span><span class="n">delivery</span><span class="o">.</span><span class="n">complete</span><span class="o">.</span><span class="n">delivery_status</span><span class="p">:</span> <span class="s1">&#39;out for delivery&#39;</span>
 </span></pre></div>
 </div>
-</div>
-<div class="section" id="id22">
-<h2>การเขียน Unit Test<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id22">
+<h2>การเขียน Unit Test<a class="headerlink" href="#id22" title="Permalink to this headline"></a></h2>
 <p>การเขียน Unit Test มีหลักการคือให้มองการทำงานเป็น blackbox เราจะใส่ input data เรียกการทำงาน และประเมินผลที่ได้
 และเป้าหมายคือพยายามเขียน script ให้รันผ่านโค้ดให้มากที่สุด โดยเมื่อมีการ start Odoo ด้วย –test-enable
 ระบบจะเข้าไปหาโฟลเดอร์ tests และไฟล์ที่ชื่อเริ่มต้นด้วย test_xxx.py และจะไปรัน method ที่เริ่มต้นด้วย def test_yyy()</p>
@@ -1107,19 +1019,19 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <p class="admonition-title">Note</p>
 <p>รายละเอียดเพิ่มเติมเกี่ยวกับ <a class="reference external" href="https://www.odoo.com/documentation/14.0/reference/testing.html">Unit Testing</a></p>
 </div>
-</div>
-</div>
-<div class="section" id="sql-views-editor">
-<h1>&gt; SQL Views Editor<a class="headerlink" href="#sql-views-editor" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sql-views">
-<h2>หน้าต่าง SQL Views<a class="headerlink" href="#sql-views" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="sql-views-editor">
+<h1>&gt; SQL Views Editor<a class="headerlink" href="#sql-views-editor" title="Permalink to this headline"></a></h1>
+<section id="sql-views">
+<h2>หน้าต่าง SQL Views<a class="headerlink" href="#sql-views" title="Permalink to this headline"></a></h2>
 <p><strong>Menu:</strong> Settings &gt; Technical &gt; Database Structure &gt; SQL Views</p>
 <p>แทนที่จะเขียน SQL ดิบๆ เพื่อสร้าง Database View โดยตรงที่ระบบฐานข้อมูล เรามีโมดูลช่วยให้การสร้างและดูแล View
 ง่ายและมีระเบียบขึ้นด้วยหน้าต่าง SQL Views</p>
 <img alt="../_images/1_sql_view_editor.png" class="align-center" src="../_images/1_sql_view_editor.png" />
-</div>
-<div class="section" id="sql-view">
-<h2>สร้าง SQL View<a class="headerlink" href="#sql-view" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sql-view">
+<h2>สร้าง SQL View<a class="headerlink" href="#sql-view" title="Permalink to this headline"></a></h2>
 <p>เราสามารถสร้างใหม่และปรับปรุง SQL View ได้จากหน้าต่างนี้</p>
 <ol class="arabic simple">
 <li><p>ตั้งชื่อ Name (จะเป็นชื่อเมนู) และชื่อ Technical Name (จะเป็นชื่อ database view)</p></li>
@@ -1129,26 +1041,26 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 (ข้อดีคือเร็วเหมือน data table แต่จะไม่ real time เพราะถูก refresh เป็นระยะ)</p></li>
 <li><p>SQL Query ที่ใช้ในการสร้าง View</p></li>
 </ol>
-</div>
-<div class="section" id="activate-view">
-<h2>Activate View<a class="headerlink" href="#activate-view" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="activate-view">
+<h2>Activate View<a class="headerlink" href="#activate-view" title="Permalink to this headline"></a></h2>
 <p>หลังจากทดสอบ View เสร็จ (Preview SQL Expression) เราสามารถเริ่มใช้งานได้โดย กดปุ่มเหล่านี้</p>
 <ul class="simple">
 <li><p>[Validate SQL Expression] -&gt; [Create SQL View, Indexes And Model] &gt; [Create UI]</p></li>
 </ul>
 <img alt="../_images/2_activate_view.png" class="align-center" src="../_images/2_activate_view.png" />
-</div>
-<div class="section" id="open-view">
-<h2>Open View<a class="headerlink" href="#open-view" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="open-view">
+<h2>Open View<a class="headerlink" href="#open-view" title="Permalink to this headline"></a></h2>
 <p>คลิกหที่ปุ่ม Open View จากหน้าต่าง SQL View Edit เพื่อเริ่มใช้งานได้ทันที
 หรือจะเข้ามาทางเมนู Dashboard จากหน้าต่าง Desktop ก็ได้เช่นกัน</p>
 <img alt="../_images/3_open_view.png" class="align-center" src="../_images/3_open_view.png" />
 <p>Export Excel จาก Tree View โดยการเลือก Column</p>
 <img alt="../_images/4_export_excel.png" class="align-center" src="../_images/4_export_excel.png" />
 <img alt="../_images/5_excel.png" class="align-center" src="../_images/5_excel.png" />
-</div>
-<div class="section" id="refresh-materialized-view">
-<h2>Refresh Materialized View<a class="headerlink" href="#refresh-materialized-view" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="refresh-materialized-view">
+<h2>Refresh Materialized View<a class="headerlink" href="#refresh-materialized-view" title="Permalink to this headline"></a></h2>
 <p>หากต้องการ Refresh Data ของ view ที่สร้างขี้นสามารถทำได้โดย</p>
 <ol class="arabic simple">
 <li><p>กดปุ่ม Refresh โดยตรง</p></li>
@@ -1159,55 +1071,38 @@ sale_automatic_workflow และ sale_automatic_workflow_job ของ OCA</p>
 <p class="admonition-title">Note</p>
 <p>ปกติตั้งไว้ 1 Month สามารถปรับให้ถี่ขึ้นตามต้องการ เช่นวันละ 1 ครั้ง ไม่ควรถี่เกินไปเพราะถ้าข้อมูลเยอะจะใช้เวลานาน</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../phase2/phase2.html" class="btn btn-neutral float-right" title="945 Phase 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../functional/accounting_report.html" class="btn btn-neutral float-left" title="&gt; Accounting Report" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../phase2/phase2.html" class="btn btn-neutral float-right" title="945 Phase 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, 945 Team.
-
-    </p>
+    <p>&#169; Copyright 2020, 945 Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
