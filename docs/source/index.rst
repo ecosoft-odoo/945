@@ -17,6 +17,7 @@ Welcome to 945 Documentations
    functional/accounting_report
    technical/technical
    phase2/phase2
+   phase3/phase3
 
 Indices and tables
 ==================
