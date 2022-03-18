@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>945 Phase 3 (CRs) &mdash; 945 Manuals  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="945 Phase 2" href="../phase2/phase2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 945 Manuals
+          </a>
+              <div class="version">
+                13.0.1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../functional/overview.html">945 Functional Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/auto_workflow.html">&gt; Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/manual_payment.html">&gt; Manual Payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/th_tax_report.html">&gt; Thai Tax Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional/accounting_report.html">&gt; Accounting Report</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html">945 Technical Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#modules">&gt; Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#apis">&gt; 945 APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#job-queue">&gt; Job Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#sale-automatic-workflow">&gt; Sale Automatic Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#account-move-template">&gt; Account Move Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#compute-helper">&gt; Compute helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#unit-test">&gt; Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/technical.html#sql-views-editor">&gt; SQL Views Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../phase2/phase2.html">945 Phase 2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">945 Phase 3 (CRs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#phase-3-change-request-scope">945 Phase 3 Change Request Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1. ส่งของไปผิดต้องการเลือกของให้ถูกต้องใน</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customer-refund">2. Customer Refund เฉพาะบางบรรทัด</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-invoice-s-send-print-printed-form">3. Multi Invoice’s Send &amp; Print สามารถเลือก Printed Form ได้</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#work-acceptance-partner-evaluation">4. Work Acceptance &amp; Partner Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#journal-entry-create-withholding-tax-cert">5. ที่หน้าต่าง Journal Entry อยากให้ระบบช่วย Create Withholding Tax Cert ให้อัตโนมัติ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-bank-statement-matching-date-amount">6. Import Bank Statement แล้ว ต้องการให้ระบบ Matching ให้ด้วย Date + Amount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asset-reports-filter-by-sell-disposed">7. Asset Reports ให้มี Filter By: Sell, Disposed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aging-ar-ap-period-90-360">8. รายงาน Aging AR/AP แบ่ง period ละ 90 ไปจนถึง 360 วัน</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#withholding-tax-cert-multi-wt-cert-1-pdf">9. Withholding Tax Cert, เลือก multi WT Cert แล้วพิมพ์เป้น 1 PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unbuild-manufacturing-order">10. Unbuild Manufacturing Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-invoice-readonly-group-for-customer-service-users">11. New “Invoice Readonly” group for customer service users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sales-order-scrap-location">12. Sales Order จาก Scrap Location</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">945 Manuals</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>945 Phase 3 (CRs)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/phase3/phase3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="phase-3-crs">
+<h1>945 Phase 3 (CRs)<a class="headerlink" href="#phase-3-crs" title="Permalink to this headline"></a></h1>
+<section id="phase-3-change-request-scope">
+<h2>945 Phase 3 Change Request Scope<a class="headerlink" href="#phase-3-change-request-scope" title="Permalink to this headline"></a></h2>
+<p>ในเฟสนี้จะเป็นการแก้ไขระบบเพื่อตอบความต้องการเพิ่มเติมเป็นเรื่องๆ แต่ละข้อจะเป็นเอกเทศจากข้ออื่นๆ</p>
+<ol class="arabic simple">
+<li><p>ส่งของไปผิดต้องการเลือกของให้ถูกต้องเพื่อให้สต๊อกถูกต้อง</p></li>
+<li><p>Customer Refund เฉพาะบางบรรทัด</p></li>
+<li><p>Multi Invoice’s Send &amp; Print สามารถเลือก Printed Form ได้</p></li>
+<li><p>Work Acceptance &amp; Partner Evaluation</p></li>
+<li><p>ที่หน้าต่าง Journal Entry อยากให้ระบบช่วย Create Withholding Tax Cert ให้อัตโนมัติ โดยไม่ต้องกดเอง</p></li>
+<li><p>Import Bank Statement แล้ว ต้องการให้ระบบ Matching ให้ด้วย Date + Amount</p></li>
+<li><p>Asset Reports ให้มี Filter By: Sell, Disposed</p></li>
+<li><p>รายงาน Aging AR/AP แบ่ง period ละ 90 ไปจนถึง 360 วัน</p></li>
+<li><p>Withholding Tax Cert, ต้องการเลือก multi WT Cert แล้วพิมพ์เป้น 1 PDF</p></li>
+<li><p>Unbuild Manufacturing Order</p></li>
+<li><p>New “Invoice Readonly” group for customer service users</p></li>
+<li><p>Sales Order จาก Scrap Location</p></li>
+</ol>
+</section>
+<section id="id1">
+<h2>1. ส่งของไปผิดต้องการเลือกของให้ถูกต้องใน<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<p>ในหัวข้อนี้ ไม่ได้มีการปรับแต่งระบบ แต่เป็นการแนะนำการทำงานได้สองวิธี</p>
+<ol class="arabic simple">
+<li><p>Return DO เฉพาะบรรทัดที่ผิดพลาด แล้วจึงสร้าง DO ใหม่แบบ manual และเขียน Note อ้างอิงถึงเอกสารที่ผิดพลาด</p></li>
+<li><p>ใช้วิธีการปรับสต๊อก (Inventory Adjustment)</p></li>
+</ol>
+<p>Note: ทีมสรุปใช้ข้อ (1)</p>
+</section>
+<section id="customer-refund">
+<h2>2. Customer Refund เฉพาะบางบรรทัด<a class="headerlink" href="#customer-refund" title="Permalink to this headline"></a></h2>
+<p>Extra addons: account_invoice_refund_line_selection</p>
+<ol class="arabic simple">
+<li><p>ที่ Invoice (post, paid)</p></li>
+<li><p>กดปุ่ม Create Credit Note</p></li>
+<li><p>เลือกบรรทัดที่ต้องการ Refund</p></li>
+</ol>
+<img alt="../_images/cr_2.png" class="align-center" src="../_images/cr_2.png" />
+</section>
+<section id="multi-invoice-s-send-print-printed-form">
+<h2>3. Multi Invoice’s Send &amp; Print สามารถเลือก Printed Form ได้<a class="headerlink" href="#multi-invoice-s-send-print-printed-form" title="Permalink to this headline"></a></h2>
+<p>ข้อนี้เป็นการตั้งค่า email template โดยให้เลือก Prined Form ที่ต้องการ</p>
+<ol class="arabic simple">
+<li><p>เลือกหลาย Inovice และกดปุ่ม Send &amp; Print</p></li>
+<li><p>สามารถเลือก Print และ/หรือ Email</p></li>
+<li><p>เลือก Email Template ที่ต้องการ</p></li>
+<li><p>ใน Template สามารถตั้งค่าให้ใช้ Printed Form ที่ต้องการได้</p></li>
+</ol>
+<img alt="../_images/cr_3.png" class="align-center" src="../_images/cr_3.png" />
+</section>
+<section id="work-acceptance-partner-evaluation">
+<h2>4. Work Acceptance &amp; Partner Evaluation<a class="headerlink" href="#work-acceptance-partner-evaluation" title="Permalink to this headline"></a></h2>
+<p>Extra Addons: purchase_work_acceptance, purchase_work_acceptance_evaluation</p>
+<ol class="arabic simple">
+<li><p>หลังจากติดตั้ง addons แล้วให้ตั้งค่าเพื่อเปิดใช้งานโมดูล Work Acceptance</p></li>
+</ol>
+<img alt="../_images/cr_4_1.png" class="align-center" src="../_images/cr_4_1.png" />
+<ol class="arabic simple" start="2">
+<li><p>เพื่อให้ใช้งานกับกรณี Lot ได้ถูกต้อง ที่ Operation Type คลัง 945: Receipts ให้เซต Pre-filled Detailed Operations</p></li>
+</ol>
+<img alt="../_images/cr_4_2.png" class="align-center" src="../_images/cr_4_2.png" />
+<ol class="arabic simple" start="3">
+<li><p>ตั้งค่า Evaluation Criterias</p></li>
+</ol>
+<img alt="../_images/cr_4_3.png" class="align-center" src="../_images/cr_4_3.png" />
+<ol class="arabic simple" start="4">
+<li><p>ที่ Purchase Order กดปุ่ม Create WA เพื่อสร้างเอกสารตรวจรับ (ก่อนส่งของหรือวางบิล)</p></li>
+</ol>
+<img alt="../_images/cr_4_4.png" class="align-center" src="../_images/cr_4_4.png" />
+<ol class="arabic simple" start="5">
+<li><p>ที่หน้าต่าง WA ให้กรอกจำนวนสินค้าที่ตรวจรับ และกรอกการประเมินตาม Evaluation Criteria แล้วกด Accept</p></li>
+</ol>
+<img alt="../_images/cr_4_5.png" class="align-center" src="../_images/cr_4_5.png" />
+<img alt="../_images/cr_4_6.png" class="align-center" src="../_images/cr_4_6.png" />
+<ol class="arabic simple" start="6">
+<li><p>เลือก WA ที่ตรวตรับไปแล้วการการรับของและวางบิล ระบบจะใช้ Quantity ตามที่ตรวจรับ</p></li>
+</ol>
+<img alt="../_images/cr_4_7.png" class="align-center" src="../_images/cr_4_7.png" />
+</section>
+<section id="journal-entry-create-withholding-tax-cert">
+<h2>5. ที่หน้าต่าง Journal Entry อยากให้ระบบช่วย Create Withholding Tax Cert ให้อัตโนมัติ<a class="headerlink" href="#journal-entry-create-withholding-tax-cert" title="Permalink to this headline"></a></h2>
+<p>Extra Addons: sunteen_auto_create_wht_cert</p>
+<p>เราสามารถตั้งค่าให้เฉพาะ Posted JE ของบาง Journal เท่านั้นที่มีการสร้าง Auto Create WHT Cert</p>
+<ol class="arabic simple">
+<li><p>ตั้งค่า Auto Create WHT Cert ที่ Journal เช่น Wallet Top Upgrade</p></li>
+</ol>
+<img alt="../_images/cr_5_1.png" class="align-center" src="../_images/cr_5_1.png" />
+<ol class="arabic simple" start="2">
+<li><p>เมื่อ Post JE ของ Journal ดังกล่าว ระบบจะไปดูที่ Partner’s Withholding Tax เพื่อใช้เป็นค่าในการสร้าง Cert</p></li>
+</ol>
+<p>Note: ถ้าไม่มีการตั้งค่าเริ่มต้นที่ถูกต้องระบบจะไม่มีการสร้าง Cert</p>
+<img alt="../_images/cr_5_2.png" class="align-center" src="../_images/cr_5_2.png" />
+</section>
+<section id="import-bank-statement-matching-date-amount">
+<h2>6. Import Bank Statement แล้ว ต้องการให้ระบบ Matching ให้ด้วย Date + Amount<a class="headerlink" href="#import-bank-statement-matching-date-amount" title="Permalink to this headline"></a></h2>
+<p>Extra Addons: sunteen_payment_move_line_stamp_date</p>
+<ol class="arabic simple">
+<li><p>ตั้งค่า Reconcile Models ให้ Partner Is Set &amp; Matches = False (ไม่ต้องการใช้ Partner เพื่อ matching)</p></li>
+</ol>
+<img alt="../_images/cr_6_1.png" class="align-center" src="../_images/cr_6_1.png" />
+<ol class="arabic simple" start="2">
+<li><p>ในทุก Payment’s JE, ระบบจะstamp payment date = &#64;dd/mm/yy เพิ่มไว้ที่ Journal Item เพื่อใช้สำหรับการ match Date</p></li>
+</ol>
+<img alt="../_images/cr_6_2.png" class="align-center" src="../_images/cr_6_2.png" />
+<ol class="arabic simple" start="3">
+<li><p>เมื่อมีการสร้าง Bank Statement Import, ให้ใส่ Date mm/dd/yyyy ไว้ที่ Label ด้วย</p></li>
+</ol>
+<img alt="../_images/cr_6_3.png" class="align-center" src="../_images/cr_6_3.png" />
+<ol class="arabic simple" start="4">
+<li><p>เมื่อมีการ Reconcile ระบบจะสามารถ auto match ด้วย Date + Amount</p></li>
+</ol>
+<img alt="../_images/cr_6_4.png" class="align-center" src="../_images/cr_6_4.png" />
+</section>
+<section id="asset-reports-filter-by-sell-disposed">
+<h2>7. Asset Reports ให้มี Filter By: Sell, Disposed<a class="headerlink" href="#asset-reports-filter-by-sell-disposed" title="Permalink to this headline"></a></h2>
+<p>Extra Addons: asset_report_filter</p>
+<p>เมนู Accounting &gt; Reporting &gt; Management &gt; Asset Reports, เพิ่ม Filter ในรายงาน</p>
+<img alt="../_images/cr_7.png" class="align-center" src="../_images/cr_7.png" />
+</section>
+<section id="aging-ar-ap-period-90-360">
+<h2>8. รายงาน Aging AR/AP แบ่ง period ละ 90 ไปจนถึง 360 วัน<a class="headerlink" href="#aging-ar-ap-period-90-360" title="Permalink to this headline"></a></h2>
+<p>Extra Addons: account_aged_balance_90</p>
+<p>เมนู Accounting &gt; Reporting &gt; Partner Reports &gt; Aged Receivables / Payable</p>
+<img alt="../_images/cr_8.png" class="align-center" src="../_images/cr_8.png" />
+</section>
+<section id="withholding-tax-cert-multi-wt-cert-1-pdf">
+<h2>9. Withholding Tax Cert, เลือก multi WT Cert แล้วพิมพ์เป้น 1 PDF<a class="headerlink" href="#withholding-tax-cert-multi-wt-cert-1-pdf" title="Permalink to this headline"></a></h2>
+<p>Extra Addons: l10n_th_withholding_tax_cert_form_sum</p>
+<p>เลือก multi WHT Cert แล้วพิมพ์ ระบบจะรวมเงินให้
+แต่ WHT Cert จะต้องไม่ปนกัน ถ้าปนกันระบบจะแสดงคำเตือน</p>
+<img alt="../_images/cr_9.png" class="align-center" src="../_images/cr_9.png" />
+</section>
+<section id="unbuild-manufacturing-order">
+<h2>10. Unbuild Manufacturing Order<a class="headerlink" href="#unbuild-manufacturing-order" title="Permalink to this headline"></a></h2>
+<p>เลือก MO และ Quantity ที่ต้องการ Unbuild เพื่อ Unpack</p>
+<img alt="../_images/cr_10.png" class="align-center" src="../_images/cr_10.png" />
+</section>
+<section id="new-invoice-readonly-group-for-customer-service-users">
+<h2>11. New “Invoice Readonly” group for customer service users<a class="headerlink" href="#new-invoice-readonly-group-for-customer-service-users" title="Permalink to this headline"></a></h2>
+<p>หัวข้อนี้จะเป็นการเพิ่มกลุ่มใหม่ที่ Read Invoice ได้อย่างเดียว</p>
+<ol class="arabic simple">
+<li><p>สร้างกลุ่มใหม่ “Invoice Readonly, และเพิ่มสิทธิ์ Objects ตามรูป</p></li>
+</ol>
+<img alt="../_images/cr_11_1.png" class="align-center" src="../_images/cr_11_1.png" />
+<ol class="arabic simple" start="2">
+<li><p>เพิ่มเมนู Accounting</p></li>
+</ol>
+<img alt="../_images/cr_11_2.png" class="align-center" src="../_images/cr_11_2.png" />
+<ol class="arabic simple" start="3">
+<li><p>เพิ่ม User ที่ต้องการสิทธิ์นี้ (หรือที่หน้าต่าง users)</p></li>
+</ol>
+<img alt="../_images/cr_11_3.png" class="align-center" src="../_images/cr_11_3.png" />
+<ol class="arabic simple" start="4">
+<li><p>ผู้ใช้งานจะมีสิทธิ์ View Invoice และ Print Forms เท่านั้น</p></li>
+</ol>
+<img alt="../_images/cr_11_4.png" class="align-center" src="../_images/cr_11_4.png" />
+</section>
+<section id="sales-order-scrap-location">
+<h2>12. Sales Order จาก Scrap Location<a class="headerlink" href="#sales-order-scrap-location" title="Permalink to this headline"></a></h2>
+<p>เพื่อให้ Sales Order สามารถเลือกได้ว่าจะส่งของออกจาก Scrap Location (new route) เราจะต้องตั้งค่า Route ใหม่ให้ระบบ</p>
+<ol class="arabic simple">
+<li><p>เปิดการใช้งาน Inventory Routing</p></li>
+</ol>
+<img alt="../_images/cr_12_1.png" class="align-center" src="../_images/cr_12_1.png" />
+<ol class="arabic simple" start="2">
+<li><p>เมนู Inventory &gt; Configurations &gt; WH Management &gt; Routes, สร้าง Route ใหม่โดยการ Copy จาก Route เดิม</p></li>
+</ol>
+<img alt="../_images/cr_12_2.png" class="align-center" src="../_images/cr_12_2.png" />
+<ol class="arabic simple" start="3">
+<li><p>ตั้งค่า route ใหม่โดยใช้ Source Location = Scrap</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>เลือก Sales Order Lines = True เพื่อเปิด Option นี้สำหรับ Sales Order</p></li>
+<li><p>เลือก Source Location = Scrap Location เพื่อให้ส่งของออก</p></li>
+</ol>
+<img alt="../_images/cr_12_3.png" class="align-center" src="../_images/cr_12_3.png" />
+<ol class="arabic simple" start="4">
+<li><p>เมื่อใช้งาน Sales Order ระบบจะมีให้เลือก Route และเมื่อ Delivery Order สร้าง จะส่งของจาก Scrap Location</p></li>
+</ol>
+<img alt="../_images/cr_12_4.png" class="align-center" src="../_images/cr_12_4.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../phase2/phase2.html" class="btn btn-neutral float-left" title="945 Phase 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, 945 Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>945 Phase 2 &mdash; 945 Manuals  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/single.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../_static/odoo.css" type="text/css" />
+    
+    
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/single.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/common.js"></script>
+    
+    <script type="text/javascript" src="../_static/slides.js"></script>
+    <script type="text/javascript" src="../_static/sync.js"></script>
+    <script type="text/javascript" src="../_static/controller.js"></script>
+    <script type="text/javascript" src="../_static/init.js"></script>
+    
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="945 Manuals  documentation" href="../index.html" />
+    <link rel="next" title="945 Phase 3 (CRs)" href="../phase3/phase3.html" />
+    <link rel="prev" title="945 Technical Manual" href="../technical/technical.html" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  
+<article class="slide level-1" id="phase-2">
+
+<h1>945 Phase 2</h1>
+
+
+
+
+
+</article>
+<article class="slide level-2" id="phase-2-development-scope">
+
+<h2>945 Phase 2 Development Scope</h2>
+
+<ul class="simple">
+<li>รองรับการเก็บสินค้าคงคลังมากกว่า 1 (Multi-Warehouse)</li>
+<li>รองรับการสร้างและ Validate เอกสารส่งออก (DO) อัตโนมัติ</li>
+<li>การบันทึกบัญชีเป็นแบบ Perpetual</li>
+<li>ระบบรองรับการผลิต (Manufacturing)</li>
+<li>มีการใช้ BoM ในการจัดชุด Kit และผลิตสินค้า</li>
+<li>การเชื่อมระหว่างเอกสารต้นทางไปยังเอกสารปลายทาง (SO -&gt; INV และ PO -&gt; INV)</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="install-945-phase-2">
+
+<h2>&gt; Install 945 Phase 2</h2>
+
+<p>1. อัพเกรด module Sunteen เพื่อเพิ่ม Product Category ใหม่
+โดยไปที่เมนู apps &gt; search sunteen &gt; Upgrade</p>
+<img alt="../_images/install_1.png" class="align-center" src="../_images/install_1.png" />
+<ol class="arabic simple" start="2">
+<li><dl class="first docutils">
+<dt>Import Data ที่ส่งให้ทาง Email เข้าไปในระบบโดยภายในเอกสารจะมีข้อมูลดังนี้</dt><dd><ul>
+<li><dl class="first docutils">
+<dt>ไฟล์ csv เรียงตามลำดับการ Import (3 ไฟล์)</dt><dd><ul>
+<li>1.account.account.csv</li>
+<li>2.product.category.csv</li>
+<li>3.product.product.csv</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>ไฟล์ gif เรียงตามลำดับวิธีการ Import</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-2" id="id1">
+
+<h2>&gt; Install 945 Phase 2</h2>
+
+<p>3. ตั้งค่าระบบให้เป็น Multi Warehouses โดยไปที่เมนู
+Inventory &gt; Configuration &gt; Settings &gt; search คำว่า “multi” &gt; เลือก Multi-Warehouses &gt; Save</p>
+<img alt="../_images/install_2.png" class="align-center" src="../_images/install_2.png" />
+<ol class="arabic simple" start="4">
+<li>Install Module sunteen_phase_2 และ sunteen_data_phase_2 ตามลำดับ</li>
+</ol>
+<img alt="../_images/install_3.png" class="align-center" src="../_images/install_3.png" />
+<ol class="arabic simple" start="5">
+<li>เสร็จสิ้นกระบวนการติดตั้ง Phase 2</li>
+</ol>
+
+
+
+
+</article>
+<article class="slide level-2" id="oca-modules">
+
+<h2>&gt; OCA Modules</h2>
+
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>account_move_line_&lt;xxx&gt;_info (purchase, sale and stock)</dt><dd>เกี่ยวกับการเชื่อมเอกสารต้นทาง (SO, PO) ไปเอกสารปลายทาง (Invoicing)
+โดยแสดงที่หน้าต่าง Journal Items</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>stock_account_prepare_anglo_saxon_out_lines_hook</dt><dd>เกี่ยวกับการบันทึกเอกสารปลายทาง กรณีที่มีการบันทึกแบบ Perpetual.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>stock_inventory_valuation_unit_cost</dt><dd>แสดง Column ราคาต่อหน่วยที่หน้า Inventory Valuation</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>base_search_multi</dt><dd>เพิ่มให้ระบบรองรับการค้นหาแบบหลายค่า (Multi Search) ทุก Module</dd>
+</dl>
+</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="modules">
+
+<h2>&gt; 945 Modules</h2>
+
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>sunteen_phase_2</dt><dd>โมดูลหลักสำหรับ Business Process ของ 945 ที่เพิ่มเติมใน Phase 2</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>sunteen_data_phase_2</dt><dd>ตัวช่วยในการ Import Master Data BoM และ Warehouse
+ควร Uninstall หลังจาก Install Module นี้เสร็จสิ้น</dd>
+</dl>
+</li>
+</ul>
+
+
+
+
+</article>
+<article class="slide level-2" id="perpetual">
+
+<h2>&gt; การตั้งค่าการบันทึกบัญชีแบบ Perpetual</h2>
+
+<p>การบันทึกบัญชีแบบ Perpetual จะต้องมีการตั้งค่า Stock Account ใน Product Category เพื่อการบันทึกบัญชีที่ถูกต้อง
+โดยมีขั้นตอนดังนี้</p>
+<ol class="arabic">
+<li><p class="first">ไปที่เมนู Inventory &gt; Configuration &gt; Product Categories &gt; เลือก Product Categories ที่ต้องการ</p>
+</li>
+<li><p class="first">ที่ Product Categories จะมี 2 ส่วนที่เกี่ยวข้องกับการบันทึกบัญชีดังนี้</p>
+<blockquote>
+<div><img alt="../_images/perpetual_1.png" class="align-center" src="../_images/perpetual_1.png" />
+<ol class="arabic simple">
+<li>การบันทึกบัญชีแบบ Perpetual ให้เลือกเป็น Automated</li>
+<li><dl class="first docutils">
+<dt>การบันทึกบัญชีด้วย Account อะไรบ้าง โดยมีรายละเอียดดังนี้</dt><dd><ul>
+<li><dl class="first docutils">
+<dt>Stock Input Account</dt><dd><ul>
+<li>PO (Cr.)</li>
+<li>INV (Dr.)</li>
+<li>MO (Cr.) -&gt; สำหรับสินค้าที่ผลิตได้ เช่น WIP หรือ FG</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Stock Out Account</dt><dd><ul>
+<li>MO (Dr.) -&gt; สำหรับวัตถุดิบ</li>
+<li>SP (Dr.) -&gt; สำหรับของเสีย</li>
+<li>SO (Dr.)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Stock Valuation Account</dt><dd><ul>
+<li>PO (Dr.)</li>
+<li>MO (Cr, Dr.) -&gt; สำหรับวัตถุดิบจะเป็น Cr., สินค้าที่ผลิตได้จะเป็น Dr.</li>
+<li>SP (Cr.) -&gt; สำหรับของเสีย</li>
+<li>SO (Cr.)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">สามารถทดสอบ และตรวจสอบการบันทึกบัญชีตามกรณีต่าง ๆ ได้ที่ <a class="reference external" href="https://docs.google.com/spreadsheets/d/1Y4uQtS7dgEIGXoM_0lW-UMim-bTZ9TFxJ2wJaxsPms4/edit?usp=sharing">https://docs.google.com/spreadsheets/d/1Y4uQtS7dgEIGXoM_0lW-UMim-bTZ9TFxJ2wJaxsPms4/edit?usp=sharing</a></p>
+</div>
+
+
+
+
+</article>
+<article class="slide level-2" id="multi-search">
+
+<h2>&gt; การค้นหาข้อมูลแบบหลายค่า (Multi Search)</h2>
+
+<p>การค้นหาข้อมูลหลายค่าในครั้งเดียว สามารถทำได้โดยการใช้ {} เพื่อกำหนดให้ระบบทราบว่าต้องการใส่ข้อมูลหลายค่า
+และค่าถัดไปจะดูจากการ เว้นวรรค (Space) เช่น {TDZ204602 TDZ204603 TDZ204604}
+เหมาะสำหรับการ Copy ข้อมูลจาก Excel มาค้นหาในระบบ</p>
+<p>ตัวอย่างการค้นหาข้อมูลหลายค่า (Menu Inventory)</p>
+<ol class="arabic simple">
+<li>ข้อมูลทั้งหมดก่อนการค้นหา</li>
+</ol>
+<img alt="../_images/multi_search_1.png" class="align-center" src="../_images/multi_search_1.png" />
+<p>2. วิธีการค้นหาแบบหลายค่า ให้ใส่ { ตามด้วยข้อมูลที่ต้องการค้นหา และเว้นวรรคสำหรับข้อมูลตัวถัดไป ปิดท้ายด้วยเครื่องหมาย }
+จากนั้นเลือกค่าที่ต้องการ Filter</p>
+<img alt="../_images/multi_search_2.png" class="align-center" src="../_images/multi_search_2.png" />
+<ol class="arabic simple" start="3">
+<li>ข้อมูลที่ค้นหาทั้งหมด</li>
+</ol>
+<img alt="../_images/multi_search_3.png" class="align-center" src="../_images/multi_search_3.png" />
+
+
+
+
+</article>
+<article class="slide level-2" id="apis">
+
+<h2>&gt; การเปลี่ยนแปลงระบบ APIs</h2>
+
+<p>การใช้งาน APIs ระบบ 945 มีการเพิ่มเติมให้ส่ง warehouse_id เข้ามาในระบบ
+หากไม่ใส่ระบบจะมีค่า Default เป็น “WH1”</p>
+<p>ตัวอย่างการเพิ่ม warehouse_id</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;out of delivery&quot;</span><span class="p">,</span>  <span class="c1"># Status: out of delivery</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Customer (res.partner)</span>
+        <span class="s2">&quot;sunteen_dealer_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Dealer (res.partner)</span>
+        <span class="s2">&quot;workflow_process_id&quot;</span><span class="p">:</span> <span class="s2">&quot;eCommerce Standard&quot;</span><span class="p">,</span>  <span class="c1"># Automatic Workflow (sale.workflow.process)</span>
+        <span class="s2">&quot;date_order&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-01-31&quot;</span><span class="p">,</span>  <span class="c1"># Order Date</span>
+        <span class="s2">&quot;transaction_date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Transaction Date</span>
+        <span class="s2">&quot;sunteen_payment_method_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># Payment Method (sunteen.payment.method)</span>
+        <span class="s2">&quot;sunteen_payment_provider_id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>  <span class="c1"># Payment Provider (res.partner)</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>  <span class="c1"># Total</span>
+        <span class="s2">&quot;warehouse_id&quot;</span><span class="p">:</span> <span class="s2">&quot;WH2&quot;</span><span class="p">,</span> <span class="c1"># Warehouse (stock.warehouse)</span>
+        <span class="s2">&quot;order_line&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="c1"># Sale Order Line</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Parcel Number</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>  <span class="c1"># Transporter (res.partner)</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>  <span class="c1"># Customer</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>  <span class="c1"># Product (product.product)</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Quantity</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>  <span class="c1"># Dealer Unit Price</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;sunteen_parcel_number&quot;</span><span class="p">:</span> <span class="s2">&quot;TDZ001&quot;</span><span class="p">,</span>  <span class="c1"># Dealer Amount Difference Line</span>
+                <span class="s2">&quot;sunteen_partner_id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;sunteen_customer&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">&quot;product_uom_qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;dealer_price_unit&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>  <span class="c1"># API sent +, odoo change to -</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;auto_create&quot;</span><span class="p">:</span> <span class="p">{</span>    <span class="c1"># Optional for auto create master data</span>
+        <span class="s2">&quot;partner_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Customer 1&quot;</span><span class="p">,</span> <span class="s2">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMER1&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Product 1&quot;</span><span class="p">,</span> <span class="s2">&quot;default_code&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT1&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+
+
+
+</article>
+
+</section>
+
+<section id="slide_notes">
+
+</section>
+
+  </body>
+</html>
